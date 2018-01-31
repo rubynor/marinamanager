@@ -28,10 +28,19 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
+# Supposed to bring easy user authentication
+gem 'devise', '~> 4.4.1'
+# For the designer in you
+gem 'bootstrap', '~> 4.0.0'
+# 'designed to express the structure of documents in a non-repetitive, elegant, and easy way by using indentation rather than closing tags'
+gem 'haml-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :production do
+  gem 'pg', '~> 0.18'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
