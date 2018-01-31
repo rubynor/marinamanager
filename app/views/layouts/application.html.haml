@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title Marinamanager
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      %ul.navbar-nav
+        %li.nav-item.active
+          %a.nav-link(href="/") Hjem
+        %li.nav-item
+          -# /batplass
+          %a.nav-link(href="/#") Båtplass
+        %li.nav-item
+          -# /batslipp
+          %a.nav-link(href="/#") Båtslipp
+        %li.nav-item
+          -# /tjenester
+          %a.nav-link(href="/#") Tjenester
+        %li.nav-item
+          -# /kontakt
+          %a.nav-link(href="/#") Kontakt
+    = yield

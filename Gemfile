@@ -37,6 +37,10 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'haml-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# JQuery
+gem 'jquery-rails'
+# Sprockets
+gem 'sprockets-rails'
 
 group :production do
   gem 'pg', '~> 0.18'
