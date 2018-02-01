@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reg_nr: 1
+  type: 
+  width: 9.99
+  length: 9.99
+  owner_id: 
+  : 
+  : 
+
+two:
+  reg_nr: 1
+  type: 
+  width: 9.99
+  length: 9.99
+  owner_id: 
+  : 
+  : 
