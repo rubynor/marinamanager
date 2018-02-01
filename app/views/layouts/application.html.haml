@@ -6,43 +6,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-      %ul.navbar-nav
-        %li.nav-item.active
-          %a.nav-link(href="/") Hjem
-        %li.nav-item
-          -# /batplass
-          %a.nav-link(href="/#") Båtplass
-        %li.nav-item
-          -# /batslipp
-          %a.nav-link(href="/#") Båtslipp
-        %li.nav-item
-          -# /tjenester
-          %a.nav-link(href="/#") Tjenester
-        %li.nav-item
-          -# /kontakt
-          %a.nav-link(href="/contact") Kontakt
+    = render 'layouts/header'
+    .container
+      - flash.each do |message_type, message|
+        = content_tag(:div, message, class: "alert alert-#{message_type}")
     = yield
-    %footer
-      %div.card-group
-        %div.card
-          %img.card-img-top
-          %div.card-body
-            %h5.card-title Kort 1
-            %p.card-text Vi trenger naturligvis ikke bruke dette til footer, men er bare et eksempel!
-            %p.card-text
-              %small.text-muted Last updated 3 mins ago
-        %div.card
-          %img.card-img-top
-          %div.card-body
-            %h5.card-title Kort 2
-            %p.card-text Og dersom du har andre forslag, så er det bare å kaste inn. Sånn sett er github grusomt kjekt!
-            %p.card-text
-              %small.text-muted Last updated 3 mins ago
-        %div.card
-          %img.card-img-top
-          %div.card-body
-            %h5.card-title Kort 3
-            %p.card-text Vurderte å gjøre det til en "sticky footer", men det er jo egentlig bare irriterende, hvertfall på en side som denne.
-            %p.card-text
-              %small.text-muted Last updated 3 mins ago
+    = render 'layouts/footer'
+    = debug(params) if Rails.env.development?
+    
