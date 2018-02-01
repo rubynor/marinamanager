@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d7a27258-e1fb-467b-93c3-87309ab41011" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20180201103238_create_boats.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20180201103811_create_users.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20180201104338_change_users.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20180201105141_add_foreign_key.rb" afterPath="" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="" />
       <change beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
@@ -28,38 +24,8 @@
       <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20180201115629_create_users.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180201115629_create_users.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="9" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20180201115637_create_boats.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180201115637_create_boats.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20180201115800_add_user_ref_to_boats.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180201115800_add_user_ref_to_boats.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="18" column="90" lean-forward="false" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -102,9 +68,9 @@
         <option value="$PROJECT_DIR$/db/migrate/20180201105141_add_foreign_key.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180201103238_create_boats.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180201115629_create_users.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20180201115800_add_user_ref_to_boats.rb" />
-        <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180201115637_create_boats.rb" />
+        <option value="$PROJECT_DIR$/db/schema.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180201115800_add_user_ref_to_boats.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
       </list>
     </option>
@@ -346,12 +312,12 @@
       <option name="presentableId" value="Default" />
       <updated>1517380820478</updated>
       <workItem from="1517380822538" duration="13100000" />
-      <workItem from="1517464293441" duration="20592000" />
+      <workItem from="1517464293441" duration="22924000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33692000" />
+    <option name="totallyTimeSpent" value="36024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="906" extended-state="6" />
@@ -587,18 +553,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180201115800_add_user_ref_to_boats.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180201115629_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180201115800_add_user_ref_to_boats.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="44">
+          <caret line="2" column="50" lean-forward="true" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -611,18 +577,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180201115629_create_users.rb">
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="9" selection-end-column="49" />
+        <state relative-caret-position="179">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        <state relative-caret-position="396">
+          <caret line="18" column="90" lean-forward="false" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
           <folding />
         </state>
       </provider>
