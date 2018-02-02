@@ -39,8 +39,12 @@ gem 'haml-rails'
 # gem 'capistrano-rails', group: :development
 # JQuery
 gem 'jquery-rails'
+# JQuery-ui for smöth animations
+gem 'jquery-ui-rails'
 # Sprockets
 gem 'sprockets-rails'
+# Client side validation, https://github.com/DavyJunesLocker/Client_side_validations
+gem 'client_side_validations'
 
 group :production do
   gem 'pg', '~> 0.18'

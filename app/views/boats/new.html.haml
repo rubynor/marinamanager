@@ -1,6 +1,6 @@
 %h1 Legg til ny båt
 
-= form_with scope: :boat, url: boats_path, local: true do |form|
+= form_for(@boat, validate: true, local: true) do |form|
   %p
     = form.label :reg_nr
     = form.text_field :reg_nr
