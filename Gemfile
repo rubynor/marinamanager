@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Supposed to bring easy user authentication
-gem 'devise', '~> 4.4.1'
+gem 'devise'
 # For the designer in you
 gem 'bootstrap', '~> 4.0.0'
 # 'designed to express the structure of documents in a non-repetitive, elegant, and easy way by using indentation rather than closing tags'

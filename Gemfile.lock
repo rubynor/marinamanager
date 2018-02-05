@@ -234,7 +234,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   client_side_validations
   coffee-rails (~> 4.2)
-  devise (~> 4.4.1)
+  devise
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
