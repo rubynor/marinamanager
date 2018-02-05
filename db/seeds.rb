@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+=begin
 User.destroy_all
 
 User.create!([
@@ -19,3 +19,5 @@ Boat.create!([
                  { reg_nr: "S99-1", model: "Aphrodite 36", width: 3, length: 5, user_id: 1 }
 
              ])
+
+=end

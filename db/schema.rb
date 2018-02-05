@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201115800) do
+ActiveRecord::Schema.define(version: 20180205124250) do
 
   create_table "boats", primary_key: "reg_nr", id: :string, force: :cascade do |t|
     t.string "model"
@@ -19,18 +19,29 @@ ActiveRecord::Schema.define(version: 20180201115800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.index ["reg_nr"], name: "reg_nr", unique: true
-    t.index ["user_id"], name: "user_id"
+    t.index ["reg_nr"], name: "sqlite_autoindex_boats_1", unique: true
+    t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
     t.string "last_name"
     t.string "first_name"
     t.string "phone", limit: 8
     t.string "address"
     t.string "bank_account", limit: 11
     t.integer "user_level", limit: 1, default: 0
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
