@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20180206094351) do
 
-  create_table "boats", primary_key: "reg_nr", id: :string, force: :cascade do |t|
+  create_table "boats", force: :cascade do |t|
+    t.string "reg_nr"
     t.string "model"
     t.decimal "width"
     t.decimal "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
@@ -39,9 +39,8 @@ ActiveRecord::Schema.define(version: 20180206094351) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "street"
-    t.decimal "zip_code"
     t.string "phone", limit: 8
-    t.decimal "zip_number"
+    t.string "zip_code", limit: 4
     t.string "house_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
