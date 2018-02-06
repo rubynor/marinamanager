@@ -8,6 +8,31 @@
     = f.text_field :first_name, autofocus: true
 
   .field
+    = f.label :etternavn
+    %br/
+    = f.text_field :last_name
+
+  .field
+    = f.label :tlf_nummer
+    %br/
+    = f.text_field :phone # dukker ikke opp i DB :O 
+
+  .field
+    = f.label :gateadresse
+    %br/
+    = f.text_field :street
+
+  .field
+    = f.label :husnr
+    %br/
+    = f.text_field :house_number # Dårlig engelsk?
+
+  .field
+    = f.label :Postnummer
+    %br/
+    = f.text_field :zip_code
+
+  .field
     = f.label :epost
     %br/
     = f.email_field :email, autocomplete: "email"

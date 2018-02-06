@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205124250) do
+ActiveRecord::Schema.define(version: 20180206070833) do
 
   create_table "boats", primary_key: "reg_nr", id: :string, force: :cascade do |t|
     t.string "model"
@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 20180205124250) do
     t.decimal "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["reg_nr"], name: "sqlite_autoindex_boats_1", unique: true
+    t.integer "user_id"   
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
@@ -27,7 +26,6 @@ ActiveRecord::Schema.define(version: 20180205124250) do
     t.string "last_name"
     t.string "first_name"
     t.string "phone", limit: 8
-    t.string "address"
     t.string "bank_account", limit: 11
     t.integer "user_level", limit: 1, default: 0
     t.string "email", default: "", null: false
@@ -40,6 +38,9 @@ ActiveRecord::Schema.define(version: 20180205124250) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "street"
+    t.decimal "house_number"
+    t.decimal "zip_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
