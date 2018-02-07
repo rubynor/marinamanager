@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206094351) do
+ActiveRecord::Schema.define(version: 20180206101724) do
+
+  create_table "berths", force: :cascade do |t|
+    t.string "pier"
+    t.integer "width"
+    t.decimal "price_per_month"
+    t.integer "reg_nr"
+    t.boolean "in_service"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+  end
 
   create_table "boats", primary_key: "reg_nr", id: :string, force: :cascade do |t|
     t.string "model"
@@ -19,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180206094351) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    
+    t.index ["reg_nr"], name: "sqlite_autoindex_boats_1", unique: true
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
