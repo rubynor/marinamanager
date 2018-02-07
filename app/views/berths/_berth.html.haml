@@ -1,0 +1,6 @@
+%tr
+    %td
+        = link_to berth.name, edit_berth_path(berth.id)
+    %td
+      
+        = button_to 'Delete', { controller: :berths, action: :destroy, id: berth.id }, method: :delete, data: { confirm: 'Are you sure?' }
