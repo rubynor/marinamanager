@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'user/dashboard'
+
+  get 'admin/index'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home', to: 'static_pages#home'
   get 'batplass', to: 'static_pages#batplass'
