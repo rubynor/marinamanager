@@ -1,5 +1,5 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  %ul.navbar-nav
+  %ul.navbar-nav.mr-auto
     %li.nav-item.active
       %a.nav-link(href="/") Hjem
     %li.nav-item
@@ -14,8 +14,9 @@
     %li.nav-item
       -# /kontakt
     %a.nav-link(href="/contact") Kontakt
-
-    %p.navbar-text.pull-right
+  
+  %ul.navbar-nav.navbar-text.ml-auto
+    %li.nav-item
       - if user_signed_in?
         = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' |
         = link_to "Log out", destroy_user_session_path, method: :delete, :class => 'navbar-link'

@@ -1,7 +1,7 @@
 class CreateBoats < ActiveRecord::Migration[5.1]
   def change
-    create_table :boats, id: false do |t|
-      t.string   :reg_nr, primary_key: true
+    create_table :boats do |t|
+      t.string   :reg_nr
       t.string    :model
       t.decimal   :width
       t.decimal   :length
