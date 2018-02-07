@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
      
     if (resource.user_level == 0 )
       edit_user_registration_path # rails routes -> hent ruta + suffix: _path
-      # send til profilside
+      # send til brukerdashboard
     elsif (resource.user_level == 1)
-      # send til adminside
+      # send til admindashboard
       home_path
     elsif (resource.user_level == 2)
       contact_path
