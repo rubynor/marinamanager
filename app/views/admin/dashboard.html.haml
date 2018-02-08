@@ -15,22 +15,21 @@
   %tr
 
   - @users.each do |user|
-    %td
-      - if user.user_level == 0
-        Bruker
-      - if user.user_level == 1
-        Administrator
-      - if user.user_level == 2
-        // bannlyst - ikke print, kanskje?
-    %td= user.first_name
-    %td= user.last_name
-    %td= user.email
-    %td= user.phone_number
-    %td= user.street_name + " " + user.street_number
-    %td= user.zip_code
-    %td= user.bank_account
-    %td= link_to tjenester_path
-    %tr
+    - unless user.user_level == 2
+      %td
+        - if user.user_level == 0
+          Bruker
+        - if user.user_level == 1
+          Administrator
+      %td= user.first_name
+      %td= user.last_name
+      %td= user.email
+      %td= user.phone_number
+      %td= user.street_name + " " + user.street_number
+      %td= user.zip_code
+      %td= user.bank_account
+      %td= link_to tjenester_path
+      %tr
 
 // Skal gjenbrukes i stor grad i user dashboard.
 // Kan det refaktoreres til det bedre?

@@ -11,30 +11,28 @@
 # Service:  title, description, price_per_month, start_service, end_service
 
 
-User.destroy_all
-User.create!([
-		{ user_level: 1, first_name: "Harald", last_name: "Smegma", email: "smegma@gmail.com", password: "passord",
-		   phone_number: "80088008", street_name: "Krunglevegen", street_number: "33", zip_code: "2300", bank_account: ""},
-		{ user_level: 0, first_name: "Johnny", last_name: "Johnson", email: "johnny@gmail.com", password: "passord",
-		  phone_number: "90011001", street_name: "Johnsgate", street_number: "500", zip_code: "2303", bank_account: ""},
-		{ user_level: 0, first_name: "Preben", last_name: "Smith", email: "prebz@gmail.com", password: "passord",
-		  phone_number: "47479293", street_name: "Verksvegen", street_number: "3", zip_code: "2285", bank_account: ""}
-             ])
+ User.destroy_all
+ User.create!([
+  { user_level: 1, first_name: "Harald", last_name: "Smegma", email: "smegma@gmail.com", password: "passord",
+ 	  phone_number: "80088008", street_name: "Krunglevegen", street_number: "33", zip_code: "2300", bank_account: ""},
+ 	{ user_level: 0, first_name: "Johnny", last_name: "Johnson", email: "johnny@gmail.com", password: "passord",
+ 	  phone_number: "90011001", street_name: "Johnsgate", street_number: "500", zip_code: "2303", bank_account: ""},
+ 	{ user_level: 0, first_name: "Preben", last_name: "Smith", email: "prebz@gmail.com", password: "passord",
+ 	  phone_number: "47479293", street_name: "Verksvegen", street_number: "3", zip_code: "2285", bank_account: ""}
+               ])
 
+ Service.destroy_all
+ Service.create!([
+  { title: "Medlemskap", description: "Medlemskontigent", price_per_month: 350, active: true },
+  { title: "Bryggeplass", description: "Prisen er pr. breddemeter", price_per_month: 300, active: true},
+  { title: "Strøm, Opplag", description: "Gjelder fra oktober til april", price_per_month: 600, active: true},
+ 	{ title: "Strøm, Brygge", description: "Gjelder fra mai til september", price_per_month: 800, active: false}
+                 ])
 
 Boat.destroy_all
 # Båtdetaljer hentet fra artikkel: https://www.nrk.no/livsstil/slik-velger-du-riktig-bat-1.7069737
 Boat.create!([
-  { reg_nr: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 1 },
-  { reg_nr: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: 2 },
-  { reg_nr: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05, user_id: 1 }
+	{ reg_nr: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 1 },
+	{ reg_nr: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: 2 },
+	{ reg_nr: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05, user_id: 3 }
              ])
-
-
-Service.destroy_all
-Service.create!([ 
-  { title: "Medlemskap", description: "Medlemskontigent", price_per_month: 350, active: true },
-  { title: "Bryggeplass", description: "Prisen er pr. breddemeter", price_per_month: 300, active: true},
-  { title: "Strøm, Opplag", description: "Gjelder fra oktober til april", price_per_month: 600, active: true},
-	{ title: "Strøm, Brygge", description: "Gjelder fra mai til september", price_per_month: 800, active: false}
-                ])

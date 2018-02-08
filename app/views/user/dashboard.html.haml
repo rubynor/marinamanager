@@ -1,3 +1,19 @@
 %h2 Mine båter
 
-%h2 Mine tjenester
+%table
+  %th Reg. nr
+  %th Modell
+  %th Lengde
+  %th Bredde
+  %th Båtplass
+  %tr
+
+  - @boats.each do |boat|
+    - if current_user == boat.user
+      %td= boat.reg_nr
+      %td= boat.model
+      %td= boat.length
+      %td= boat.width
+      / %td= boat.berth
+      %tr
+

@@ -1,4 +1,5 @@
 class Boat < ApplicationRecord
+    belongs_to :user #:berth
     validates :reg_nr, presence: true
     validates :model, presence: true
     validates :width,  numericality:{less_than_or_equal_to: 20}

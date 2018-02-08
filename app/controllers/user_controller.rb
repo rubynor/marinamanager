@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   def dashboard
-    @services = Service.all
     @boats = Boat.all
+    @services = Service.all
   end
 end
