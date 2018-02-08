@@ -1,19 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  reg_nr: 1
-  type: 
-  width: 9.99
-  length: 9.99
-  owner_id: 
-  : 
-  : 
+  reg_nr: BAD303
+  model: Albin Alpha
+  width: 3.30
+  length: 9.01
+
+  
 
 two:
-  reg_nr: 1
-  type: 
-  width: 9.99
-  length: 9.99
-  owner_id: 
-  : 
-  : 
+  reg_nr: LA8PV
+  model: Willing 31
+  width: 3.66
+  length: 9.50
+
