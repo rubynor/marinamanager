@@ -10,17 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206094351) do
+ActiveRecord::Schema.define(version: 20180208092759) do
 
   create_table "boats", force: :cascade do |t|
     t.string "reg_nr"
     t.string "model"
-    t.decimal "width"
-    t.decimal "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.decimal "width"
+    t.decimal "length"
     t.index ["user_id"], name: "index_boats_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.decimal "price_per_month", precision: 8, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "services_users", id: false, force: :cascade do |t|
+    t.integer "service_id"
+    t.integer "user_id"
+    t.date "start_service"
+    t.date "end_service"
+    t.index ["service_id"], name: "index_services_users_on_service_id"
+    t.index ["user_id"], name: "index_services_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,7 +56,7 @@ ActiveRecord::Schema.define(version: 20180206094351) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "street"
-    t.string "phone", limit: 8
+    t.string "phone_number", limit: 8
     t.string "zip_code", limit: 4
     t.string "house_number"
     t.index ["email"], name: "index_users_on_email", unique: true

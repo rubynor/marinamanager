@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'user/dashboard'
 
-  get 'admin/index'
+  get 'admin/dashboard'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'home', to: 'static_pages#home'
