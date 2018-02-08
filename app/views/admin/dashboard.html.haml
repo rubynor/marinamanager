@@ -1,3 +1,61 @@
-%h1 Admin#dashboard
-%p Find me in app/views/admin/dashboard.html.haml
+%h2 Brukerliste:
+
+%table
+  %th Brukernivå
+  %th Fornavn
+  %th Etternavn
+  %th Email
+  %th Telefonnummer
+  %th Adresse
+  %th Postnr
+  %th Kontonummer
+  %th Tjenester
+  %th Endre
+  %th Slett
+  %tr
+
+  - @users.each do |user|
+    %td
+      - if user.user_level == 0
+        Bruker
+      - if user.user_level == 1
+        Administrator
+      - if user.user_level == 2
+        // bannlyst - ikke print, kanskje?
+    %td= user.first_name
+    %td= user.last_name
+    %td= user.email
+    %td= user.phone_number
+    %td= user.street_name + " " + user.street_number
+    %td= user.zip_code
+    %td= user.bank_account
+    %td= link_to tjenester_path
+    %tr
+
+// Skal gjenbrukes i stor grad i user dashboard.
+// Kan det refaktoreres til det bedre?
+%h2 Tjenester:
+
+%table
+  %th Tjeneste
+  %th Beskrivelse
+  %th Pris pr. mnd
+  %th Aktiv
+  %th Endre
+  %th Slett
+  %tr
+
+  - @services.each do |service|
+    %td= service.title
+    %td= service.description
+    %td= service.price_per_month
+    %td
+      - if service.active
+        Ja
+      - else
+        Nei
+
+    %tr
+
+
 

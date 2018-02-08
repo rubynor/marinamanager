@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208092759) do
+ActiveRecord::Schema.define(version: 20180208115050) do
 
   create_table "boats", force: :cascade do |t|
     t.string "reg_nr"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180208092759) do
     t.decimal "price_per_month", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active"
   end
 
   create_table "services_users", id: false, force: :cascade do |t|
@@ -55,10 +56,10 @@ ActiveRecord::Schema.define(version: 20180208092759) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "street"
+    t.string "street_name"
     t.string "phone_number", limit: 8
     t.string "zip_code", limit: 4
-    t.string "house_number"
+    t.string "street_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
