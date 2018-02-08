@@ -3,18 +3,14 @@ class ApplicationController < ActionController::Base
 #  before_action :authenticate_user!
 
   def after_sign_in_path_for(resource)
-     
-    if (resource.user_level == 0 )
-      edit_user_registration_path # rails routes -> hent ruta + suffix: _path
-      # send til brukerdashboard
-    elsif (resource.user_level == 1)
-      # send til admindashboard
-      home_path
-    elsif (resource.user_level == 2)
-      contact_path
+    if resource.user_level == 1
+      admin_dashboard_path
+    elsif resource.user_level == 0
+      user_dashboard_path
     else
-      raise "Wrong user-level"
+      home_path
     end
   end
+ 
 
 end
