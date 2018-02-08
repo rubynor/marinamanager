@@ -9,5 +9,6 @@
     = f.number_field :price_per_month, class: 'form-control'
     %br
     = f.submit yield(:button_text), class: "btn btn-primary"
-    = button_to 'Delete', { controller: :berths, action: :destroy, id: :id}, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary #{yield(:delete_action_disabled)}"
-    %br
+    
+    - unless @berth.new_record?                                
+    = button_to 'Delete', berth_path(@berth.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"

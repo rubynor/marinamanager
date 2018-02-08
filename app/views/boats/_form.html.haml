@@ -1,0 +1,24 @@
+%div
+    = form_for(@boat,validate: true,local: true, url: yield(:form_action_url)) do |f|
+        %p
+            = f.label :reg_nr
+            = f.text_field :reg_nr, class: 'form-control'
+        %br
+    
+        %p
+            = f.label :modell
+            = f.text_field :model, class: 'form-control'
+            %br
+    
+        %p
+            = f.label :bredde
+            = f.text_field :width, class: 'form-control'
+    
+        %p
+            = f.label :lengde
+            = f.text_field :length, class: 'form-control'
+    
+        %br        
+            = f.submit yield(:button_text), class: "btn btn-primary"  
+    - unless @boat.new_record?                                
+        = button_to 'Delete', boat_path(@boat.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"
