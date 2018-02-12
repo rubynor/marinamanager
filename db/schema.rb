@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212072412) do
+ActiveRecord::Schema.define(version: 20180212120854) do
+
+  create_table "berth_orders", force: :cascade do |t|
+    t.integer "berth_id"
+    t.integer "boat_id"
+    t.decimal "price_per_month"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "berths", force: :cascade do |t|
     t.string "pier"
-    t.integer "width"
-    t.decimal "price_per_month"
-    t.integer "reg_nr"
-    t.boolean "in_service"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.integer "berth_number"
+    t.decimal "width"
+    t.boolean "in_service"
+    t.integer "pier_id"
+    t.index ["pier_id"], name: "index_berths_on_pier_id"
   end
 
   create_table "boats", force: :cascade do |t|
@@ -31,16 +41,23 @@ ActiveRecord::Schema.define(version: 20180212072412) do
     t.integer "user_id"
     t.decimal "width"
     t.decimal "length"
+    t.integer "berth_number"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
-  create_table "service_order", id: false, force: :cascade do |t|
+  create_table "piers", force: :cascade do |t|
+    t.string "letter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "service_orders", id: false, force: :cascade do |t|
     t.integer "service_id"
     t.integer "user_id"
     t.date "start_service"
     t.date "end_service"
-    t.index ["service_id"], name: "index_service_order_on_service_id"
-    t.index ["user_id"], name: "index_service_order_on_user_id"
+    t.index ["service_id"], name: "index_service_orders_on_service_id"
+    t.index ["user_id"], name: "index_service_orders_on_user_id"
   end
 
   create_table "services", force: :cascade do |t|
