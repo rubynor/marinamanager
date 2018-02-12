@@ -1,4 +1,4 @@
-%h2 Mine båter
+%h2 Mine båter:
 
 %table
   %th Reg. nr
@@ -14,8 +14,27 @@
       %td= boat.model
       %td= boat.length
       %td= boat.width
-      / %td= boat.berth
+      %td= "#{boat.berth&.pier&.letter}#{boat.berth_number.to_s}"
       %tr
 
-/  - @service_orders do |order|
-    - if current_user == order.
+%h3= button_to "Legg til båt", new_boat_path, method: :get
+
+%h2 Mine tilleggstjenester:
+
+%table
+  %th ID
+  %th Tjeneste
+  %th Beskrivelse
+  %th Pris pr. mnd
+  %th Startdato
+  %th Sluttdato
+  %tr
+  - @service_orders.each do |service_order|
+    - if service_order.user == current_user
+      %td= service_order.service_id
+      %td= service_order.service.title
+      %td= service_order.service.description
+      %td= service_order.service.price_per_month
+      %td= service_order.start_service
+      %td= service_order.end_service
+      %tr
