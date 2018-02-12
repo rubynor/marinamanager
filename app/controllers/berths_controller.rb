@@ -11,10 +11,6 @@ class BerthsController < ApplicationController
     @berth = Berth.find(params[:id])
   end
 
-  def edit
-    @berth = Berth.find(params[:id])
-  end
-
   def create
     @berth = Berth.new(berth_params)
     if @berth.save
