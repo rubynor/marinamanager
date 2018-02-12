@@ -1,11 +1,15 @@
-- provide(:title, "Add Boat")
-- provide(:button_text, 'Add boat')
-- provide(:form_action_url, boats_path)
+%h1 Legg til ny båt
 
+= form_for(@boat, validate: true, local: true) do |form|
+  %p
+    = form.label :reg_nr
+    = form.text_field :reg_nr
+    %br/
 
-%div
-  %div.col-md-6.col-md-offset-3
-    = render 'form' 
+  %p
+    = form.label :modell
+    = form.text_field :model
+    %br/
 
   %p
     = form.label :bredde
@@ -17,4 +21,3 @@
 
   %p
     = form.submit
-
