@@ -1,3 +1,3 @@
 class Service < ApplicationRecord
-  has_and_belongs_to_many :users
+  has_many :users, through: :service_orders
 end

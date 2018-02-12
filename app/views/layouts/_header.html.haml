@@ -19,7 +19,7 @@
     %li.nav-item
       - if user_signed_in? 
         - if current_user.user_level == 0
-          = link_to 'Endre profil', edit_user_registration_path, :class => 'navbar-link' |
+          = link_to 'Min Profil', user_dashboard_path, :class => 'navbar-link' |
         - elsif current_user.user_level == 1
           = link_to 'Dashboard', admin_dashboard_path, :class => 'navbar-link'
         

@@ -29,10 +29,33 @@
  	{ title: "Strøm, Brygge", description: "Gjelder fra mai til september", price_per_month: 800, active: false}
                  ])
 
+ Pier.destroy_all
+ Pier.create!([
+		 { letter: "A" }, { letter: "B" }
+              ])
+
+ Berth.destroy_all
+ Berth.create!([
+		{ pier: Pier.first, berth_number: 1, width: 3, in_service: true },
+		{ pier: Pier.second, berth_number: 2, width: 3, in_service: true }
+              ])
+
 Boat.destroy_all
 # Båtdetaljer hentet fra artikkel: https://www.nrk.no/livsstil/slik-velger-du-riktig-bat-1.7069737
 Boat.create!([
-	{ reg_nr: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 1 },
-	{ reg_nr: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: 2 },
+	{ reg_nr: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 1, berth_number: 1},
+	{ reg_nr: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: 2, berth_number: 2},
 	{ reg_nr: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05, user_id: 3 }
              ])
+
+ServiceOrder.destroy_all
+ServiceOrder.create!([
+	{ service_id: 1, user_id: 2, start_service: Date.parse("02.12.2018"), end_service: Date.parse("05.12.2018") },
+	{ service_id: 1, user_id: 3, start_service: Date.parse("01.12.2018"), end_service: Date.parse("05.12.2018") },
+	{ service_id: 2, user_id: 2, start_service: Date.parse("02.12.2018"), end_service: Date.parse("05.12.2018") }
+                     ])
+
+BerthOrder.destroy_all
+BerthOrder.create!([
+	{ berth_id: 1, boat_id: 2, price_per_month: 250, start_date: "02.12.2018"}
+                   ])

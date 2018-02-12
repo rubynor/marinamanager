@@ -6,6 +6,7 @@ class BoatsController < ApplicationController
 
 	def index
 		@boats = Boat.all
+		@piers = Pier.all
 	end
 	
 	def show
@@ -18,10 +19,10 @@ class BoatsController < ApplicationController
 
 	def create
 		#-render plain: params[:boat].inspect
-		@boat = Boat.new(valid_params)
+		@boat = current_user.boats.new(valid_params)
 		if @boat.save
 			flash[:info] = "The boat was added to the database"
-			redirect_to boats_path
+			redirect_to user_dashboard_path
 		else
 			flash[:error] = "The boat was NOT added due to an error"
 			render 'new'

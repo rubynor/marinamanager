@@ -1,0 +1,2 @@
+class BerthOrder < ApplicationRecord
+end
