@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212070722) do
+ActiveRecord::Schema.define(version: 20180212072412) do
 
   create_table "berths", force: :cascade do |t|
     t.string "pier"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 20180212070722) do
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
-  create_table "service_orders", id: false, force: :cascade do |t|
+  create_table "service_order", id: false, force: :cascade do |t|
     t.integer "service_id"
     t.integer "user_id"
     t.date "start_service"
     t.date "end_service"
-    t.index ["service_id"], name: "index_service_orders_on_service_id"
-    t.index ["user_id"], name: "index_service_orders_on_user_id"
+    t.index ["service_id"], name: "index_service_order_on_service_id"
+    t.index ["user_id"], name: "index_service_order_on_user_id"
   end
 
   create_table "services", force: :cascade do |t|
