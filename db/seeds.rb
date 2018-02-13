@@ -45,9 +45,9 @@ Boat.create!([
 
 ServiceOrder.delete_all
 ServiceOrder.create!([
-	{ service_id: 1, user_id: 2, start_service: Date.new(2018, 02, 12), end_service: Date.new(2018, 05, 12) }
-	# { service_id: 1, user_id: 3, start_service: "01.12.2018"), end_service: Date("05.12.2018") },
-	# { service_id: 2, user_id: 2, start_service: "02.12.2018"), end_service: Date("05.12.2018") }
+	{ service_id: 1, user_id: 2, start_service: Date.new(2018, 02, 12), end_service: Date.new(2018, 05, 12) },
+	{ service_id: 1, user_id: 3, start_service: Date.new(2018, 01, 12), end_service: Date.new(2018, 04, 12) },
+	{ service_id: 2, user_id: 2, start_service: Date.new(2018, 02, 13), end_service: Date.new(2018, 05, 13) }
                      ])
 
 BerthOrder.destroy_all
