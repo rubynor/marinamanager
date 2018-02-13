@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20180212120854) do
 
   create_table "berth_orders", force: :cascade do |t|

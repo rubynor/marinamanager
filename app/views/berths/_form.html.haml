@@ -10,5 +10,5 @@
     %br
     = f.submit yield(:button_text), class: "btn btn-primary"
     
-    - unless @berth.new_record?                                
+- unless @berth.new_record?                                
     = button_to 'Delete', berth_path(@berth.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-
-  get 'berths/new'
+  # Covered by resources :berths
+  #get 'berths/new'
 
   get 'user/dashboard'
 
