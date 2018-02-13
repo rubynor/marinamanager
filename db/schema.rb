@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180212120854) do
+ActiveRecord::Schema.define(version: 20180213205048) do
 
   create_table "berth_orders", force: :cascade do |t|
     t.integer "berth_id"
     t.integer "boat_id"
-    t.decimal "price_per_month"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -24,25 +22,24 @@ ActiveRecord::Schema.define(version: 20180212120854) do
   end
 
   create_table "berths", force: :cascade do |t|
-    t.string "pier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "berth_number"
     t.decimal "width"
     t.boolean "in_service"
     t.integer "pier_id"
+    t.decimal "price_per_month"
     t.index ["pier_id"], name: "index_berths_on_pier_id"
   end
 
   create_table "boats", force: :cascade do |t|
-    t.string "reg_nr"
+    t.string "reg_number"
     t.string "model"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.decimal "width"
     t.decimal "length"
-    t.integer "berth_number"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
@@ -73,7 +70,6 @@ ActiveRecord::Schema.define(version: 20180212120854) do
   create_table "users", force: :cascade do |t|
     t.string "last_name"
     t.string "first_name"
-    t.string "bank_account", limit: 11
     t.integer "user_level", limit: 1, default: 0
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -87,7 +83,7 @@ ActiveRecord::Schema.define(version: 20180212120854) do
     t.string "last_sign_in_ip"
     t.string "street_name"
     t.string "phone_number", limit: 8
-    t.string "zip_code", limit: 4
+    t.string "post_code", limit: 4
     t.string "street_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
