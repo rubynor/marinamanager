@@ -13,9 +13,8 @@ Rails.application.routes.draw do
   get 'batplass', to: 'static_pages#batplass'
   get 'batslipp', to: 'static_pages#batslipp'
   get 'tjenester', to: 'static_pages#tjenester'
-  get 'contact', to: 'static_pages#contact'
- 
-  
+
+  resources "contacts", only: [:new, :create]
   resources :berths
 	resources :boats
 

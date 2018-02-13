@@ -9,7 +9,7 @@
   %tr
 
   - @boats.each do |boat|
-    - if current_user == boat.user
+    - if boat.user == current_user
       %td= boat.reg_nr
       %td= boat.model
       %td= boat.length

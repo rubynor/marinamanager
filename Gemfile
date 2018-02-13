@@ -46,6 +46,11 @@ gem 'sprockets-rails'
 # Client side validation, https://github.com/DavyJunesLocker/Client_side_validations
 gem 'client_side_validations'
 
+# Contact form
+gem 'mail_form'
+gem 'simple_form'
+
+
 group :production do
   gem 'pg', '~> 0.18'
 end
