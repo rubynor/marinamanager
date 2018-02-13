@@ -1,16 +1,16 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   %ul.navbar-nav.mr-auto
     %li.nav-item
-      %a.nav-link(href="/") Hjem
+      %a.nav-link(href=home_path) Hjem
     %li.nav-item
       -# /batplass
-      %a.nav-link(href="/batplass") Båtplass
+      %a.nav-link(href=batplass_path) Båtplass
     %li.nav-item
       -# /batslipp
-      %a.nav-link(href="/batslipp") Båtslipp
+      %a.nav-link(href=batslipp_path) Båtslipp
     %li.nav-item
       -# /tjenester
-      %a.nav-link(href="/tjenester") Tjenester
+      %a.nav-link(href=tjenester_path) Tjenester
     %li.nav-item
       -# /kontakt
     %a.nav-link(href=new_contact_path) Kontakt
@@ -22,9 +22,7 @@
           = link_to 'Min Profil', user_dashboard_path, :class => 'navbar-link' |
         - elsif current_user.user_level == 1
           = link_to 'Dashboard', admin_dashboard_path, :class => 'navbar-link'
-        
         = link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'
-      
       - else
         = link_to "Registrering", new_user_registration_path, :class => 'navbar-link'
         = link_to "Logg inn", new_user_session_path, :class => 'navbar-link'
