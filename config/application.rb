@@ -10,6 +10,7 @@ module Marinamanager
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     Marinamanager::Application.configure do
      config.sass.preferred_syntax = :sass
     end

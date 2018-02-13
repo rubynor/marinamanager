@@ -1,0 +1,9 @@
+.container
+  %h1 Kontakt oss
+  = simple_form_for @contact, :html => { :class => 'form-horizontal' } do |f|
+    = f.input :navn, :required => true
+    = f.input :epostadresse, :required => true
+    = f.input :melding, :as => :text, :required => false, :input_html => {:rows => 10}
+
+    .form-actions
+      = f.button :submit, 'Send melding', :class=> "btn btn-primary"
