@@ -10,11 +10,11 @@
 
   - @boats.each do |boat|
     - if boat.user == current_user
-      %td= boat.reg_nr
+      %td= boat.reg_number
       %td= boat.model
       %td= boat.length
       %td= boat.width
-      %td= "#{boat.berth&.pier&.letter}#{boat.berth_number.to_s}"
+      %td= "#{boat&.berth_orders&.first&.berth&.berth_number}" + "#{boat&.berth_orders&.first&.berth&.pier&.letter}"
       %tr
 
 %h3= button_to "Legg til båt", new_boat_path, method: :get

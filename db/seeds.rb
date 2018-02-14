@@ -26,21 +26,21 @@
 
  Pier.destroy_all
  Pier.create!([
-		 { letter: "A" }, { letter: "B" }
+		 { id: 1, letter: "A" }, { id: 2, letter: "B" }
               ])
 
  Berth.destroy_all
  Berth.create!([
-		{ pier: Pier.first, berth_number: 1, width: 3, price_per_month: 250, in_service: true },
-		{ pier: Pier.first, berth_number: 2, width: 3, price_per_month: 250, in_service: true }
+		{ id: 1, pier: Pier.first, berth_number: 1, width: 3, price_per_month: 250, in_service: true },
+		{ id: 2, pier: Pier.first, berth_number: 2, width: 3, price_per_month: 250, in_service: true }
               ])
 
 Boat.destroy_all
 # Båtdetaljer hentet fra artikkel: https://www.nrk.no/livsstil/slik-velger-du-riktig-bat-1.7069737
 Boat.create!([
-	{ reg_number: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 1 },
-	{ reg_number: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: 2 },
-	{ reg_number: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05, user_id: 2 }
+	{ id: 1, reg_number: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 1 },
+	{ id: 2, reg_number: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: 2 },
+	{ id: 3, reg_number: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05, user_id: 2 }
              ])
 
 ServiceOrder.delete_all

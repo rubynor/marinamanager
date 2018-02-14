@@ -54,6 +54,6 @@ class BoatsController < ApplicationController
 
 	private
 	def valid_params
-		params.require(:boat).permit(:reg_nr, :model, :width, :length)
+		params.require(:boat).permit(:reg_number, :model, :width, :length)
 	end
 end

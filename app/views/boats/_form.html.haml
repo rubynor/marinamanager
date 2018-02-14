@@ -2,22 +2,18 @@
     = form_for(@boat,validate: true,local: true, url: yield(:form_action_url)) do |f|
         %p
             = f.label :reg_nr
-            = f.text_field :reg_nr, class: 'form-control'
+            = f.text_field :reg_number, class: 'form-control'
         %br
-    
         %p
             = f.label :modell
             = f.text_field :model, class: 'form-control'
-            %br
-    
+        %br
         %p
             = f.label :bredde
             = f.text_field :width, class: 'form-control'
-    
         %p
             = f.label :lengde
             = f.text_field :length, class: 'form-control'
-    
         %br        
             = f.submit yield(:button_text), class: "btn btn-primary"  
     - unless @boat.new_record?                                
