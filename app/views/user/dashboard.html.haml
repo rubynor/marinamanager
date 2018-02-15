@@ -6,6 +6,7 @@
   %th Lengde
   %th Bredde
   %th Båtplass
+  %th Endre
   %tr
 
   - @boats.each do |boat|
@@ -14,10 +15,24 @@
       %td= boat.model
       %td= boat.length
       %td= boat.width
-      %td= "#{boat&.berth_orders&.first&.berth&.berth_number}" + "#{boat&.berth_orders&.first&.berth&.pier&.letter}"
+      %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
       %tr
 
-%h3= button_to "Legg til båt", new_boat_path, method: :get
+  = form_for(Boat.new, validate: true, local: true) do |form|
+    %td
+      = form.text_field :reg_number
+    %td
+      = form.text_field :model
+    %td
+      = form.text_field :width
+    %td
+      = form.text_field :length
+    %td
+
+    %td
+      = form.submit "Legg til båt"
+
+
 
 %h2 Mine tilleggstjenester:
 

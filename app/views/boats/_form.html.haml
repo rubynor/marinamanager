@@ -11,10 +11,12 @@
         %p
             = f.label :bredde
             = f.text_field :width, class: 'form-control'
+        %br
         %p
             = f.label :lengde
             = f.text_field :length, class: 'form-control'
-        %br        
-            = f.submit yield(:button_text), class: "btn btn-primary"  
-    - unless @boat.new_record?                                
-        = button_to 'Delete', boat_path(@boat.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"
+        %br
+            = f.submit yield(:button_text), class: "btn btn-primary"
+        - unless @boat.new_record?
+            = button_to 'Delete', boat_path(@boat.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"
+

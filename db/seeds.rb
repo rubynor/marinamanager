@@ -38,7 +38,7 @@
 Boat.destroy_all
 # Båtdetaljer hentet fra artikkel: https://www.nrk.no/livsstil/slik-velger-du-riktig-bat-1.7069737
 Boat.create!([
-	{ id: 1, reg_number: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 1 },
+	{ id: 1, reg_number: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: 2 },
 	{ id: 2, reg_number: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: 2 },
 	{ id: 3, reg_number: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05, user_id: 2 }
              ])
@@ -52,5 +52,6 @@ ServiceOrder.create!([
 
 BerthOrder.destroy_all
 BerthOrder.create!([
-	{ berth_id: 1, boat_id: 2, start_date: Date.new(2018, 02, 12)}
+	{ berth_id: 1, boat_id: 2, start_date: Date.new(2018, 02, 12) },
+	{ berth_id: 2, boat_id: 1, start_date: Date.new(2018, 02, 12) }
                     ])
