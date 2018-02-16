@@ -16,6 +16,9 @@
       %td= boat.length
       %td= boat.width
       %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
+      %td
+        = button_to 'Endre' 
+        = button_to 'Slett'
       %tr
 
   = form_for(Boat.new, validate: true, local: true) do |form|
@@ -37,7 +40,6 @@
 %h2 Mine tilleggstjenester:
 
 %table
-  %th ID
   %th Tjeneste
   %th Beskrivelse
   %th Pris pr. mnd
@@ -46,10 +48,15 @@
   %tr
   - @service_orders.each do |service_order|
     - if service_order.user == current_user
-      %td= service_order.service_id
       %td= service_order.service.title
       %td= service_order.service.description
       %td= service_order.service.price_per_month
       %td= service_order.start_service
       %td= service_order.end_service
       %tr
+    - @services.each do |service|
+      - unless service_order.user == current_user
+        %td= service.title
+        %td= service.description
+        %td= service.price_per_month
+        %tr
