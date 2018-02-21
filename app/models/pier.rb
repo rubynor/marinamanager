@@ -1,3 +1,3 @@
 class Pier < ApplicationRecord
-	has_many :berths
+  has_many :berths
 end

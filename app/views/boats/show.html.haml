@@ -1,0 +1,16 @@
+%p
+  %b Registreringsnummer
+  = @boat.reg_number
+%p
+  %b Modell
+  = @boat.model
+%p
+  %b Bredde
+  = @boat.width
+%p
+  %b Lengde
+  = @boat.length
+
+= link_to 'Endre', edit_boat_path(@boat)
+\|
+= link_to 'Tilbake', boats_path

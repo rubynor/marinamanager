@@ -2,10 +2,12 @@
 
 one:
   title: MyString
-  description: MyText
+  description: MyString
   price_per_month: 9.99
+  active: false
 
 two:
   title: MyString
-  description: MyText
+  description: MyString
   price_per_month: 9.99
+  active: false

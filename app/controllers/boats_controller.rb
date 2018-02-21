@@ -1,59 +1,70 @@
 class BoatsController < ApplicationController
+  before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
-	def new
-		@boat = Boat.new
-	end
+  # GET /boats
+  # GET /boats.json
+  def index
+    @boats = Boat.all
+  end
 
-	def index
-		@boats = Boat.all
-		@piers = Pier.all
-	end
-	
-	def show
-		@boat = Boat.find(params[:id])
-	end
-	
-	def edit
-		@boat = Boat.find(params[:id])
-	end
+  # GET /boats/1
+  # GET /boats/1.json
+  def show
+  end
 
-	def create
-		#-render plain: params[:boat].inspect
-		@boat = current_user.boats.new(valid_params)
-		if @boat.save
-			flash[:info] = "The boat was added to the database"
-			redirect_to user_dashboard_path
-		else
-			flash[:error] = "The boat was NOT added due to an error"
-			render 'new'
-		end
+  # GET /boats/new
+  def new
+    @boat = Boat.new
+  end
 
-	end
+  # GET /boats/1/edit
+  def edit
+  end
 
-	def update
-		@boat = Boat.find(params[:id])
-		if @boat.update_attributes(valid_params)
-		  flash[:success] = "Boat updated"
-		  redirect_to boats_path
-		else
-		  render 'edit'
-		end
-	end
+  # POST /boats
+  # POST /boats.json
+  def create
+    @boat = Boat.new(boat_params)
 
-	def destroy
+    respond_to do |format|
+      if @boat.save
+        format.html { redirect_to @boat, notice: 'Båten ble lagt til.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
 
-		#Yes, needs check for admin rights
-		@boat = Boat.find(params[:id])
-		if @boat.delete
-		  flash[:success] = "Boat deleted"
-		  redirect_to boats_path
-		else
-		  render 'delete'
-		end
-	  end
+  # PATCH/PUT /boats/1
+  # PATCH/PUT /boats/1.json
+  def update
+    respond_to do |format|
+      if @boat.update(boat_params)
+        format.html { redirect_to @boat, notice: 'Båten har blitt endret' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
 
-	private
-	def valid_params
-		params.require(:boat).permit(:reg_number, :model, :width, :length)
-	end
+  # DELETE /boats/1
+  # DELETE /boats/1.json
+  def destroy
+    @boat.destroy
+    respond_to do |format|
+      format.html { redirect_to boats_url, notice: 'Båten har blitt slettet.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_boat
+      @boat = Boat.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def boat_params
+      params.require(:boat).permit(:reg_number, :model, :width, :length)
+    end
 end

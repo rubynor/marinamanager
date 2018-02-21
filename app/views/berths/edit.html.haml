@@ -1,10 +1,7 @@
-- provide(:title, "EditBerth")
-- provide(:button_text, 'Update berth')
-- provide(:form_action_url, berth_path(@berth.id))
-- provide(:delete_action_disabled, '')
+%h1 Editing berth
 
-%div.row.col-md-6.col-md-offset-3
-    = render 'form'
+= render 'form'
 
-
-   
+= link_to 'Show', @berth
+\|
+= link_to 'Back', berths_path

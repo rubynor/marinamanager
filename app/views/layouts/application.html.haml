@@ -1,16 +1,48 @@
 !!!
 %html
   %head
-    %title Marinamanager
+    %title Marinade
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
-    = render 'layouts/header'
-    .container
-      - flash.each do |message_type, message|
-        = content_tag(:div, message, class: "alert alert-#{message_type}")
-    = yield
-    = render 'layouts/footer'
--#  = debug(params) if Rails.env.development?
-    
+    %header.main
+      %ul.nav.justify-content-center
+        %li.nav-item
+          %div.image-fluid
+            =image_tag 'logo'
+        %li.nav-item
+          %a.nav-link(href=marina_index_path) Hjem
+        %li.nav-item
+          %a.nav-link(href=marina_index_path) Båtplass
+        %li.nav-item
+          %a.nav-link(href=marina_index_path) Båtslipp
+        %li.nav-item
+          %a.nav-link(href=marina_index_path) Tjenester
+        %li.nav-item
+          %a.nav-link(href=marina_index_path) Kontakt
+        %li.nav-item
+          %p.navbar-text.pull-right
+            - if user_signed_in?
+              Logged in as
+              = succeed "." do
+                %strong= current_user.email
+              = link_to 'Endre profil', edit_user_registration_path, :class => 'navbar-link'
+              |
+              \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
+            - else
+              = link_to "Lag konto", new_user_registration_path, :class => 'navbar-link'
+              |
+              \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link'}
+      %section.header
+        %div.image-fluid
+          = link_to image_tag('header.jpg', size: "2000x1000"), marina_index_path
+
+      %main.controller.controller_name
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+
+        = yield

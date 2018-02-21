@@ -1,9 +1,30 @@
-%div.col-md-6.col-md-offset-3
-    %div-list-group
-        = render @boats
+- if notice
+  .aside#notice= notice
 
+%h1 Mine båter
+
+%table
+  %thead
+    %tr
+      %th Reg. nr
+      %th Modell
+      %th Bredde
+      %th Lengde
+      %th
+      %th
+      %th
+
+  %tbody
+    - @boats.each do |boat|
+      %tr
+        %td= boat.reg_number
+        %td= boat.model
+        %td= boat.width
+        %td= boat.length
+        %td= link_to 'Vis', boat
+        %td= link_to 'Endre', edit_boat_path(boat)
+        %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
-%div.col-md-6.col-md-offset-3
-    = button_to "New Boat", new_boat_path, method: :get,  class: "btn btn-primary"
-%br
+
+= link_to 'Legg til båt', new_boat_path

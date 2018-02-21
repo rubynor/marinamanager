@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pier: MyString
-  width: 1
+  berth_number: 1
+  width: 9.99
   price_per_month: 9.99
-  reg_nr: 1
   in_service: false
 
 two:
-  pier: MyString
-  width: 1
+  berth_number: 1
+  width: 9.99
   price_per_month: 9.99
-  reg_nr: 1
   in_service: false

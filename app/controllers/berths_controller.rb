@@ -1,57 +1,74 @@
 class BerthsController < ApplicationController
-  def new
-    @berth = Berth.new
-  end
+  before_action :set_berth, only: [:show, :edit, :update, :destroy]
 
+  # GET /berths
+  # GET /berths.json
   def index
     @berths = Berth.all
   end
 
+  # GET /berths/1
+  # GET /berths/1.json
   def show
-    @berth = Berth.find(params[:id])
   end
 
+  # GET /berths/new
+  def new
+    @berth = Berth.new
+  end
+
+  # GET /berths/1/edit
+  def edit
+  end
+
+  # POST /berths
+  # POST /berths.json
   def create
     @berth = Berth.new(berth_params)
-    if @berth.save
-      flash[:info] = "Berth saved"
-      redirect_to berths_path
-    else
-      render 'new'
+
+    respond_to do |format|
+      if @berth.save
+        format.html { redirect_to @berth, notice: 'Berth was successfully created.' }
+        format.json { render :show, status: :created, location: @berth }
+      else
+        format.html { render :new }
+        format.json { render json: @berth.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def edit
-    @berth = Berth.find(params[:id])
-  end
-
+  # PATCH/PUT /berths/1
+  # PATCH/PUT /berths/1.json
   def update
-    @berth = Berth.find(params[:id])
-    if @berth.update_attributes(berth_params)
-      flash[:success] = "Berth updated"
-      redirect_to berths_path
-    else
-      render 'edit'
+    respond_to do |format|
+      if @berth.update(berth_params)
+        format.html { redirect_to @berth, notice: 'Berth was successfully updated.' }
+        format.json { render :show, status: :ok, location: @berth }
+      else
+        format.html { render :edit }
+        format.json { render json: @berth.errors, status: :unprocessable_entity }
+      end
     end
   end
-  
+
+  # DELETE /berths/1
+  # DELETE /berths/1.json
   def destroy
-
-    #Yes, needs check for admin rights
-    @berth = Berth.find(params[:id])
-    if @berth.delete
-      flash[:success] = "Berth deleted"
-      redirect_to berths_path
-    else
-      render 'delete'
+    @berth.destroy
+    respond_to do |format|
+      format.html { redirect_to berths_url, notice: 'Berth was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
-private
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_berth
+      @berth = Berth.find(params[:id])
+    end
 
-  def berth_params
-    params.require(:berth).permit(:id, :name, :pier, :width, :reg_nr, :price_per_month)
-
-
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def berth_params
+      params.require(:berth).permit(:berth_number, :width, :price_per_month, :in_service)
+    end
 end
