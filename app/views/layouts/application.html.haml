@@ -8,36 +8,39 @@
 
   %body
     %header.main
-      %ul.nav.justify-content-center
-        %li.nav-item
+      %nav.navbar.navbar-default
+        %div.container-fluid
+          %ul.nav.navbar-nav.navbar
+            %li.nav-item
+              %div.image-fluid
+                = link_to image_tag('logo'), marina_index_path
+            %li.nav-item
+              %a.nav-link(href=marina_index_path) Hjem
+            %li.nav-item
+              %a.nav-link(href=marina_index_path) Båtplass
+            %li.nav-item
+              %a.nav-link(href=marina_index_path) Båtslipp
+            %li.nav-item
+              %a.nav-link(href=marina_index_path) Tjenester
+            %li.nav-item
+              %a.nav-link(href=marina_index_path) Kontakt
+          %ul.nav.navbar-nav.navbar-right
+            %li.nav-item
+              %p
+                - if user_signed_in?
+                  Logged in as
+                  = succeed "." do
+                    %strong= current_user.email
+                  = link_to 'Endre profil', edit_user_registration_path, :class => 'navbar-link'
+                  |
+                  \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
+                - else
+                  = link_to "Lag konto", new_user_registration_path, :class => 'navbar-link'
+                  |
+                  \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link'}
+        %section.header
           %div.image-fluid
-            =image_tag 'logo'
-        %li.nav-item
-          %a.nav-link(href=marina_index_path) Hjem
-        %li.nav-item
-          %a.nav-link(href=marina_index_path) Båtplass
-        %li.nav-item
-          %a.nav-link(href=marina_index_path) Båtslipp
-        %li.nav-item
-          %a.nav-link(href=marina_index_path) Tjenester
-        %li.nav-item
-          %a.nav-link(href=marina_index_path) Kontakt
-        %li.nav-item
-          %p.navbar-text.pull-right
-            - if user_signed_in?
-              Logged in as
-              = succeed "." do
-                %strong= current_user.email
-              = link_to 'Endre profil', edit_user_registration_path, :class => 'navbar-link'
-              |
-              \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
-            - else
-              = link_to "Lag konto", new_user_registration_path, :class => 'navbar-link'
-              |
-              \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link'}
-      %section.header
-        %div.image-fluid
-          = link_to image_tag('header.jpg', size: "2000x1000"), marina_index_path
+            = image_tag('header.jpg', size: "2000x1000")
 
       %main.controller.controller_name
       - if notice
@@ -45,4 +48,4 @@
       - if alert
         %p.alert.alert-danger= alert
 
-        = yield
+      = yield
