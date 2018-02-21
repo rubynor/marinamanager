@@ -40,7 +40,7 @@ Boat.destroy_all
 Boat.create!([
 	{ id: 1, reg_number: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25 },
 	{ id: 2, reg_number: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99 },
-	{ id: 3, reg_number: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05 }
+ 	{ id: 3, reg_number: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05 }
              ])
 #
 # ServiceOrder.delete_all
