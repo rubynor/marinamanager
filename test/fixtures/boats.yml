@@ -1,16 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  reg_nr: BAD303
-  model: Albin Alpha
-  width: 3.30
-  length: 9.01
-
-  
+  reg_number: MyString
+  model: MyString
+  width: 9.99
+  length: 9.99
 
 two:
-  reg_nr: LA8PV
-  model: Willing 31
-  width: 3.66
-  length: 9.50
-
+  reg_number: MyString
+  model: MyString
+  width: 9.99
+  length: 9.99

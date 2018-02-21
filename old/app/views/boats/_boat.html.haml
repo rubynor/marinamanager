@@ -1,0 +1,24 @@
+#%a.list-group-item.list-group-item-action{href: edit_boat_path(boat.id)} #{boat.reg_number}
+
+%h2 Mine båter:
+
+%table
+  %th Reg. nr
+  %th Modell
+  %th Lengde
+  %th Bredde
+  %th Båtplass
+  %th Endre
+  %tr
+
+  - @boats.each do |boat|
+    - if boat.user == current_user
+      %td= boat.reg_number
+      %td= boat.model
+      %td= boat.length
+      %td= boat.width
+      %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
+      %td
+        = button_tag "Endre", :type => 'button', :onclick => edit_boat_path(id: boat.id)
+        = button_to 'Slett'
+      %tr

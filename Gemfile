@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -26,30 +26,22 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+# gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-# Supposed to bring easy user authentication
+gem 'bcrypt'
 gem 'devise'
-# For the designer in you
-gem 'bootstrap', '~> 4.0.0'
-# 'designed to express the structure of documents in a non-repetitive, elegant, and easy way by using indentation rather than closing tags'
+gem 'bootstrap3-rails'
 gem 'haml-rails'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-# JQuery
 gem 'jquery-rails'
-# JQuery-ui for smöth animations
 gem 'jquery-ui-rails'
-# Sprockets
 gem 'sprockets-rails'
-# Client side validation, https://github.com/DavyJunesLocker/Client_side_validations
 gem 'client_side_validations'
 
-# Contact form
-gem 'mail_form'
-gem 'simple_form'
+# gem 'mail_form'
+# gem 'simple_form'
 
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
 
 group :production do
   gem 'pg', '~> 0.18'
@@ -61,6 +53,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # Adds rspec for testing
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -70,13 +64,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
-  gem 'rails-controller-testing', '1.0.2'
-  gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

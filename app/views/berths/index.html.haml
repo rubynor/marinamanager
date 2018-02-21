@@ -1,9 +1,27 @@
-%div.col-md-6.col-md-offset-3
-    %div-list-group
-        = render @berths
+%h1 Listing berths
 
+%table
+  %thead
+    %tr
+      %th Berth number
+      %th Width
+      %th Price per month
+      %th In service
+      %th
+      %th
+      %th
+
+  %tbody
+    - @berths.each do |berth|
+      %tr
+        %td= berth.berth_number
+        %td= berth.width
+        %td= berth.price_per_month
+        %td= berth.in_service
+        %td= link_to 'Show', berth
+        %td= link_to 'Edit', edit_berth_path(berth)
+        %td= link_to 'Destroy', berth, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
-%div.col-md-6.col-md-offset-3
-    = button_to "New Berth", new_berth_path, method: :get,  class: "btn btn-primary"
-%br
+
+= link_to 'New Berth', new_berth_path

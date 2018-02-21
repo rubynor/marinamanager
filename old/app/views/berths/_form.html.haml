@@ -1,0 +1,14 @@
+= form_for(@berth,validate: true,local: true, url: yield(:form_action_url)) do |f|
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+    = f.label :pier
+    = f.text_field :pier, class: 'form-control'
+    = f.label :width
+    = f.number_field :width, in: 5..22, class: 'form-control'
+    = f.label :price_per_month
+    = f.number_field :price_per_month, class: 'form-control'
+    %br
+    = f.submit yield(:button_text), class: "btn btn-primary"
+    
+- unless @berth.new_record?                                
+    = button_to 'Delete', berth_path(@berth.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"

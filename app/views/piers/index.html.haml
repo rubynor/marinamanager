@@ -1,0 +1,21 @@
+%h1 Listing piers
+
+%table
+  %thead
+    %tr
+      %th Letter
+      %th
+      %th
+      %th
+
+  %tbody
+    - @piers.each do |pier|
+      %tr
+        %td= pier.letter
+        %td= link_to 'Show', pier
+        %td= link_to 'Edit', edit_pier_path(pier)
+        %td= link_to 'Destroy', pier, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Pier', new_pier_path
