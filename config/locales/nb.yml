@@ -1,162 +1,252 @@
+
+
 nb:
+
   activerecord:
     attributes:
       user:
-        confirmation_sent_at: Bekreftelse sendt
-        confirmation_token: Bekreftelsesnøkkel
-        confirmed_at: Bekreftet
-        created_at: Opprettet
-        current_password: Nåværende passord
-        current_sign_in_at: Gjeldende innlogging
-        current_sign_in_ip: Gjeldende innlogget IP
+        first_name: Fornavn
+        last_name: Etternavn
         email: Epost
-        encrypted_password: Kryptert passord
-        failed_attempts: Mislykkede forsøk
-        last_sign_in_at: Sist innlogget
-        last_sign_in_ip: Sist innlogget IP
-        locked_at: Låst
+        phone_number: Tlf nr.
+        street_name: Gatenavn
+        street_number: Gatenr.
+        post_code: Postnr.
         password: Passord
-        password_confirmation: Passordbekreftelse
-        remember_created_at: Huskenøkkel opprettet
-        remember_me: Husk meg
-        reset_password_sent_at: Passordgjenoppretting sendt
-        reset_password_token: Passordgjenopprettingsnøkkel
-        sign_in_count: Antall innlogginger
-        unconfirmed_email: Ubekreftet epost
-        unlock_token: Nøkkelsymbol
-        updated_at: Oppdatert
+        new_password: Nytt passord
+        current_password: Nåværende passord
+        password_confirmation: Gjenta passord
       boat:
-          reg_number: Registreringsnummer
-          model: Modell
-          width: Bredde
-          length: Lengde
-    models:
-      user: Bruker
+        reg_number: Registreringsnummer
+        model: Modell
+        width: Bredde
+        length: Lengde
+      service:
+        title: Navn på tjeneste
+        description: Beskrivelse
+        price_per_month: Månedspris
+        active: Aktiv
 
     errors:
-      models:
-        boat:
-          attributes:
-            reg_number:
-              blank: må fylles ut.
-              taken: er allerede registrert.
-            model:
-              blank: må fylles ut.
-            width:
-              blank: må fylles ut.
-              not_a_number: må være et tall.
-            length:
-              blank: må fylles ut.
-              not_a_number: må være et tall.
-  devise:
-    confirmations:
-      confirmed: Din konto er aktivert og du er nå innlogget.
-      new:
-        resend_confirmation_instructions: Send nye bekreftelsesinstruksjoner
-      send_instructions: Du vil innen få minutter motta en epost med instruksjoner for å aktivere din konto.
-      send_paranoid_instructions: Hvis epostadressen din finnes i vår database vil du innen få minutter motta en epost med instruksjoner for å aktivere din konto.
-    failure:
-      already_authenticated: Du er allerede logget inn.
-      inactive: Din konto er ikke aktivert enda.
-      invalid:
-      last_attempt: Du har et forsøk til før din konto blir låst.
-      locked: Din konto er låst.
-      not_found_in_database:
-      timeout: Din sesjon er utløpt. Logg inn igjen for å kunne fortsette.
-      unauthenticated: Du må logge inn eller registrere deg for å kunne fortsette.
-      unconfirmed: Du må bekrefte kontoen din for å kunne fortsette.
-    mailer:
-      confirmation_instructions:
-        action: Bekreft min konto
-        greeting: Velkommen %{recipient}!
-        instruction: 'Du kan bekrefte kontoen din gjennom linken nedenfor:'
-        subject: Bekreftelsesinstruksjoner
-      email_changed:
-        greeting:
-        message:
-        subject:
-      password_change:
-        greeting: Hallo %{recipient}!
-        message: Vi kontakter deg for å meddele at ditt passord har blitt endret.
-        subject: Passord endret
-      reset_password_instructions:
-        action: Endre passord
-        greeting: Hallo %{recipient}!
-        instruction: Noen har bedt om en link til å endre ditt passord og du kan gjøre det her.
-        instruction_2: Hvis du ikke har bedt om dette, vennligst overse denne eposten.
-        instruction_3: Ditt passord vil ikke bli endret med mindre du følger linken ovenfor og oppretter et nytt ett.
-        subject: Nullstilling av passord
-      unlock_instructions:
-        action: Lås opp konto
-        greeting: Hallo %{recipient}!
-        instruction: 'Klikk på linken nedenfor for å låse opp kontoen din:'
-        message: Kontoen din har blitt låst på grunn av alt for mange mislykkede påloggingsforsøk.
-        subject: Gjenåpning av konto
-    omniauth_callbacks:
-      failure: Kunne ikke autorisere deg fra %{kind} fordi "%{reason}".
-      success: Vellykket autorisering fra %{kind}.
-    passwords:
-      edit:
-        change_my_password: Endre passord
-        change_your_password: Endre ditt passord
-        confirm_new_password: Bekreft nytt passord
-        new_password: Nytt passord
-      new:
-        forgot_your_password: Glemt passord?
-        send_me_reset_password_instructions: Send meg instruksjoner for å sette nytt passord
-      no_token: Du kan ikke aksessere denne siden uten å bli videresendt fra en epost med intrukssjoner for å tilbakestille passord. Hvis dette er tilfelle, vennligst sørg for at du brukte hele lenken inneholdt i eposten.
-      send_instructions: Du vil innen få minutter motta en epost med instruksjoner for å nullstille passordet ditt.
-      send_paranoid_instructions: Hvis epostadressen din finnes i vår database vil du innen få minutter motta en epost med instruksjoner for å nullstille passordet ditt.
-      updated: Ditt passord er endret og du er nå innlogget.
-      updated_not_active: Ditt passord er endret.
-    registrations:
-      destroyed: Farvel! Din konto er nå slettet. Vi håper å se deg igjen snart.
-      edit:
-        are_you_sure: Er du sikker?
-        cancel_my_account: Deaktiver konto
-        currently_waiting_confirmation_for_email: 'Venter på bekreftelse for: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: la stå tomt dersom du ikke vil endre det
-        title: Rediger %{resource}
-        unhappy: Misfornøyd?
-        update: Oppdater
-        we_need_your_current_password_to_confirm_your_changes: vi trenger du nåværende passord for å bekrefte endringene du har gjort
-      new:
-        sign_up: Opprett konto
-      signed_up: Velkommen! Din registrering er vellykket.
-      signed_up_but_inactive: Du er registrert. Vi kan derimot ikke logge deg på siden kontoen din ennå ikke er aktivert.
-      signed_up_but_locked: Du er registrert. Vi kan derimot ikke logge deg på siden kontoen din er låst.
-      signed_up_but_unconfirmed: En epost med en aktiveringslink er sent til din epostadresse.  Vennligst klikk på linken for å aktivere din konto.
-      update_needs_confirmation: Din profil er oppdatert, men vi trenger å bekrefte din nye epost-adresse. Vennligst sjekk din innboks og klikk på lenken inneholdt i eposten for å bekrefte endring av din epost-adresse.
-      updated: Din profil er oppdatert.
-    sessions:
-      already_signed_out: Logget ut
-      new:
-        sign_in: Logg inn
-      signed_in: Du er nå innlogget.
-      signed_out: Du er nå logget ut.
-    shared:
-      links:
-        back: Tilbake
-        didn_t_receive_confirmation_instructions: Ikke mottatt bekreftelsesinstruksjoner?
-        didn_t_receive_unlock_instructions: Ikke mottatt aktiveringsinstruksjoner?
-        forgot_your_password: Glemt passord?
-        sign_in: Logg inn
-        sign_in_with_provider: Logg inn med %{provider}
-        sign_up: Opprett konto
-      minimum_password_length:
-    unlocks:
-      new:
-        resend_unlock_instructions: Send nye aktiveringsinstruksjoner
-      send_instructions: Du vil innen få minutter motta en epost med instruksjoner for å gjenåpne din konto.
-      send_paranoid_instructions: Hvis kontoen din eksisterer vil du innen få minutter motta en epost med instruksjoner for å låse den opp.
-      unlocked: Din konto er gjenåpnet. Vennligst logg inn for å fortsette.
+      messages:
+        record_invalid: 'Det oppstod feil: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Kan ikke slette registreringen, fordi 1 %{record} avhenger av denne.
+          has_many: Kan ikke slette registreringen, fordi %{record} avhenger av denne.
+
+
+  date:
+    abbr_day_names:
+    - søn
+    - man
+    - tir
+    - ons
+    - tor
+    - fre
+    - lør
+    abbr_month_names:
+    -
+    - jan
+    - feb
+    - mar
+    - apr
+    - mai
+    - jun
+    - jul
+    - aug
+    - sep
+    - okt
+    - nov
+    - des
+    day_names:
+    - søndag
+    - mandag
+    - tirsdag
+    - onsdag
+    - torsdag
+    - fredag
+    - lørdag
+    formats:
+      default: "%d.%m.%Y"
+      long: "%e. %B %Y"
+      short: "%e. %b"
+    month_names:
+    -
+    - januar
+    - februar
+    - mars
+    - april
+    - mai
+    - juni
+    - juli
+    - august
+    - september
+    - oktober
+    - november
+    - desember
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: rundt 1 time
+        other: rundt %{count} timer
+      about_x_months:
+        one: rundt 1 måned
+        other: rundt %{count} måneder
+      about_x_years:
+        one: rundt 1 år
+        other: rundt %{count} år
+      almost_x_years:
+        one: nesten 1 år
+        other: nesten %{count} år
+      half_a_minute: et halvt minutt
+      less_than_x_minutes:
+        one: mindre enn 1 minutt
+        other: mindre enn %{count} minutter
+      less_than_x_seconds:
+        one: mindre enn 1 sekund
+        other: mindre enn %{count} sekunder
+      over_x_years:
+        one: over 1 år
+        other: over %{count} år
+      x_days:
+        one: 1 dag
+        other: "%{count} dager"
+      x_minutes:
+        one: 1 minutt
+        other: "%{count} minutter"
+      x_months:
+        one: 1 måned
+        other: "%{count} måneder"
+      x_years:
+        one: 1 år
+        other: "%{count} år"
+      x_seconds:
+        one: 1 sekund
+        other: "%{count} sekunder"
+    prompts:
+      day: dag
+      hour: time
+      minute: minutt
+      month: måned
+      second: sekund
+      year: år
   errors:
+    format: "%{attribute} %{message}"
     messages:
-      already_confirmed: har allerede blitt bekreftet, forsøk å logg inn
-      confirmation_period_expired: må bekreftes innen %{period}, vennligst forespør en ny en
-      expired: har utløpt, vennligst få en ny en
-      not_found: ikke funnet
-      not_locked: var ikke låst
-      not_saved:
-        one: "Én feil gjorde at %{resource} ikke kunne lagres:"
-        other: "%{count} feil gjorde at %{resource} ikke kunne lagres:"
+      accepted: må være akseptert
+      blank: kan ikke være blank
+      present: må være blank
+      confirmation: er ikke lik %{attribute}
+      empty: kan ikke være tom
+      equal_to: må være lik %{count}
+      even: må være partall
+      exclusion: er reservert
+      greater_than: må være større enn %{count}
+      greater_than_or_equal_to: må være større enn eller lik %{count}
+      inclusion: er ikke inkludert i listen
+      invalid: er ugyldig
+      less_than: må være mindre enn %{count}
+      less_than_or_equal_to: må være mindre enn eller lik %{count}
+      model_invalid: "Det oppstod feil: %{errors}"
+      not_a_number: er ikke et tall
+      not_an_integer: er ikke et heltall
+      odd: må være oddetall
+      required: må eksistere
+      taken: er allerede i bruk
+      too_long: er for lang (maksimum %{count} tegn)
+      too_short: er for kort (minimum %{count} tegn)
+      wrong_length: er av feil lengde (maksimum %{count} tegn)
+      other_than: kan ikke være nøyaktig %{count}
+    template:
+      body: 'Det oppstod problemer med følgende felt:'
+      header:
+        one: Kunne ikke lagre %{model} på grunn av én feil.
+        other: Kunne ikke lagre %{model} på grunn av %{count} feil.
+  helpers:
+    select:
+      prompt: Vennligst velg
+    submit:
+      create: Lag %{model}
+      submit: Lagre %{model}
+      update: Oppdater %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: kr
+    format:
+      delimiter: " "
+      precision: 2
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: true
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: milliard
+            other: milliarder
+          million:
+            one: million
+            other: millioner
+          quadrillion:
+            one: billiard
+            other: billiarder
+          thousand: tusen
+          trillion:
+            one: billion
+            other: billioner
+          unit: ''
+      format:
+        delimiter: " "
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: kB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " og "
+      two_words_connector: " og "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%A, %e. %B %Y, %H:%M"
+      long: "%A, %e. %B %Y, %H:%M"
+      short: "%e. %B, %H:%M"
+      pm: ''
+
+    errors:
+      messages:
+        not_found: "ikke funnet"
+        already_confirmed: "har allerede blitt bekreftet. Prøv å logg inn."
+        not_locked: "var ikke låst"
+        not_saved:
+          one: "Én feil gjorde at %{resource} ikke kunne lagres:"
+          other: "%{count} feil gjorde at %{resource} ikke kunne lagres:"

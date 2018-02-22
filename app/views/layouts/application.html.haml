@@ -28,14 +28,14 @@
             %li.nav-item
               %p
                 - if user_signed_in?
-                  Logged in as
+                  Innlogget som
                   = succeed "." do
                     %strong= current_user.email
                   = link_to 'Endre profil', edit_user_registration_path, :class => 'navbar-link'
                   |
                   \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
                 - else
-                  = link_to "Lag konto", new_user_registration_path, :class => 'navbar-link'
+                  = link_to "Lag konto", new_user_path, :class => 'navbar-link'
                   |
                   \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link'}
         %section.header
