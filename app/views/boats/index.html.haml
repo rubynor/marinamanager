@@ -10,20 +10,24 @@
       %th Modell
       %th Bredde
       %th Lengde
+      %th Båtplass
       %th
       %th
       %th
 
   %tbody
     - @boats.each do |boat|
-      %tr
-        %td= boat.reg_number
-        %td= boat.model
-        %td= boat.width
-        %td= boat.length
-        %td= link_to 'Vis', boat
-        %td= link_to 'Endre', edit_boat_path(boat)
-        %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Are you sure?' }
+      - if boat.user == current_user
+        %tr
+          %td= boat.reg_number
+          %td= boat.model
+          %td= boat.width
+          %td= boat.length
+          %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
+
+          %td= link_to 'Vis', boat
+          %td= link_to 'Endre', edit_boat_path(boat)
+          %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
