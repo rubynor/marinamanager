@@ -1,12 +1,13 @@
-%h1 Listing berths
+%h1 Båtplasser, oversikt
 
 %table
   %thead
     %tr
-      %th Berth number
-      %th Width
-      %th Price per month
-      %th In service
+      %th Båtplassnr
+      %th Bryggebokstav
+      %th Bredde
+      %th Pris pr. breddemeter
+      %th I stand
       %th
       %th
       %th
@@ -15,13 +16,18 @@
     - @berths.each do |berth|
       %tr
         %td= berth.berth_number
+        %td= berth.pier.letter
         %td= berth.width
         %td= berth.price_per_month
-        %td= berth.in_service
-        %td= link_to 'Show', berth
-        %td= link_to 'Edit', edit_berth_path(berth)
-        %td= link_to 'Destroy', berth, method: :delete, data: { confirm: 'Are you sure?' }
+        - if berth.in_service
+          %td Ja
+        - else
+          %td Nei
+        %td= link_to 'Vis', berth
+        %td= link_to 'Endre', edit_berth_path(berth)
+        %td= link_to 'Slett', berth, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Berth', new_berth_path
+= link_to 'Ny båtplass', new_berth_path
+= link_to 'Tilbake', marina_index_path

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :service_orders
+  resources :berth_orders
   devise_for :users
   resources :users
   resources :services

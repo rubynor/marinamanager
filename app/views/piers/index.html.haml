@@ -1,9 +1,9 @@
-%h1 Listing piers
+%h1 Brygger, oversikt
 
 %table
   %thead
     %tr
-      %th Letter
+      %th Bokstav
       %th
       %th
       %th
@@ -12,10 +12,11 @@
     - @piers.each do |pier|
       %tr
         %td= pier.letter
-        %td= link_to 'Show', pier
-        %td= link_to 'Edit', edit_pier_path(pier)
-        %td= link_to 'Destroy', pier, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Vis', pier
+        %td= link_to 'Endre', edit_pier_path(pier)
+        %td= link_to 'Slett', pier, method: :delete, data: { confirm: 'Er du sikker?' }
 
 %br
 
-= link_to 'New Pier', new_pier_path
+= link_to 'Ny brygge', new_pier_path
+= link_to 'Tilbake', marina_index_path

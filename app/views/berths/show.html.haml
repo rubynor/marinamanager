@@ -1,18 +1,18 @@
 %p#notice= notice
 
 %p
-  %b Berth number:
+  %b Båtplassnummer:
   = @berth.berth_number
 %p
-  %b Width:
+  %b Bredde:
   = @berth.width
 %p
-  %b Price per month:
+  %b Månedspris:
   = @berth.price_per_month
 %p
-  %b In service:
+  %b I stand:
   = @berth.in_service
 
-= link_to 'Edit', edit_berth_path(@berth)
+= link_to 'Endre', edit_berth_path(@berth)
 \|
-= link_to 'Back', berths_path
+= link_to 'Tilbake', berths_path

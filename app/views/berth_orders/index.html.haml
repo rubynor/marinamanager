@@ -1,0 +1,31 @@
+%h1 Båtplassbestillinger
+
+%table
+  %thead
+    %tr
+      %th Båtplass
+      %th Reg. nr, båt
+      %th Pris pr. mnd
+      %th Utleie fra
+      %th Utleie til
+      %th
+      %th
+      %th
+
+  %tbody
+    - @berth_orders.each do |berth_order|
+      %tr
+        %td= berth_order.berth.berth_number
+        %td= berth_order.boat.reg_number
+        %td= berth_order.berth.price_per_month
+        -# må regnes ut, price per month * berth.width
+        %td= berth_order.start_date
+        %td= berth_order.end_date
+        %td= link_to 'Vis', berth_order
+        %td= link_to 'Endre', edit_berth_order_path(berth_order)
+        %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'Ny båtplassbestilling', new_berth_order_path
+= link_to 'Tilbake', marina_index_path

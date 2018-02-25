@@ -1,0 +1,24 @@
+= form_for @service_order do |f|
+  - if @service_order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@service_order.errors.count, "error")} prohibited this service_order from being saved:"
+      %ul
+        - @service_order.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :bruker
+    -# Hensiktsmessig felt, må sjekke om bruker finnes
+  .field
+    = f.label :tjeneste
+    -# Hensiktsmessig felt, må sjekke om tjeneste finnes
+  .field
+    = f.label :begynner
+    = f.date_field :start_service
+  .field
+    = f.label :utgår
+    = f.date_field :end_service
+
+
+  .actions
+    = f.submit 'Lagre endringer'

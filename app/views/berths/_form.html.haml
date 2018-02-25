@@ -7,16 +7,16 @@
           %li= message
 
   .field
-    = f.label :berth_number
+    = f.label :båtplassnummer
     = f.number_field :berth_number
   .field
-    = f.label :width
+    = f.label :bredde
     = f.text_field :width
   .field
-    = f.label :price_per_month
+    = f.label :månedspris
     = f.text_field :price_per_month
   .field
-    = f.label :in_service
+    = f.label :i_stand
     = f.check_box :in_service
   .actions
-    = f.submit 'Save'
+    = f.submit 'Lagre'

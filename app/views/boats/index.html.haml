@@ -1,8 +1,6 @@
-- if notice
-  .aside#notice= notice
+%h1 Båter, oversikt
 
-%h1 Mine båter
-
+%h2 Dine båter
 %table
   %thead
     %tr
@@ -27,8 +25,32 @@
 
           %td= link_to 'Vis', boat
           %td= link_to 'Endre', edit_boat_path(boat)
-          %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }
+
+- if current_user.user_level == 1
+  %h2 Alle båter
+  %tbody
+  %table
+    %thead
+      %tr
+        %th Reg. nr
+        %th Modell
+        %th Bredde
+        %th Lengde
+        %th Båtplass
+        %th Båteier
+
+    - @boats.each do |boat|
+      %tr
+        %td= boat.reg_number
+        %td= boat.model
+        %td= boat.width
+        %td= boat.length
+        %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
+        %td= boat.user.first_name + " " + boat.user.last_name
 
 %br
-
 = link_to 'Legg til båt', new_boat_path
+
+%br
+= link_to 'Tilbake', marina_index_path

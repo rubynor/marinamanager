@@ -1,0 +1,29 @@
+%h1 Tjenestebestillinger, oversikt
+
+%table
+  %thead
+    %tr
+      %th Bestiller
+      %th Tjeneste
+      %th Begynner
+      %th Utgår
+      %th
+      %th
+      %th
+
+  %tbody
+    - @service_orders.each do |service_order|
+      %tr
+        %td
+          ="#{service_order.user.first_name}"
+          ="#{service_order.user.last_name}"
+        %td= service_order.service.title
+        %td= service_order.start_service
+        %td= service_order.end_service
+        %td= link_to 'Endre', edit_service_order_path(service_order)
+        %td= link_to 'Slett', service_order, method: :delete, data: { confirm: 'Er du sikker?' }
+
+%br
+
+= link_to 'Lag ny bestilling', new_service_order_path
+= link_to 'Tilbake', marina_index_path

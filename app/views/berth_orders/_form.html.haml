@@ -1,0 +1,10 @@
+= form_for @berth_order do |f|
+  - if @berth_order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@berth_order.errors.count, "error")} prohibited this berth_order from being saved:"
+      %ul
+        - @berth_order.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Lagre'
