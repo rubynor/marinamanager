@@ -1,7 +1,7 @@
 = form_for @pier do |f|
   - if @pier.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@pier.errors.count, "error")} prohibited this pier from being saved:"
+      %h2= "#{@pier.errors.count} feil hindret denne bryggebokstaven fra å bli lagret:"
       %ul
         - @pier.errors.full_messages.each do |message|
           %li= message

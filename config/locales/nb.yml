@@ -1,5 +1,9 @@
 nb:
   activerecord:
+    models:
+      user:
+        one: Bruker
+        many: Brukere
     attributes:
       user:
         user_level: Brukernivå
@@ -19,6 +23,7 @@ nb:
         model: Modell
         width: Bredde
         length: Lengde
+        user: Bruker
       service:
         title: Navn på tjeneste
         description: Beskrivelse

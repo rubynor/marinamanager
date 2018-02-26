@@ -1,7 +1,7 @@
 = form_for @berth do |f|
   - if @berth.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@berth.errors.count, "error")} prohibited this berth from being saved:"
+      %h2= "#{@berth.errors.count} feil hindret denne båtplassen fra å bli lagret:"
       %ul
         - @berth.errors.full_messages.each do |message|
           %li= message

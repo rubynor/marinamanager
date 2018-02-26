@@ -1,7 +1,7 @@
 = form_for @boat do |f|
   - if @boat.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@boat.errors.count, "error")} prohibited this boat from being saved:"
+      %h2= "#{@boat.errors.count} feil hindret denne båten fra å bli lagret:"
       %ul
         - @boat.errors.full_messages.each do |message|
           %li= message
@@ -18,5 +18,8 @@
   .field
     = f.label :length
     = f.text_field :length
+  .field
+    = f.hidden_field :user_id, value: current_user.id
+
   .actions
     = f.submit 'Legg til'

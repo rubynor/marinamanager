@@ -1,7 +1,7 @@
 = form_for @service do |f|
   - if @service.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@service.errors.count, "error")} prohibited this service from being saved:"
+      %h2= "#{@service.errors.count} feil hindret denne tjenesten fra å bli lagret:"
       %ul
         - @service.errors.full_messages.each do |message|
           %li= message
