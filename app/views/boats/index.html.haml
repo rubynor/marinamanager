@@ -42,12 +42,13 @@
 
     - @boats.each do |boat|
       %tr
-        %td= boat.reg_number
-        %td= boat.model
-        %td= boat.width
-        %td= boat.length
-        %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
-        %td= boat.user.first_name + " " + boat.user.last_name
+        - if boat.user_id != current_user.id
+          %td= boat.reg_number
+          %td= boat.model
+          %td= boat.width
+          %td= boat.length
+          %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
+          %td= boat.user.first_name + " " + boat.user.last_name
 
 %br
 = link_to 'Legg til båt', new_boat_path

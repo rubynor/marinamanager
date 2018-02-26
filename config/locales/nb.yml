@@ -1,10 +1,8 @@
-
-
 nb:
-
   activerecord:
     attributes:
       user:
+        user_level: Brukernivå
         first_name: Fornavn
         last_name: Etternavn
         email: Epost
@@ -26,14 +24,6 @@ nb:
         description: Beskrivelse
         price_per_month: Månedspris
         active: Aktiv
-
-    errors:
-      messages:
-        record_invalid: 'Det oppstod feil: %{errors}'
-        restrict_dependent_destroy:
-          has_one: Kan ikke slette registreringen, fordi 1 %{record} avhenger av denne.
-          has_many: Kan ikke slette registreringen, fordi %{record} avhenger av denne.
-
 
   date:
     abbr_day_names:
@@ -161,6 +151,10 @@ nb:
       too_short: er for kort (minimum %{count} tegn)
       wrong_length: er av feil lengde (maksimum %{count} tegn)
       other_than: kan ikke være nøyaktig %{count}
+      record_invalid: 'Det oppstod feil: %{errors}'
+      restrict_dependent_destroy:
+        has_one: Kan ikke slette registreringen, fordi 1 %{record} avhenger av denne.
+        has_many: Kan ikke slette registreringen, fordi %{record} avhenger av denne.
     template:
       body: 'Det oppstod problemer med følgende felt:'
       header:
