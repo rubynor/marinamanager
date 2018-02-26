@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root 'marina#index', as: 'marina_index'
+  root 'marina#home'
   get 'home', to: 'marina#home'
   get 'berths', to: 'marina#berths'
   get 'boatramp', to: 'marina#boatramp'
