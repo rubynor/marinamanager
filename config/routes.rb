@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'marina#index', as: 'marina_index'
+  get 'home', to: 'marina#home'
+  get 'berths', to: 'marina#berths'
+  get 'boatramp', to: 'marina#boatramp'
+  get 'services', to: 'marina#services'
+  get 'contact', to: 'marina#contact'
 
   scope '(:locale)' do
     resources :berth_orders

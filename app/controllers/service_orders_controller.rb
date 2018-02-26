@@ -1,4 +1,4 @@
-class ServiceOrdersController < ApplicationController
+class ServiceOrdersController < LoggedInController
   before_action :set_service_order, only: [:show, :edit, :update, :destroy]
 
   # GET /service_orders

@@ -1,4 +1,4 @@
-class BerthsController < ApplicationController
+class BerthsController < LoggedInController
   before_action :set_berth, only: [:show, :edit, :update, :destroy]
 
   # GET /berths

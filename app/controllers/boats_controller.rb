@@ -1,4 +1,4 @@
-class BoatsController < ApplicationController
+class BoatsController < LoggedInController
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
   # GET /boats

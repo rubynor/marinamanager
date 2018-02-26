@@ -1,4 +1,4 @@
-class ServicesController < ApplicationController
+class ServicesController < LoggedInController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   # GET /services

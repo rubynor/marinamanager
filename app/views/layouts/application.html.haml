@@ -15,15 +15,15 @@
               %div.image-fluid
                 = image_tag('logo', size: "340x100")
             %li.nav-item
-              %a.nav-link(href=marina_index_path) Hjem
+              %a.nav-link(href=home_path) Hjem
             %li.nav-item
-              %a.nav-link(href=marina_index_path) Båtplass
+              %a.nav-link(href=berths_path) Båtplass
             %li.nav-item
-              %a.nav-link(href=marina_index_path) Båtslipp
+              %a.nav-link(href=boatramp_path) Båtslipp
             %li.nav-item
-              %a.nav-link(href=marina_index_path) Tjenester
+              %a.nav-link(href=services_path) Tjenester
             %li.nav-item
-              %a.nav-link(href=marina_index_path) Kontakt
+              %a.nav-link(href=contact_path) Kontakt
           %ul.nav.navbar-nav.navbar-right
             %li.nav-item
               %p
@@ -31,7 +31,9 @@
                   Innlogget som
                   = succeed "." do
                     %strong= current_user.email
-                  = link_to 'Endre profil', edit_user_registration_path, :class => 'navbar-link'
+                  = link_to 'Dashboard', marina_index_path, :class => 'navbar-link'
+                  |
+                  = link_to 'Endre bruker', edit_user_registration_path, :class => 'navbar-link'
                   |
                   \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
                 - else

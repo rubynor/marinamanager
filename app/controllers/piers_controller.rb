@@ -1,4 +1,4 @@
-class PiersController < ApplicationController
+class PiersController < LoggedInController
   before_action :set_pier, only: [:show, :edit, :update, :destroy]
 
   # GET /piers
