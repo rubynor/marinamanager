@@ -1,7 +1,8 @@
-%h1 Editing boat
+%div.container
+  %h1 Endre båt
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @boat
-\|
-= link_to 'Back', boats_path
+  = link_to 'Vis', @boat, class: "text-primary"
+  \|
+  = link_to 'Tilbake', boats_path, class: "text-primary"
