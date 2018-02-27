@@ -7,7 +7,16 @@ protected
     if user_signed_in?
       super
     else
-      redirect_to home_path, :notice => 'Må være logget inn for dette'
+      redirect_to index_path, :notice => 'Må være logget inn for dette'
     end
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.user_level.present?
+      index_path
+    else
+      home_path
+    end
+  end
+
 end

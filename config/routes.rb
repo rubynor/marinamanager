@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'boatramp', to: 'marina#boatramp'
   get 'services', to: 'marina#services'
   get 'contact', to: 'marina#contact'
+  get 'index', to: 'marina#index'
 
   scope '(:locale)' do
     resources :berth_orders
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     resources :service_orders
     resources :services
     resources :users
-    root 'marina#index'
+    root 'marina#home'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,17 +1,18 @@
-%h2 Logg inn
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :epost
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :passord
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
+%div.container
+  %h2 Logg inn
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
-      = f.check_box :remember_me
-      = f.label :husk_meg
-  .actions
-    = f.submit "Logg inn"
-= render "devise/shared/links"
+      = f.label :epost
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label :passord
+      %br/
+      = f.password_field :password, autocomplete: "off"
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :husk_meg
+    .actions
+      = f.submit "Logg inn"
+  = render "devise/shared/links"

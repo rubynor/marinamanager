@@ -1,12 +1,24 @@
-- if current_user
-  - if current_user.user_level == 0
-    = link_to 'Mine Båter', boats_path
-    = link_to 'Mine Tjenester', services_path
-  - elsif current_user.user_level == 1
-    = link_to 'Båter', boats_path
-    = link_to 'Tjenester', services_path
-    = link_to 'Båtplasser', berths_path
-    = link_to 'Brygger', piers_path
-    = link_to 'Brukere', users_path
-    = link_to 'Tjenestebestillinger', service_orders_path
-    = link_to 'Båtplassbestillinger', berth_orders_path
+%div.container
+  - if current_user
+    - if current_user.user_level == 0
+      %ul.list-inline.bg-primary
+        %li
+          = link_to 'Mine Båter', boats_path
+        %li
+          = link_to 'Mine Tjenester', services_path
+    - elsif current_user.user_level == 1
+      %ul.list-inline
+        %li
+          = link_to 'Båter', boats_path
+        %li
+          = link_to 'Tjenester', services_path
+        %li
+          = link_to 'Båtplasser', berths_path
+        %li
+          = link_to 'Brygger', piers_path
+        %li
+          = link_to 'Brukere', users_path
+        %li
+          = link_to 'Tjenestebestillinger', service_orders_path
+        %li
+          = link_to 'Båtplassbestillinger', berth_orders_path
