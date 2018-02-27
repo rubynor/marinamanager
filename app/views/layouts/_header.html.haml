@@ -5,8 +5,6 @@
 
         %div.image-fluid
           = image_tag('logo', size: "340x100")
-        -# %button.navbar-toggler(type: "button", data-toggle: "collapse", data-target: "#navbarSupportedContent")
-        -#   %span.navbar-toggler-icon
 
         %ul.navbar-nav
           %li.nav-item
@@ -22,19 +20,21 @@
         %ul.navbar-nav.ml-auto
           %li.nav-item
             - if user_signed_in?
-              Innlogget som
-              = succeed "." do
-                %strong= current_user.email
-              %br
               = link_to 'Dashboard', index_path, :class => 'navbar-link.text-primary'
               |
               = link_to 'Endre bruker', edit_user_registration_path, :class => 'navbar-link.text-primary'
               |
-              \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link.text-primary'}
+              = link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link.text-primary'
+              %br
+              Innlogget som
+              = succeed "." do
+                %strong= current_user.email
+
+
             - else
               = link_to "Lag konto", new_user_path, :class => 'navbar-link.text-primary'
               |
-              \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link.text-primary'}
+              = link_to "Logg inn", new_user_session_path, :class => 'navbar-link.text-primary'
     %section.header
       %div.image-fluid
         = image_tag('header.jpg', size: "700x450")
