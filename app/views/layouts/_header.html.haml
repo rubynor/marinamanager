@@ -25,15 +25,16 @@
               Innlogget som
               = succeed "." do
                 %strong= current_user.email
-              = link_to 'Dashboard', index_path, :class => 'navbar-link'
+              %br
+              = link_to 'Dashboard', index_path, :class => 'navbar-link.text-primary'
               |
-              = link_to 'Endre bruker', edit_user_registration_path, :class => 'navbar-link'
+              = link_to 'Endre bruker', edit_user_registration_path, :class => 'navbar-link.text-primary'
               |
-              \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
+              \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link.text-primary'}
             - else
-              = link_to "Lag konto", new_user_path, :class => 'navbar-link'
+              = link_to "Lag konto", new_user_path, :class => 'navbar-link.text-primary'
               |
-              \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link'}
+              \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link.text-primary'}
     %section.header
       %div.image-fluid
         = image_tag('header.jpg', size: "700x450")
