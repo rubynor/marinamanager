@@ -5,49 +5,13 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
   %body
-    %header.main
-      %nav.navbar.navbar-default
-        %div.container-fluid
-          %ul.nav.navbar-nav.navbar
-            %li.nav-item
-              %div.image-fluid
-                = image_tag('logo', size: "340x100")
-            %li.nav-item
-              %a.nav-link(href=home_path) Hjem
-            %li.nav-item
-              %a.nav-link(href=berths_path) Båtplass
-            %li.nav-item
-              %a.nav-link(href=boatramp_path) Båtslipp
-            %li.nav-item
-              %a.nav-link(href=services_path) Tjenester
-            %li.nav-item
-              %a.nav-link(href=contact_path) Kontakt
-          %ul.nav.navbar-nav.navbar-right
-            %li.nav-item
-              %p
-                - if user_signed_in?
-                  Innlogget som
-                  = succeed "." do
-                    %strong= current_user.email
-                  = link_to 'Dashboard', marina_index_path, :class => 'navbar-link'
-                  |
-                  = link_to 'Endre bruker', edit_user_registration_path, :class => 'navbar-link'
-                  |
-                  \#{link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
-                - else
-                  = link_to "Lag konto", new_user_path, :class => 'navbar-link'
-                  |
-                  \#{link_to "Logg inn", new_user_session_path, :class => 'navbar-link'}
-        %section.header
-          %div.image-fluid
-            = image_tag('header.jpg', size: "700x450")
+    = render 'layouts/header'
+    %main.controller.controller_name
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
 
-      %main.controller.controller_name
-      - if notice
-        %p.alert.alert-success= notice
-      - if alert
-        %p.alert.alert-danger= alert
-
-      = yield
+    = yield
+    = render 'layouts/footer'

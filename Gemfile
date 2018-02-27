@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 gem 'devise'
-gem 'bootstrap3-rails'
+gem 'bootstrap'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
