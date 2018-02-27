@@ -1,7 +1,8 @@
-%h1 Editing service
+%div.container
+  %h1 Editing service
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @service
-\|
-= link_to 'Back', services_path
+  = link_to 'Show', @service, class: "text-primary"
+  \|
+  = link_to 'Back', services_path, class: "text-primary"

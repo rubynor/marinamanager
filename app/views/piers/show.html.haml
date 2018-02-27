@@ -1,9 +1,10 @@
-%p#notice= notice
+%div.container
+  %p#notice= notice
 
-%p
-  %b Brygge:
-  = @pier.letter
+  %p
+    %b Brygge:
+    = @pier.letter
 
-= link_to 'Endre', edit_pier_path(@pier)
-\|
-= link_to 'Tilbake', piers_path
+  = link_to 'Endre', edit_pier_path(@pier), class: "text-primary"
+  \|
+  = link_to 'Tilbake', piers_path, class: "text-primary"

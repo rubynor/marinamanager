@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'marina#home'
+  # Static pages:
   get 'home', to: 'marina#home'
-  get 'berths', to: 'marina#berths'
   get 'boatramp', to: 'marina#boatramp'
-  get 'services', to: 'marina#services'
   get 'contact', to: 'marina#contact'
   get 'index', to: 'marina#index'
+  get 'batplass', to: 'marina#berths'
+  get 'tjenester', to: 'marina#services'
+
+
 
   scope '(:locale)' do
     resources :berth_orders

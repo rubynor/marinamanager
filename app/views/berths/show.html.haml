@@ -1,18 +1,19 @@
-%p#notice= notice
+%div.container
+  %p#notice= notice
 
-%p
-  %b Båtplassnummer:
-  = @berth.berth_number
-%p
-  %b Bredde:
-  = @berth.width
-%p
-  %b Månedspris:
-  = @berth.price_per_month
-%p
-  %b I stand:
-  = @berth.in_service
+  %p
+    %b Båtplassnummer:
+    = @berth.berth_number
+  %p
+    %b Bredde:
+    = @berth.width
+  %p
+    %b Månedspris:
+    = @berth.price_per_month
+  %p
+    %b I stand:
+    = @berth.in_service
 
-= link_to 'Endre', edit_berth_path(@berth)
-\|
-= link_to 'Tilbake', berths_path
+  = link_to 'Endre', edit_berth_path(@berth), class: "text-primary"
+  \|
+  = link_to 'Tilbake', berths_path, class: "text-primary"

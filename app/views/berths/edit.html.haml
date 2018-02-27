@@ -1,7 +1,8 @@
-%h1 Editing berth
+%div.container
+  %h1 Editing berth
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Vis', @berth
-\|
-= link_to 'Tilbake', berths_path
+  = link_to 'Vis', @berth, class: "text-primary"
+  \|
+  = link_to 'Tilbake', berths_path, class: "text-primary"
