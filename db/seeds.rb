@@ -18,10 +18,10 @@
 
  Service.destroy_all
  Service.create!([
-  { id: 1, title: "Medlemskap", description: "Medlemskontigent", price_per_month: 350, active: :true },
-  { id: 2, title: "Bryggeplass", description: "Prisen er pr. breddemeter", price_per_month: 300, active: :true},
-  { id: 3, title: "Strøm, Opplag", description: "Gjelder fra oktober til april", price_per_month: 600, active: :true},
- 	{ id: 4, title: "Strøm, Brygge", description: "Gjelder fra mai til september", price_per_month: 800, active: :false}
+  { id: 1, title: "Medlemskap", description: "Medlemskontigent", price_per_month: 350, active: false },
+  { id: 2, title: "Bryggeplass", description: "Prisen er pr. breddemeter", price_per_month: 300, active: true},
+  { id: 3, title: "Strøm, Opplag", description: "Gjelder fra oktober til april", price_per_month: 600, active: true},
+ 	{ id: 4, title: "Strøm, Brygge", description: "Gjelder fra mai til september", price_per_month: 800, active: true}
                  ])
 
  Pier.destroy_all
@@ -31,7 +31,7 @@
 
  Berth.destroy_all
  Berth.create!([
-		{ id: 1, pier: Pier.first, berth_number: 1, width: 3, price_per_month: 250, in_service: true },
+		{ id: 1, pier: Pier.first, berth_number: 1, width: 3, price_per_month: 250, in_service: false },
 		{ id: 2, pier: Pier.first, berth_number: 2, width: 3, price_per_month: 250, in_service: true }
               ])
 
