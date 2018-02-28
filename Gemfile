@@ -9,7 +9,8 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+ gem 'sqlite3'
+#gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -43,18 +44,16 @@ gem 'client_side_validations'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :production do
-  gem 'pg', '~> 0.18'
-end
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   # Adds rspec for testing
-  gem 'rspec-core'
   gem 'rspec-rails'
   gem 'factory_bot_rails', "~> 4.0"
   gem 'faker'
