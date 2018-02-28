@@ -1,7 +1,8 @@
-%h1 Endre bruker
+%div.container
+  %h1 Endre bruker
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Vis', @user
-\|
-= link_to 'Tilbake', users_path
+  = link_to 'Vis', @user, class: "text-primary"
+  \|
+  = link_to 'Tilbake', users_path, class: "text-primary"

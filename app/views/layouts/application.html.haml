@@ -7,11 +7,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/header'
-    %main.controller.controller_name
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
+    %div.container
+      %main.controller.controller_name
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
 
     = yield
     = render 'layouts/footer'

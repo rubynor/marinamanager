@@ -1,35 +1,7 @@
-%h1 Båter, oversikt
+%div.container
+  %h1 Båter, oversikt
 
-%h2 Dine båter
-%table
-  %thead
-    %tr
-      %th Reg. nr
-      %th Modell
-      %th Bredde
-      %th Lengde
-      %th Båtplass
-      %th
-      %th
-      %th
-
-  %tbody
-    - @boats.each do |boat|
-      - if boat.user == current_user
-        %tr
-          %td= boat.reg_number
-          %td= boat.model
-          %td= boat.width
-          %td= boat.length
-          %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
-
-          %td= link_to 'Vis', boat
-          %td= link_to 'Endre', edit_boat_path(boat)
-          %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }
-
-- if current_user.user_level == 1
-  %h2 Alle båter
-  %tbody
+  %h2 Dine båter
   %table
     %thead
       %tr
@@ -38,20 +10,55 @@
         %th Bredde
         %th Lengde
         %th Båtplass
-        %th Båteier
+        %th
+        %th
+        %th
 
-    - @boats.each do |boat|
-      %tr
-        - if boat.user_id != current_user.id
-          %td= boat.reg_number
-          %td= boat.model
-          %td= boat.width
-          %td= boat.length
-          %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
-          %td= boat.user.first_name + " " + boat.user.last_name
+    %tbody
+      - @boats.each do |boat|
+        - if boat.user == current_user
+          %tr
+            %td= boat.reg_number
+            %td= boat.model
+            %td= boat.width
+            %td= boat.length
+            %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
 
-%br
-= link_to 'Legg til båt', new_boat_path
+            %td= link_to 'Vis', boat, class: "text-primary"
+            %td= link_to 'Endre', edit_boat_path(boat), class: "text-primary"
+            %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
 
-%br
-= link_to 'Tilbake', marina_index_path
+  - if current_user.user_level == 1
+    %h2 Alle båter
+    %tbody
+    %table
+      %thead
+        %tr
+          %th Reg. nr
+          %th Modell
+          %th Bredde
+          %th Lengde
+          %th Båtplass
+          %th Båteier
+          %th
+          %th
+          %th
+
+      - @boats.each do |boat|
+        %tr
+          - if boat.user_id != current_user.id
+            %td= boat.reg_number
+            %td= boat.model
+            %td= boat.width
+            %td= boat.length
+            %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
+            %td= boat.user.first_name + " " + boat.user.last_name
+            %td= link_to 'Vis', boat, class: "text-primary"
+            %td= link_to 'Endre', edit_boat_path(boat), class: "text-primary"
+            %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
+
+  %br
+  = link_to 'Legg til båt', new_boat_path, class: "text-primary"
+
+  %br
+  = link_to 'Tilbake', index_path, class: "text-primary"

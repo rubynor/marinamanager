@@ -1,22 +1,23 @@
-%h1 Brygger, oversikt
+%div.container
+  %h1 Brygger, oversikt
 
-%table
-  %thead
-    %tr
-      %th Bokstav
-      %th
-      %th
-      %th
-
-  %tbody
-    - @piers.each do |pier|
+  %table
+    %thead
       %tr
-        %td= pier.letter
-        %td= link_to 'Vis', pier
-        %td= link_to 'Endre', edit_pier_path(pier)
-        %td= link_to 'Slett', pier, method: :delete, data: { confirm: 'Er du sikker?' }
+        %th Bokstav
+        %th
+        %th
+        %th
 
-%br
-= link_to 'Ny brygge', new_pier_path
-%br
-= link_to 'Tilbake', marina_index_path
+    %tbody
+      - @piers.each do |pier|
+        %tr
+          %td= pier.letter
+          %td= link_to 'Vis', pier, class: "text-primary"
+          %td= link_to 'Endre', edit_pier_path(pier), class: "text-primary"
+          %td= link_to 'Slett', pier, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
+
+  %br
+  = link_to 'Ny brygge', new_pier_path, class: "text-primary"
+  %br
+  = link_to 'Tilbake', index_path, class: "text-primary"

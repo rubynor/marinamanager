@@ -1,6 +1,7 @@
-%p#notice= notice
+%div.container
+  %p#notice= notice
 
 
-= link_to 'Edit', edit_berth_order_path(@berth_order)
-\|
-= link_to 'Back', berth_orders_path
+  = link_to 'Endre', edit_berth_order_path(@berth_order), class: "text-primary"
+  \|
+  = link_to 'Tilbake', berth_orders_path, class: "text-primary"

@@ -1,33 +1,34 @@
-%h1 Båtplasser, oversikt
+%div.container
+  %h1 Båtplasser, oversikt
 
-%table
-  %thead
-    %tr
-      %th Båtplassnr
-      %th Bryggebokstav
-      %th Bredde
-      %th Pris pr. breddemeter
-      %th I stand
-      %th
-      %th
-      %th
-
-  %tbody
-    - @berths.each do |berth|
+  %table
+    %thead
       %tr
-        %td= berth.berth_number
-        %td= berth.pier.letter
-        %td= berth.width
-        %td= berth.price_per_month
-        - if berth.in_service
-          %td Ja
-        - else
-          %td Nei
-        %td= link_to 'Vis', berth
-        %td= link_to 'Endre', edit_berth_path(berth)
-        %td= link_to 'Slett', berth, method: :delete, data: { confirm: 'Are you sure?' }
+        %th Båtplassnr
+        %th Bryggebokstav
+        %th Bredde
+        %th Pris pr. breddemeter
+        %th I stand
+        %th
+        %th
+        %th
 
-%br
-= link_to 'Ny båtplass', new_berth_path
-%br
-= link_to 'Tilbake', marina_index_path
+    %tbody
+      - @berths.each do |berth|
+        %tr
+          %td= berth.berth_number
+          %td= berth.pier.letter
+          %td= berth.width
+          %td= berth.price_per_month
+          - if berth.in_service
+            %td Ja
+          - else
+            %td Nei
+          %td= link_to 'Vis', berth, class: "text-primary"
+          %td= link_to 'Endre', edit_berth_path(berth), class: "text-primary"
+          %td= link_to 'Slett', berth, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
+
+  %br
+  = link_to 'Ny båtplass', new_berth_path, class: "text-primary"
+  %br
+  = link_to 'Tilbake', index_path, class: "text-primary"

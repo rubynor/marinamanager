@@ -1,28 +1,21 @@
-%h1 Tjenester, oversikt
+%div.container
+  %h1 Tjenester, oversikt
 
-%table
-  %thead
-    %tr
-      %th Tjeneste
-      %th Beskrivelse
-      %th Pris pr. mnd
-      %th Tilgjengelig
+  %table
+    %thead
+      %tr
+        %th Tjeneste
+        %th Beskrivelse
+        %th Pris pr. mnd
+        %th Tilgjengelig
+        %th
+        %th
+        %th
 
-    %tbody
-      - @services.each do |service|
-        %tr
-          - if current_user.user_level == 1
-            %td= service.title
-            %td= service.description
-            %td= service.price_per_month
-            %td
-              - if service.active
-                Ja
-              - else
-                Nei
-
-          - else
-            - if current_user == service.users.first
+      %tbody
+        - @services.each do |service|
+          %tr
+            - if current_user.user_level == 1
               %td= service.title
               %td= service.description
               %td= service.price_per_month
@@ -31,10 +24,24 @@
                   Ja
                 - else
                   Nei
+              %td= link_to 'Vis', service, class: "text-primary"
+              %td= link_to 'Endre', edit_service_path(service), class: "text-primary"
+              %td= link_to 'Slett', service, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
 
-- if current_user.user_level == 1
+            - else
+              - if current_user == service.users.first
+                %td= service.title
+                %td= service.description
+                %td= service.price_per_month
+                %td
+                  - if service.active
+                    Ja
+                  - else
+                    Nei
+
+  - if current_user.user_level == 1
+    %br
+    = link_to 'Ny tjeneste', new_service_path, class: "text-primary"
+
   %br
-  = link_to 'Ny tjeneste', new_service_path
-
-%br
-= link_to 'Tilbake', marina_index_path
+  = link_to 'Tilbake', index_path, class: "text-primary"
