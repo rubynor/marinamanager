@@ -45,3 +45,6 @@ bower.json
 
 # Ignore Spring files.
 /spring/*.pid
+
+#ignore heroku builds
+/*.tar.gz
