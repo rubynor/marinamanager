@@ -6,10 +6,10 @@ FactoryBot.define do
       last_name { Faker::Name.last_name }
       password "passord"
       password_confirmation "passord"
-      phone_number { Faker::PhoneNumber }
+      phone_number { Faker::Number.number(8) }
       street_name { Faker::Address.street_name }
-      street_number { Faker::Address.building_number }
-      post_code { Faker::Address.postcode }
+      street_number { Faker::Number.number(2) }
+      post_code { Faker::Number.number(4) }
     end
 
     factory :user do
@@ -19,9 +19,9 @@ FactoryBot.define do
         last_name { Faker::Name.last_name }
         password "passord"
         password_confirmation "passord"
-        phone_number { Faker::PhoneNumber }
+        phone_number { Faker::Number.number(8) }
         street_name { Faker::Address.street_name }
-        street_number { Faker::Address.building_number }
-        post_code { Faker::Address.postcode }
+        street_number { Faker::Number.number(2) }
+        post_code { Faker::Number.number(4) }
       end
   end
