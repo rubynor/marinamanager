@@ -1,7 +1,7 @@
 
 FactoryBot.define do
     factory :berth do
-      berth_number { Faker::Number.number(3)}
+      berth_number { Faker::Number.number(3)} //Random number, may exist and fail test. How to fix?
       width { Faker::Number.between(2, 10) }
       price_per_month{ Faker::Number.number(3)}
       in_service {true}
