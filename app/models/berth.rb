@@ -1,6 +1,6 @@
 class Berth < ApplicationRecord
   belongs_to :pier
-  has_many :berth_orders
+  belongs_to :berth_orders, dependent: :destroy, optional: true
 
   validates :berth_number, :width, :price_per_month, presence: true
   validates :in_service, inclusion: { in: [true, false] }
