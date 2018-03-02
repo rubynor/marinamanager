@@ -38,10 +38,10 @@
               ])
 
  Berth.destroy_all
- Berth.create!([
-		{ id: 1, pier: Pier.first, berth_number: 1, width: 3, price_per_month: 250, in_service: false },
-		{ id: 2, pier: Pier.first, berth_number: 2, width: 3, price_per_month: 250, in_service: true }
-              ])
+
+berth1 = Berth.create!( id: 1, pier: Pier.first, berth_number: 1, width: 3, price_per_month: 250, in_service: false )
+berth2 = Berth.create!(id: 2, pier: Pier.first, berth_number: 2, width: 3, price_per_month: 250, in_service: true )
+            
 
 Boat.destroy_all
 # Båtdetaljer hentet fra artikkel: https://www.nrk.no/livsstil/slik-velger-du-riktig-bat-1.7069737
@@ -64,3 +64,7 @@ BerthOrder.create!([
 	{ id: 1, berth_id: 1, boat_id: boat2.id, start_date: Date.new(2018, 02, 01), end_date: Date.new(2018, 07, 01) },
 	{ id: 2, berth_id: 2, boat_id: boat1.id, start_date: Date.new(2018, 02, 12), end_date: Date.new(2018, 06, 12) }
                     ])
+berth1.berth_order_id = 1
+berth2.berth_order_id = 2
+berth1.save
+berth2.save
