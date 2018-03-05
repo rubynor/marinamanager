@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :services, through: :service_orders
   has_many :berths, through: :berth_orders
-  has_many :boats
+  has_many :boats, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -10,19 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302103203) do
+ActiveRecord::Schema.define(version: 20180305112606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "berth_orders", force: :cascade do |t|
-    t.integer "berth_id"
-    t.integer "boat_id"
-    t.decimal "price_per_month"
-    t.date "start_date"
-    t.date "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "berth_id"
+    t.bigint "boat_id"
+    t.date "start_berth_order"
+    t.date "end_berth_order"
+    t.index ["berth_id"], name: "index_berth_orders_on_berth_id"
+    t.index ["boat_id"], name: "index_berth_orders_on_boat_id"
   end
 
   create_table "berths", force: :cascade do |t|
@@ -33,7 +32,6 @@ ActiveRecord::Schema.define(version: 20180302103203) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pier_id"
-    t.integer "berth_order_id"
   end
 
   create_table "boats", force: :cascade do |t|
@@ -53,10 +51,10 @@ ActiveRecord::Schema.define(version: 20180302103203) do
   end
 
   create_table "service_orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "service_id"
-    t.date "start_service"
-    t.date "end_service"
+    t.bigint "user_id"
+    t.bigint "service_id"
+    t.date "start_service_order"
+    t.date "end_service_order"
     t.index ["service_id"], name: "index_service_orders_on_service_id"
     t.index ["user_id"], name: "index_service_orders_on_user_id"
   end
@@ -94,5 +92,6 @@ ActiveRecord::Schema.define(version: 20180302103203) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "berths", "berth_orders", name: "berth_order_id"
+  add_foreign_key "berths", "piers", name: "pier_id"
+  add_foreign_key "boats", "users", name: "user_id"
 end
