@@ -48,3 +48,6 @@ bower.json
 
 #ignore heroku builds
 /*.tar.gz
+
+#MacOS mess
+.DS_Store
