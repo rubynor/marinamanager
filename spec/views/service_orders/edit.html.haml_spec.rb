@@ -8,7 +8,7 @@ RSpec.describe "service_orders/edit", type: :view do
   it "renders the edit service_order form" do
     render
 
-    assert_select "form[action=?][method=?]", service_order_path(@service_order), "post" do
+    assert_select "form[action=?][method=?]", service_orders_path, "post" do
     end
   end
 end

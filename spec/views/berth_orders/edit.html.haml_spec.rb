@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "berth_orders/edit", type: :view do
   before(:each) do
-    @berth_order = assign(:berth_order, BerthOrder.create!())
+    assign(:berth_order, FactoryBot.create(:berthOrder))
   end
+
 
   it "renders the edit berth_order form" do
     render

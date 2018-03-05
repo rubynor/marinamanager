@@ -15,15 +15,16 @@
 
     %tbody
       - @berth_orders.each do |berth_order|
-        %tr
-          %td= berth_order.berth.berth_number
-          %td= berth_order.boat.reg_number
-          %td= berth_order.berth.price_per_month
-          %td= berth_order.start_date
-          %td= berth_order.end_date
-          %td= link_to 'Vis', berth_order, class: "text-primary"
-          %td= link_to 'Endre', edit_berth_order_path(berth_order), class: "text-primary"
-          %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
+        - if !berth_order.berth.nil? && !berth_order.boat.nil?
+          %tr
+            %td= berth_order.berth.berth_number
+            %td= berth_order.boat.reg_number
+            %td= berth_order.berth.price_per_month
+            %td= berth_order.start_date
+            %td= berth_order.end_date
+            %td= link_to 'Vis', berth_order, class: "text-primary"
+            %td= link_to 'Endre', edit_berth_order_path(berth_order), class: "text-primary"
+            %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
 
   %br
   = link_to 'Ny båtplassbestilling', new_berth_order_path, class: "text-primary"
