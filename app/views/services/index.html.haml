@@ -64,7 +64,7 @@
                   Ja
                 - else
                   Nei
-              %td= link_to 'Bestill', new_service_order_path, class: "text-primary"
+              %td= link_to 'Bestill', new_service_order_path(service_id: service.id), class: "text-primary"
 
   %br
   = link_to 'Tilbake', index_path, class: "text-primary"
