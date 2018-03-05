@@ -19,7 +19,7 @@
     = f.label :length
     = f.text_field :length
   .field
-    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :user_id, value: @boat.user_id
 
   .actions
-    = f.submit 'Legg til'
+    = f.submit 'Endre'
