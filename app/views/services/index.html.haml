@@ -42,6 +42,29 @@
   - if current_user.user_level == 1
     %br
     = link_to 'Ny tjeneste', new_service_path, class: "text-primary"
+  - else
+    %h2 Tilgjengelige tjenester
+    %table
+      %thead
+        %tr
+          %th Tjeneste
+          %th Beskrivelse
+          %th Pris pr. mnd
+          %th Tilgjengelig
+          %th
+      %tbody
+        - @services.each do |service|
+          %tr
+            - if current_user != service.users.first
+              %td= service.title
+              %td= service.description
+              %td= service.price_per_month
+              %td
+                - if service.active
+                  Ja
+                - else
+                  Nei
+              %td= link_to 'Bestill', new_service_order_path, class: "text-primary"
 
   %br
   = link_to 'Tilbake', index_path, class: "text-primary"

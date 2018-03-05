@@ -24,6 +24,7 @@ class ServiceOrdersController < LoggedInController
   # POST /service_orders
   # POST /service_orders.json
   def create
+    binding.pry
     @service_order = ServiceOrder.new(service_order_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class ServiceOrdersController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_order_params
-      params.fetch(:service_order, {})
+      params.require(:service_order).permit(:user_id, :service_id, :start_service, :end_service)
     end
 end
