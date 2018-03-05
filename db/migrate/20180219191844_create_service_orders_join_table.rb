@@ -6,9 +6,6 @@ class CreateServiceOrdersJoinTable < ActiveRecord::Migration[5.1]
       t.date :start_service
       t.date :end_service
 
-      add_foreign_key :users, :services
-      add_foreign_key :services, :users
-
       t.timestamp
     end
   end
