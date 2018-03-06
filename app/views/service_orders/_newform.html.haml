@@ -11,10 +11,11 @@
     - if current_user.user_level == 1
       = f.collection_select(:user_id, User.all, :id, :first_name)
     - else
-      = user_id = current_user.id
+      %p= current_user.first_name + " " + current_user.last_name
+
   .field
     = f.label :tjeneste
-    -# Vis tittel på tjeneste 
+    = params[:service_title]
 
   .field
     = f.label :begynner
