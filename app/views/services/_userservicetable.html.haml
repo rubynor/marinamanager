@@ -1,0 +1,41 @@
+%table
+  %h2 Mine tjenester
+  %thead
+    %tr
+      %th Tjeneste
+      %th Beskrivelse
+      %th Pris pr. mnd
+      %th Gyldig
+      %th
+      %th
+      %th
+
+    %tbody
+      - @service_orders.each do |service_order|
+        %tr
+          - if current_user == service_order.service.users.first
+            - if nil
+              %p something.
+            - else
+              %td= service_order.service.title
+              %td= service_order.service.description
+              %td= service_order.service.price_per_month
+              %td
+                = "#{service_order.start_service_order}" + " - " + "#{service_order.start_service_order}"
+
+    %table
+      %h2 Tilgjengelige tjenester
+      %thead
+        %tr
+          %th Tjeneste
+          %th Beskrivelse
+          %th Pris pr. mnd
+          %th
+      %tbody
+        - @services.each do |service|
+          %tr
+            - if current_user != service.users.first
+              %td= service.title
+              %td= service.description
+              %td= service.price_per_month
+              %td= link_to 'Bestill', new_service_order_path(service_id: service.id), class: "text-primary"
