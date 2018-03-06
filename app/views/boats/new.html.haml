@@ -1,6 +1,12 @@
 %div.container
   %h1 Legg til båt
+  %div.row
+    %div.col
+      = render 'form', button_text: "Legg til"
 
-  = render 'form'
+    %div.col-4
+      %h4 Fot til meter:
+      = render 'calc'
+
 
   = link_to 'Tilbake', boats_path, class: "text-primary"
