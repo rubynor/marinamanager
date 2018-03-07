@@ -1,0 +1,18 @@
+%div.container
+  %div.jumbotron
+    %div.row
+      %div.col
+        %div.row
+          %div.col
+            %a{:href => "tel:55553333"}
+              %button.btn.btn-primary Sentralbord: 55 55 33 33
+          %div.col
+            %a{:href => "https://www.facebook.com/marinadebay"}
+              %button.btn.btn-primary Følg oss på Facebook
+        %hr
+
+        = render 'employees'
+        %hr
+        
+        = render 'info'
+      = render 'form'
