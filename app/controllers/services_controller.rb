@@ -5,6 +5,7 @@ class ServicesController < LoggedInController
   # GET /services.json
   def index
     @services = Service.all
+    @service_orders = ServiceOrder.all
   end
 
   # GET /services/1

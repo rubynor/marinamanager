@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get 'batplass', to: 'marina#berths'
   get 'tjenester', to: 'marina#services'
 
-
-
   scope '(:locale)' do
     resources :berth_orders
     resources :berths
