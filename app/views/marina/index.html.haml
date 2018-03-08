@@ -7,18 +7,11 @@
         %div.col-4
           = link_to 'Mine Tjenester', services_path, class: "text-primary"
     - elsif current_user.user_level == 1
-      %div.row
-        %div.col-4
-          = link_to 'Båter', boats_path, class: "text-primary"
-        %div.col-4
-          = link_to 'Tjenester', services_path, class: "text-primary"
-        %div.col-4
-          = link_to 'Båtplasser', berths_path, class: "text-primary"
-        %div.col-4
-          = link_to 'Brygger', piers_path, class: "text-primary"
-        %div.col-4
-          = link_to 'Brukere', users_path, class: "text-primary"
-        %div.col-4
-          = link_to 'Tjenestebestillinger', service_orders_path, class: "text-primary"
-        %div.col-4
-          = link_to 'Båtplassbestillinger', berth_orders_path, class: "text-primary"
+      %div.btn-group.mx-auto
+        = link_to 'Båter', boats_path, class: "btn btn-primary btn-lg text-light"
+        = link_to 'Tjenester', services_path, class: "btn btn-primary btn-lg text-light"
+        = link_to 'Båtplasser', berths_path, class: "btn btn-primary btn-lg text-light"
+        = link_to 'Brygger', piers_path, class: "btn btn-primary btn-lg text-light"
+        = link_to 'Brukere', users_path, class: "btn btn-primary btn-lg text-light"
+        = link_to 'Tjenestebestillinger', service_orders_path, class: "btn btn-primary btn-lg text-light"
+        = link_to 'Båtplassbestillinger', berth_orders_path, class: "btn btn-primary btn-lg text-light"
