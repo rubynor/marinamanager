@@ -1,6 +1,6 @@
 %header.main
   %div.container
-    %nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+    %nav.navbar.navbar-expand-lg.bg-primary
       %div.collapse.navbar-collapse(id="navbarSupportedContent")
 
         %div.image-fluid
@@ -8,27 +8,28 @@
 
         %ul.navbar-nav
           %li.nav-item
-            %a.nav-link(href=home_path) Hjem
+            %a.nav-link.btn.btn-primary.btn-lg.text-light(href=home_path) Hjem
           %li.nav-item
-            %a.nav-link(href=batplass_path) Båtplass
+            %a.nav-link.btn.btn-primary.btn-lg.text-light(href=batplass_path) Båtplass
           %li.nav-item
-            %a.nav-link(href=boatramp_path) Båtslipp
+            %a.nav-link.btn.btn-primary.btn-lg.text-light(href=boatramp_path) Båtslipp
           %li.nav-item
-            %a.nav-link(href=tjenester_path) Tjenester
+            %a.nav-link.btn.btn-primary.btn-lg.text-light(href=tjenester_path) Tjenester
           %li.nav-item
-            %a.nav-link(href=contact_path) Kontakt
+            %a.nav-link.btn.btn-primary.btn-lg.text-light(href=contact_path) Kontakt
         %ul.navbar-nav.ml-auto
           %li.nav-item
             - if user_signed_in?
-              = link_to 'Dashboard', index_path, :class => 'navbar-link.text-primary'
+              = link_to 'Dashboard', index_path, :class => 'text-light'
               |
-              = link_to 'Endre bruker', edit_user_registration_path, :class => 'navbar-link.text-primary'
+              = link_to 'Endre bruker', edit_user_registration_path, :class => 'text-light'
               |
-              = link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'navbar-link.text-primary'
+              = link_to "Logg ut", destroy_user_session_path, method: :delete, :class => 'text-light'
               %br
-              Innlogget som
-              = succeed "." do
-                %strong= current_user.email
+              %p
+                Innlogget som
+                = succeed "." do
+                  %strong= current_user.email
 
 
             - else
