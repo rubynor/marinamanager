@@ -11,6 +11,11 @@
   %p
     %b Lengde
     = @boat.length
+  %p
+    - if !@boat.berth_orders.first.nil? 
+      %b Båtplass
+      = "#{@boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{@boat&.berth_orders&.first&.berth&.berth_number}" 
+      = "(#{@boat&.berth_orders&.first&.start_berth_order&.strftime('%d %B %Y')} - #{@boat&.berth_orders&.first&.end_berth_order&.strftime('%d %B %Y')})"
 
   = link_to 'Endre', edit_boat_path(@boat), class: "text-primary"
   \|

@@ -16,4 +16,5 @@
 //= require jquery-ui
 //= require rails.validations
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require_tree .

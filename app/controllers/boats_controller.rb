@@ -65,6 +65,6 @@ class BoatsController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def boat_params
-      params.require(:boat).permit(:reg_number, :model, :width, :length, :user_id)
+      params.require(:boat).permit(:reg_number, :model, :width, :length, :user_id, berth_orders_attributes: [:boat_id, :start_berth_order, :end_berth_order, :_destroy])
     end
 end
