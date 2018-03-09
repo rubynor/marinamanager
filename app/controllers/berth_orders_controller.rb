@@ -69,6 +69,6 @@ class BerthOrdersController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def berth_order_params
-      params.fetch(:berth_order, {})
+      params.require(:berth_order).permit(:berth_id, :boat_id, :start_berth_order, :end_berth_order)
     end
 end

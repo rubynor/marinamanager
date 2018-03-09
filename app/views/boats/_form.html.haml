@@ -22,8 +22,7 @@
     = f.hidden_field :user_id, value: current_user.id
   .fields
     = f.fields_for :berth_orders do | berth_order |
-      = render 'berth_order', f: berth_order
-  .links
-    = link_to_add_row 'add berth lease', f, :berth_orders, class: 'btn btn-primary' 
+      = render 'berth_order', f: berth_order   
   .actions
     = f.submit 'Lagre'
+    = link_to_add_row 'Ny plassleie', f, :berth_orders, class: "btn btn-outline-dark" 

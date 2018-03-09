@@ -1,9 +1,9 @@
 .nested-fields
   
     = f.hidden_field :boat_id, value: @boat.id
-    = f.hidden_field :_destroy
     = f.label :start_dato
-    = f.text_field :start_berth_order, 'data-provide': 'datepicker'
+    = f.text_field :start_berth_order, 'data-provide': 'datepicker', data: { date_format: 'dd.mm.yyyy' }
     = f.label :slutt_dato
-    = f.text_field :end_berth_order, 'data-provide': 'datepicker'
-    = link_to 'Slett', '#', class: 'remove_record'
+    = f.text_field :end_berth_order, 'data-provide': 'datepicker', data: { date_format: 'dd.mm.yyyy' }
+    = f.check_box :_destroy, class: 'remove_record' 
+ 

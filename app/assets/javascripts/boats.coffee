@@ -3,10 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-  $('form').on 'click', '.remove_record', (event) ->
-    $(this).prev('input[type=hidden]').val '1'
+  $('form').on 'change', '.remove_record', (event) ->
+ #   $(this).prev('input[type=hidden]').val '1'
     $(this).closest('tr').hide()
-    event.preventDefault()
+ #   event.preventDefault()
   $('form').on 'click', '.add_fields', (event) ->
     regexp = undefined
     time = undefined

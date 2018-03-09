@@ -14,8 +14,11 @@
   %p
     - if !@boat.berth_orders.first.nil? 
       %b Båtplass
-      - @boat.berth_orders.each do |berth_order|      
-        = "#{berth_order&.berth&.pier&.letter}" + "#{berth_order&.berth&.berth_number}" 
+      - @boat.berth_orders.each do |berth_order|
+        -if berth_order.berth.nil?
+          = "Venter på tildeling"
+        -else    
+          = "#{berth_order&.berth&.pier&.letter}" + "#{berth_order&.berth&.berth_number}" 
         = "(#{berth_order&.start_berth_order&.strftime('%d %B %Y')} - #{berth_order&.end_berth_order&.strftime('%d %B %Y')})"
         %br
 
