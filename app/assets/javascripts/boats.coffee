@@ -15,3 +15,10 @@ $(document).on 'turbolinks:load', ->
     $('.fields').append $(this).data('fields').replace(regexp, time)
     event.preventDefault()
   return
+
+@deleteCheckboxToggled = (tickbox) ->
+    if tickbox.checked
+      $(tickbox).parent().find('.datepicker').addClass('bg-danger text-white')
+    else
+      $(tickbox).parent().find('.datepicker').removeClass('bg-danger text-white')
+  return
