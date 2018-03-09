@@ -45,8 +45,8 @@ gem 'sprockets-rails'
 gem 'client_side_validations'
 gem 'bootstrap-datepicker-rails'
 
-# gem 'mail_form'
-# gem 'simple_form'
+gem 'mail_form'
+gem 'simple_form'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

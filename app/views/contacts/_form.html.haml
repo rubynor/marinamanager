@@ -1,0 +1,11 @@
+%div.col-4
+  %div{:align => "center"}
+    %h3 Hva kan vi hjelpe med?
+    = simple_form_for @contact, :html => { :class => 'form-horizontal' } do |f|
+      = f.input :navn, :required => true
+      = f.input :epost, :required => true
+      = f.input :beskjed, :as => :text, :required => true
+      .hidden
+        = f.input :nickname, :hint => 'tips: Bør holdes blankt!'
+      %div
+        = f.button :submit, 'Send beskjed', :class => "btn btn-primary"

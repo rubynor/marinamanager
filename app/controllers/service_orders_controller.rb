@@ -4,7 +4,12 @@ class ServiceOrdersController < LoggedInController
   # GET /service_orders
   # GET /service_orders.json
   def index
-    @service_orders = ServiceOrder.all
+    if current_user.user_level != 1
+      flash[:notice] = "Ingen tilgang, logg inn som en administrator og prøv igjen."
+      redirect_to index_path
+    else
+      @service_orders = ServiceOrder.all
+    end
   end
 
   # GET /service_orders/1
@@ -24,12 +29,10 @@ class ServiceOrdersController < LoggedInController
   # POST /service_orders
   # POST /service_orders.json
   def create
-    binding.pry
     @service_order = ServiceOrder.new(service_order_params)
-
     respond_to do |format|
       if @service_order.save
-        format.html { redirect_to @service_order, notice: 'Service order was successfully created.' }
+        format.html { redirect_to @service_order, notice: 'Tjenestebestillingen er opprettet.' }
         format.json { render :show, status: :created, location: @service_order }
       else
         format.html { render :new }
@@ -43,7 +46,7 @@ class ServiceOrdersController < LoggedInController
   def update
     respond_to do |format|
       if @service_order.update(service_order_params)
-        format.html { redirect_to @service_order, notice: 'Service order was successfully updated.' }
+        format.html { redirect_to @service_order, notice: 'Tjenestebestillingen har blitt oppdatert.' }
         format.json { render :show, status: :ok, location: @service_order }
       else
         format.html { render :edit }
@@ -57,7 +60,7 @@ class ServiceOrdersController < LoggedInController
   def destroy
     @service_order.destroy
     respond_to do |format|
-      format.html { redirect_to service_orders_url, notice: 'Service order was successfully destroyed.' }
+      format.html { redirect_to service_orders_url, notice: 'Tjenestebestillingen er slettet.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +73,6 @@ class ServiceOrdersController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_order_params
-      params.require(:service_order).permit(:user_id, :service_id, :start_service, :end_service)
+      params.require(:service_order).permit(:user_id, :service_id, :start_service_order, :end_service_order)
     end
 end

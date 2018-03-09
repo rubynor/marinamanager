@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   # Static pages:
   get 'home', to: 'marina#home'
   get 'boatramp', to: 'marina#boatramp'
-  get 'contact', to: 'marina#contact'
+  get 'contacts', to: 'contacts#new'
   get 'index', to: 'marina#index'
   get 'batplass', to: 'marina#berths'
   get 'tjenester', to: 'marina#services'
 
-
+  match '/contacts',  to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
 
   scope '(:locale)' do
     resources :berth_orders

@@ -6,18 +6,23 @@
         - @boat.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :reg_number
-    = f.text_field :reg_number
-  .field
-    = f.label :model
-    = f.text_field :model
-  .field
-    = f.label :width
-    = f.text_field :width
-  .field
-    = f.label :length
-    = f.text_field :length
+  %div.form-row
+    %div.form-group.col-md-6
+      = f.label :reg_number
+      = f.text_field :reg_number, placeholder: "A99-9", class: "form-control"
+    %div.form-group.col-md-6
+      = f.label :model
+      = f.text_field :model, placeholder: "Askeladden C6", class: "form-control"
+  %div.form-row
+    %div.form-group.col-md-6
+      = f.label :width
+      = f.text_field :width, class: "form-control"
+      = f.label :meter
+    %div.form-group.col-md-6
+      = f.label :length
+      = f.text_field :length, class: "form-control"
+      = f.label :meter
+
   .field
     = f.hidden_field :user_id, value: current_user.id
   .fields
