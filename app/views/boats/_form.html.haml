@@ -24,5 +24,5 @@
     = f.fields_for :berth_orders do | berth_order |
       = render 'berth_order', f: berth_order   
   .actions
-    = f.submit 'Lagre'
-    = link_to_add_row 'Ny plassleie', f, :berth_orders, class: "btn btn-outline-dark" 
+    = f.submit 'Lagre', class: "btn btn-outline-secondary text-dark" 
+    = link_to_add_row 'Ny plassleie', f, :berth_orders, class: "btn btn-outline-secondary text-dark" 
