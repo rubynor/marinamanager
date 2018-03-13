@@ -24,7 +24,7 @@
       = f.label :meter
 
   .field
-    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :user_id, value: @boat.user_id
   .fields
     = f.fields_for :berth_orders do | berth_order |
       = render 'berth_order', f: berth_order   
