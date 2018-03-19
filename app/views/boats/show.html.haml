@@ -11,6 +11,16 @@
   %p
     %b Lengde
     = @boat.length
+  %p
+    - if !@boat.berth_orders.first.nil? 
+      %b Båtplass
+      - @boat.berth_orders.each do |berth_order|
+        -if berth_order.berth.nil?
+          = "Venter på tildeling"
+        -else    
+          = "#{berth_order&.berth&.pier&.letter}" + "#{berth_order&.berth&.berth_number}" 
+        = "(#{berth_order&.start_berth_order&.strftime('%d %B %Y')} - #{berth_order&.end_berth_order&.strftime('%d %B %Y')})"
+        %br
 
   = link_to 'Endre', edit_boat_path(@boat), class: "text-primary"
   \|

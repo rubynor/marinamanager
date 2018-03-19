@@ -1,17 +1,24 @@
 %div.container
   - if current_user
     - if current_user.user_level == 0
-      %div.row
-        %div.col-4
-          = link_to 'Mine Båter', boats_path, class: "text-primary"
-        %div.col-4
-          = link_to 'Mine Tjenester', services_path, class: "text-primary"
+      %ul.nav.justify-content-center
+        %li.nav-item
+          = menu_link 'Mine Båter', boats_path
+        %li.nav-item
+          = menu_link 'Mine Tjenester', services_path
     - elsif current_user.user_level == 1
-      %div.btn-group.mx-auto
-        = link_to 'Båter', boats_path, class: "btn btn-primary btn-lg text-light"
-        = link_to 'Tjenester', services_path, class: "btn btn-primary btn-lg text-light"
-        = link_to 'Båtplasser', berths_path, class: "btn btn-primary btn-lg text-light"
-        = link_to 'Brygger', piers_path, class: "btn btn-primary btn-lg text-light"
-        = link_to 'Brukere', users_path, class: "btn btn-primary btn-lg text-light"
-        = link_to 'Tjenestebestillinger', service_orders_path, class: "btn btn-primary btn-lg text-light"
-        = link_to 'Båtplassbestillinger', berth_orders_path, class: "btn btn-primary btn-lg text-light"
+      %ul.nav.justify-content-center
+        %li.nav-item
+          = menu_link 'Båter', boats_path
+        %li.nav-item
+          = menu_link 'Tjenester', services_path
+        %li.nav-item
+          = menu_link 'Båtplasser', berths_path
+        %li.nav-item
+          = menu_link 'Brygger', piers_path
+        %li.nav-item
+          = menu_link 'Brukere', users_path
+        %li.nav-item
+          = menu_link 'Tjenestebestillinger', service_orders_path
+        %li.nav-item
+          = menu_link 'Båtplassbestillinger', berth_orders_path

@@ -22,8 +22,12 @@
       = f.label :length
       = f.text_field :length, class: "form-control"
       = f.label :meter
+
   .field
     = f.hidden_field :user_id, value: @boat.user_id
-
+  .fields
+    = f.fields_for :berth_orders do | berth_order |
+      = render 'berth_order', f: berth_order   
   .actions
-    = f.submit button_text
+    = f.submit 'Lagre', class: "btn btn-outline-secondary text-dark" 
+    = link_to_add_row 'Ny plassleie', f, :berth_orders, class: "btn btn-outline-secondary text-dark" 

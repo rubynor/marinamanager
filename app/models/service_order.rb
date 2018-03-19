@@ -2,8 +2,10 @@ class ServiceOrder < ApplicationRecord
 	belongs_to :user
 	belongs_to :service
 
+	validates :user_id, :service_id, :start_service_order, :end_service_order, presence: true
+
 	scope :overlaps, ->(start_service_order, end_service_order) do
-		where "(start_service_order <= ?) AND (end_service_order >= ?)", end_service_order, start_service_order
+		where "((start_service_order <= ?) AND (end_service_order >= ?))", end_service_order, start_service_order
 	end
 
 	def overlaps?
@@ -23,8 +25,4 @@ class ServiceOrder < ApplicationRecord
 	def siblings
 		ServiceOrder.where('user_id = ? AND service_id = ?', user_id, service_id)
 	end
-
-	validates :user_id, :service_id, :start_service_order, :end_service_order, presence: true
-	validates_presence_of :start_service_order, :end_service_order
-
 end

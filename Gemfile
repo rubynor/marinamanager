@@ -43,6 +43,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sprockets-rails'
 gem 'client_side_validations'
+# gem 'bootstrap-datepicker-rails'
 
 gem 'mail_form'
 gem 'simple_form'
