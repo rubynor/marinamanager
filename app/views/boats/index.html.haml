@@ -2,14 +2,14 @@
   %h1 Båter, oversikt
 
   %h2 Dine båter
-  %table
+  %table.table
     %thead
       %tr
-        %th Reg. nr
-        %th Modell
-        %th Bredde
-        %th Lengde
-        %th Båtplass
+        %th{scope: "col"} Reg. nr
+        %th{scope: "col"} Modell
+        %th{scope: "col"} Bredde
+        %th{scope: "col"} Lengde
+        %th{scope: "col"} Båtplass
         %th
         %th
         %th
@@ -31,15 +31,15 @@
   - if current_user.user_level == 1
     %h2 Alle båter
     %tbody
-    %table
+    %table.table
       %thead
         %tr
-          %th Reg. nr
-          %th Modell
-          %th Bredde
-          %th Lengde
-          %th Båtplass
-          %th Båteier
+          %th{scope: "col"} Reg. nr
+          %th{scope: "col"} Modell
+          %th{scope: "col"} Bredde
+          %th{scope: "col"} Lengde
+          %th{scope: "col"} Båtplass
+          %th{scope: "col"} Båteier
           %th
           %th
           %th
