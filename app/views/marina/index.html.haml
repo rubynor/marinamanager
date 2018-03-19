@@ -3,22 +3,22 @@
     - if current_user.user_level == 0
       %ul.nav.justify-content-center
         %li.nav-item
-          = menu_link 'Mine Båter', boats_path
+          = button_link 'Mine Båter', boats_path
         %li.nav-item
-          = menu_link 'Mine Tjenester', services_path
+          = button_link 'Mine Tjenester', services_path
     - elsif current_user.user_level == 1
       %ul.nav.justify-content-center
         %li.nav-item
-          = menu_link 'Båter', boats_path
+          = button_link 'Båter', boats_path
         %li.nav-item
-          = menu_link 'Tjenester', services_path
+          = button_link 'Tjenester', services_path
         %li.nav-item
-          = menu_link 'Båtplasser', berths_path
+          = button_link 'Båtplasser', berths_path
         %li.nav-item
-          = menu_link 'Brygger', piers_path
+          = button_link 'Brygger', piers_path
         %li.nav-item
-          = menu_link 'Brukere', users_path
+          = button_link 'Brukere', users_path
         %li.nav-item
-          = menu_link 'Tjenestebestillinger', service_orders_path
+          = button_link 'Tjenestebestillinger', service_orders_path
         %li.nav-item
-          = menu_link 'Båtplassbestillinger', berth_orders_path
+          = button_link 'Båtplassbestillinger', berth_orders_path
