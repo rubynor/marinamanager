@@ -19,7 +19,11 @@
     %tbody
       - @users.each do |user|
         %tr
-          %td= user.user_level
+          %td
+            - if user.user_level == 0
+              Bruker
+            - if user.user_level == 1
+              Administrator
           %td= user.first_name
           %td= user.last_name
           %td= user.email
