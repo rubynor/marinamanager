@@ -6,17 +6,26 @@
         - @service.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :price_per_month
-    = f.text_field :price_per_month
-  .field
-    = f.label :active
-    = f.check_box :active
-  .actions
-    = f.submit 'Lagre'
+  %div.form-row
+    %div.form-group.col-md-4
+      .field
+        = f.label :title
+        = f.text_field :title, class: "form-control"
+  %div.form-row
+    %div.form-group.col-md-4
+      .field
+        = f.label :description
+        = f.text_area:description, class: "form-control"
+  %div.form-row
+    %div.form-group.col-md-4
+      .field
+        = f.label :price_per_month
+        = f.text_field :price_per_month, class: "form-control"
+  %div.form-row
+    %div.form-group.col-md-12
+      .field
+        = f.hidden_field :active, value: true
+  %div.form-row
+    .actions
+      = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
+      = link_to 'Tilbake', services_path, class: "btn btn-primary btn-lg text-light btn-sm"
