@@ -1,31 +1,26 @@
 %div.container
   %p#notice= notice
 
-  %p
-    %b User level:
-    = @user.user_level
-  %p
-    %b First name:
-    = @user.first_name
-  %p
-    %b Last name:
-    = @user.last_name
-  %p
-    %b Email:
-    = @user.email
-  %p
-    %b Phone number:
-    = @user.phone_number
-  %p
-    %b Street name:
-    = @user.street_name
-  %p
-    %b Street number:
-    = @user.street_number
-  %p
-    %b Post code:
-    = @user.post_code
+  %table.table
+    %thead
+      %tr
+        %th{scope: "col"} Brukernivå
+        %th{scope: "col"} Navn
+        %th{scope: "col"} Epost
+        %th{scope: "col"} Telefonnummer
+        %th{scope: "col"} Adresse
+        %th{scope: "col"} Postnummer
+      %tr
+        %td
+          - if @user.user_level == 1
+            Administrator
+          - elsif @user.user_level == 0
+            Bruker
+        %td= @user.first_name + " " + @user.last_name
+        %td= @user.email
+        %td= @user.phone_number
+        %td= @user.street_name + " " + @user.street_number
+        %td= @user.post_code
 
-  = link_to 'Endre', edit_user_path(@user), class: "text-primary"
-  \|
-  = link_to 'Tilbake', users_path, class: "text-primary"
+  = link_to 'Endre', edit_user_path(@user), class: "btn btn-primary btn-lg text-light btn-sm"
+  = link_to 'Tilbake', users_path, class: "btn btn-primary btn-lg text-light btn-sm"
