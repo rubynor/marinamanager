@@ -27,6 +27,5 @@
             %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
 
   %br
-  = button_link 'Ny båtplassbestilling', new_berth_order_path
-  %br
-  = button_link 'Tilbake', index_path
+  = link_to 'Ny båtplassbestilling', new_berth_order_path, class: "btn btn-primary btn-lg text-light btn-sm"
+  = link_to 'Tilbake', index_path, class: "btn btn-primary btn-lg text-light btn-sm"
