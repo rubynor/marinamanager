@@ -1,32 +1,34 @@
 = form_for @service_order do |f|
   - if @service_order.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@service_order.errors.count, "error")} prohibited this service_order from being saved:"
+      %h2= "#{@service_order.errors.count} feil hindret denne tjenestebestillingen fra å bli lagret:"
       %ul
         - @service_order.errors.full_messages.each do |message|
           %li= message
+  %div.form-row
+    %div.form-group.col-md-2
+      .field
+        = f.label :bruker
+        - if current_user.user_level == 1
+          %div.dropdown
+            = f.collection_select(:user_id, User.all, :id, :first_name)
+        - else
+          %p.form-control= current_user.first_name + " " + current_user.last_name
 
-  .field
-    = f.label :bruker
-    - if current_user.user_level == 1
-      = f.collection_select(:user_id, User.all, :id, :first_name)
-    - else
-      %p= current_user.first_name + " " + current_user.last_name
-
-  .field
-    = f.label :tjeneste
-    - if current_user.user_level == 1
-      = f.collection_select(:service_id, Service.all, :id, :title)
-    - else
-      = params[:service_title]
-
-  .field
-    = f.label :begynner
-    = f.date_field :start_service_order
-
-  .field
-    = f.label :utgår
-    = f.date_field :end_service_order
+      .field
+        = f.label :tjeneste
+        - if current_user.user_level == 1
+          %div.dropdown
+            = f.collection_select(:service_id, Service.all, :id, :title)
+        - else
+          = params[:service_title]
+    %div.form-group.col-md-2
+      .field
+        = f.label :begynner
+        = f.date_field :start_service_order, class: "form-control"
+    .field
+      = f.label :utgår
+      = f.date_field :end_service_order, class: "form-control"
 
   .field
     - unless current_user.user_level == 1
@@ -34,4 +36,5 @@
       = f.hidden_field :service_id, value: params[:service_id]
 
   .actions
-    = f.submit 'Lagre endringer'
+    = f.submit 'Lagre endringer', class: "btn btn-primary btn-lg text-light btn-sm"
+    = link_to 'Tilbake', service_orders_path, class: "btn btn-primary btn-lg text-light btn-sm"

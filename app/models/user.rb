@@ -12,5 +12,8 @@ class User < ApplicationRecord
             :street_name, :street_number, :post_code, presence: true
   validates :email, uniqueness: true
 
+  def full_name
+    first_name + " " + last_name
+  end
 
 end

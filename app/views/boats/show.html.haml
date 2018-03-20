@@ -1,27 +1,26 @@
 %div.container
-  %p
-    %b Registreringsnummer
-    = @boat.reg_number
-  %p
-    %b Modell
-    = @boat.model
-  %p
-    %b Bredde
-    = @boat.width
-  %p
-    %b Lengde
-    = @boat.length
-  %p
-    - if !@boat.berth_orders.first.nil? 
-      %b Båtplass
-      - @boat.berth_orders.each do |berth_order|
-        -if berth_order.berth.nil?
-          = "Venter på tildeling"
-        -else    
-          = "#{berth_order&.berth&.pier&.letter}" + "#{berth_order&.berth&.berth_number}" 
-        = "(#{berth_order&.start_berth_order&.strftime('%d %B %Y')} - #{berth_order&.end_berth_order&.strftime('%d %B %Y')})"
-        %br
+  %table.table
+    %thead
+      %tr
+        %th{scope: "col"} Registreringsnummer
+        %th{scope: "col"} Modell
+        %th{scope: "col"} Bredde
+        %th{scope: "col"} Lengde
+        %th{scope: "col"} Båtplass
+      %tr
+        %td= @boat.reg_number
+        %td= @boat.model
+        %td= @boat.width
+        %td= @boat.length
+        %td
+          - if !@boat.berth_orders.first.nil?
+            - @boat.berth_orders.each do |berth_order|
+              -if berth_order.berth.nil?
+                = "Venter på tildeling"
+              -else
+                = "#{berth_order&.berth&.pier&.letter}" + "#{berth_order&.berth&.berth_number}"
+              = "(#{berth_order&.start_berth_order&.strftime('%d %B %Y')} - #{berth_order&.end_berth_order&.strftime('%d %B %Y')})"
 
-  = link_to 'Endre', edit_boat_path(@boat), class: "text-primary"
-  \|
-  = link_to 'Tilbake', boats_path, class: "text-primary"
+  = link_to 'Endre', edit_boat_path(@boat), class: "btn btn-primary btn-lg text-light btn-sm"
+  \
+  = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"

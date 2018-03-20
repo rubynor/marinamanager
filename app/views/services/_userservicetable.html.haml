@@ -1,11 +1,11 @@
-%table
+%table.table
   %h2 Mine tjenester
   %thead
     %tr
-      %th Tjeneste
-      %th Beskrivelse
-      %th Pris pr. mnd
-      %th Gyldig
+      %th{scope: "col"} Tjeneste
+      %th{scope: "col"} Beskrivelse
+      %th{scope: "col"} Pris pr. mnd
+      %th{scope: "col"} Gyldig
       %th
       %th
       %th
@@ -24,13 +24,13 @@
               %td
                 = "#{service_order.start_service_order}" + " - " + "#{service_order.start_service_order}"
 
-    %table
+    %table.table
       %h2 Tilgjengelige tjenester
       %thead
         %tr
-          %th Tjeneste
-          %th Beskrivelse
-          %th Pris pr. mnd
+          %th{scope: "col"} Tjeneste
+          %th{scope: "col"} Beskrivelse
+          %th{scope: "col"} Pris pr. mnd
           %th
       %tbody
         - @services.each do |service|
@@ -41,4 +41,4 @@
               %td= service.price_per_month
 
               %td
-                = link_to 'Bestill', new_service_order_path(service_id: service.id, service_title: service.title, user_name: current_user.first_name + " " + current_user.last_name), class: "text-primary"
+                = button_link 'Bestill', new_service_order_path(service_id: service.id, service_title: service.title, user_name: current_user.first_name + " " + current_user.last_name)

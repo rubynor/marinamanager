@@ -1,13 +1,13 @@
 %div.container
   %h1 Tjenestebestillinger, oversikt
 
-  %table
+  %table.table
     %thead
       %tr
-        %th Bestiller
-        %th Tjeneste
-        %th Begynner
-        %th Utgår
+        %th{scope: "col"} Bestiller
+        %th{scope: "col"} Tjeneste
+        %th{scope: "col"} Begynner
+        %th{scope: "col"} Utgår
         %th
         %th
         %th
@@ -25,6 +25,5 @@
           %td= link_to 'Slett', service_order, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
 
   %br
-  = link_to 'Lag ny bestilling', new_service_order_path, class: "text-primary"
-  %br
-  = link_to 'Tilbake', index_path, class: "text-primary"
+  = link_to 'Lag ny bestilling', new_service_order_path, class: "btn btn-primary btn-lg text-light btn-sm"
+  = link_to 'Tilbake', index_path, class: "btn btn-primary btn-lg text-light btn-sm"

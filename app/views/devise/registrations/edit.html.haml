@@ -23,15 +23,17 @@
       - if @minimum_password_length
         %br/
         %em
+          Minimum
           = @minimum_password_length
-          characters minimum
+          tegn
+
     .field
       = f.label :password_confirmation
       %br/
       = f.password_field :password_confirmation, autocomplete: "off"
     .actions
-      = f.submit "Update"
+      = f.submit "Endre"
   %h3 Slett min bruker
   %p
     Ikke fornøyd? #{button_to "Slett min bruker", registration_path(resource_name), data: { confirm: "Er du sikker?" }, method: :delete}
-  = link_to "Tilbake", :back
+  = button_link "Tilbake", :back

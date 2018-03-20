@@ -1,17 +1,17 @@
 %div.container
   %h1 Brukere, oversikt
 
-  %table
+  %table.table
     %thead
       %tr
-        %th Brukernivå
-        %th Fornavn
-        %th Etternavn
-        %th Epost
-        %th Telefonnummer
-        %th Gatenavn
-        %th Husnummer
-        %th Postnummer
+        %th{scope: "col"} Brukernivå
+        %th{scope: "col"} Fornavn
+        %th{scope: "col"} Etternavn
+        %th{scope: "col"} Epost
+        %th{scope: "col"} Telefonnummer
+        %th{scope: "col"} Gatenavn
+        %th{scope: "col"} Husnummer
+        %th{scope: "col"} Postnummer
         %th
         %th
         %th
@@ -37,4 +37,4 @@
 
   %br
 
-  = link_to 'Tilbake', index_path, class: "text-primary"
+  = link_to 'Tilbake', index_path, class: "btn btn-primary btn-lg text-light btn-sm"

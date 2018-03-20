@@ -5,9 +5,12 @@
       %ul
         - @pier.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :bokstav
-    = f.text_field :letter
-  .actions
-    = f.submit 'Lagre'
+  %div.form-row
+    %div.form-group.col-md-1
+      .field
+        = f.label :bokstav
+        = f.text_field :letter, class: "form-control"
+        %br
+      .actions
+        = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
+        = link_to 'Tilbake', piers_path, class: "btn btn-primary btn-lg text-light btn-sm"

@@ -1,14 +1,14 @@
 %div.container
   %h1 Båtplassbestillinger
 
-  %table
+  %table.table
     %thead
       %tr
-        %th Båtplass
-        %th Reg. nr, båt
-        %th Pris pr. mnd
-        %th Utleie fra
-        %th Utleie til
+        %th{scope: "col"} Båtplass
+        %th{scope: "col"} Reg. nr, båt
+        %th{scope: "col"} Pris pr. mnd
+        %th{scope: "col"} Utleie fra
+        %th{scope: "col"} Utleie til
         %th
         %th
         %th
@@ -27,6 +27,5 @@
             %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
 
   %br
-  = link_to 'Ny båtplassbestilling', new_berth_order_path, class: "text-primary"
-  %br
-  = link_to 'Tilbake', index_path, class: "text-primary"
+  = link_to 'Ny båtplassbestilling', new_berth_order_path, class: "btn btn-primary btn-lg text-light btn-sm"
+  = link_to 'Tilbake', index_path, class: "btn btn-primary btn-lg text-light btn-sm"

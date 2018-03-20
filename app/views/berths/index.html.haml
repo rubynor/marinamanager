@@ -1,14 +1,14 @@
 %div.container
   %h1 Båtplasser, oversikt
 
-  %table
+  %table.table
     %thead
       %tr
-        %th Båtplassnr
-        %th Bryggebokstav
-        %th Bredde
-        %th Pris pr. breddemeter
-        %th I stand
+        %th{scope: "col"} Båtplassnr
+        %th{scope: "col"} Bryggebokstav
+        %th{scope: "col"} Bredde
+        %th{scope: "col"} Pris pr. breddemeter
+        %th{scope: "col"} I stand
         %th
         %th
         %th
@@ -24,11 +24,9 @@
             %td Ja
           - else
             %td Nei
-          %td= link_to 'Vis', berth, class: "text-primary"
           %td= link_to 'Endre', edit_berth_path(berth), class: "text-primary"
           %td= link_to 'Slett', berth, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
 
   %br
-  = link_to 'Ny båtplass', new_berth_path, class: "text-primary"
-  %br
-  = link_to 'Tilbake', index_path, class: "text-primary"
+  = link_to 'Ny båtplass', new_berth_path, class: "btn btn-primary btn-lg text-light btn-sm"
+  = link_to 'Tilbake', index_path, class: "btn btn-primary btn-lg text-light btn-sm"

@@ -1,10 +1,10 @@
 %div.container
   %h1 Brygger, oversikt
 
-  %table
+  %table.table
     %thead
       %tr
-        %th Bokstav
+        %th{scope: "col"} Bokstav
         %th
         %th
         %th
@@ -13,11 +13,9 @@
       - @piers.each do |pier|
         %tr
           %td= pier.letter
-          %td= link_to 'Vis', pier, class: "text-primary"
           %td= link_to 'Endre', edit_pier_path(pier), class: "text-primary"
           %td= link_to 'Slett', pier, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
 
   %br
-  = link_to 'Ny brygge', new_pier_path, class: "text-primary"
-  %br
-  = link_to 'Tilbake', index_path, class: "text-primary"
+  = link_to 'Ny brygge', new_pier_path, class: "btn btn-primary btn-lg text-light btn-sm"
+  = link_to 'Tilbake', index_path, class: "btn btn-primary btn-lg text-light btn-sm"
