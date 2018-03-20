@@ -41,4 +41,4 @@
               %td= service.price_per_month
 
               %td
-                = button_link 'Bestill', new_service_order_path(service_id: service.id, service_title: service.title, user_name: current_user.first_name + " " + current_user.last_name)
+                = link_to 'Bestill', new_service_order_path(service_id: service.id, service_title: service.title, user_name: current_user.first_name + " " + current_user.last_name), class: "text-primary"
