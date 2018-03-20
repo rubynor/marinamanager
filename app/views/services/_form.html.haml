@@ -15,14 +15,13 @@
     %div.form-group.col-md-4
       .field
         = f.label :description
-        = f.text_area:description, class: "form-control"
+        = f.text_area :description, class: "form-control"
   %div.form-row
     %div.form-group.col-md-4
       .field
         = f.label :price_per_month
         = f.text_field :price_per_month, class: "form-control"
   %div.form-row
-    %div.form-group.col-md-12
       .field
         = f.hidden_field :active, value: true
   %div.form-row

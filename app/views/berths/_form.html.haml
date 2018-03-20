@@ -6,17 +6,28 @@
         - @berth.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :båtplassnummer
-    = f.number_field :berth_number
-  .field
-    = f.label :bredde
-    = f.text_field :width
-  .field
-    = f.label :månedspris
-    = f.text_field :price_per_month
-  .field
-    = f.label :i_stand
-    = f.check_box :in_service
-  .actions
-    = f.submit 'Lagre'
+  %div.form-row
+    %div.form-group.col-md-2
+      .field
+        = f.label :båtplassnummer
+        = f.number_field :berth_number, class: "form-control"
+    %div.form-group.col-md-4
+      .field
+        = f.label :bredde
+        \ (meter)
+        = f.text_field :width, class: "form-control"
+  %div.form-row
+    %div.form-group.col-md-4
+      .field
+        = f.label :månedspris
+        = f.text_field :price_per_month, class: "form-control"
+    %div.form-group.col-md-1
+      .field
+        = f.label :i_stand
+        \
+        = f.check_box :in_service, class: "form-control"
+  %div.form-row
+    %div.form-group.col-md-4
+      .actions
+        = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
+        = link_to 'Tilbake', berths_path, class: "btn btn-primary btn-lg text-light btn-sm"

@@ -24,11 +24,9 @@
             %td Ja
           - else
             %td Nei
-          %td= link_to 'Vis', berth, class: "text-primary"
           %td= link_to 'Endre', edit_berth_path(berth), class: "text-primary"
           %td= link_to 'Slett', berth, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
 
   %br
-  = button_link 'Ny båtplass', new_berth_path
-  %br
-  = button_link 'Tilbake', index_path
+  = link_to 'Ny båtplass', new_berth_path, class: "btn btn-primary btn-lg text-light btn-sm"
+  = link_to 'Tilbake', index_path, class: "btn btn-primary btn-lg text-light btn-sm"
