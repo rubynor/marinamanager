@@ -241,11 +241,11 @@ nb:
       short: "%e. %B, %H:%M"
       pm: ''
 
-    errors:
-      messages:
-        not_found: "ikke funnet"
-        already_confirmed: "har allerede blitt bekreftet. Prøv å logg inn."
-        not_locked: "var ikke låst"
-        not_saved:
-          one: "Én feil gjorde at %{resource} ikke kunne lagres:"
-          other: "%{count} feil gjorde at %{resource} ikke kunne lagres:"
+  errors:
+    messages:
+      not_found: "ikke funnet"
+      already_confirmed: "har allerede blitt bekreftet. Prøv å logg inn."
+      not_locked: "var ikke låst"
+      not_saved:
+        one: "Én feil gjorde at %{resource} ikke kunne lagres:"
+        other: "%{count} feil gjorde at %{resource} ikke kunne lagres:"

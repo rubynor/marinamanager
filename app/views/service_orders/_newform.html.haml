@@ -1,7 +1,7 @@
 = form_for @service_order do |f|
   - if @service_order.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@service_order.errors.count, "error")} prohibited this service_order from being saved:"
+      %h2= "#{@service_order.errors.count} feil hindret denne tjenestebestillingen fra å bli lagret:"
       %ul
         - @service_order.errors.full_messages.each do |message|
           %li= message

@@ -67,4 +67,6 @@ class BoatsController < LoggedInController
     def boat_params
       params.require(:boat).permit(:reg_number, :model, :width, :length, :user_id, berth_orders_attributes: [:boat_id, :start_berth_order, :end_berth_order, :_destroy, :id])
     end
+
+
 end

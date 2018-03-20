@@ -7,6 +7,14 @@
           %li= message
 
   %div.form-row
+    %div.form-group.col-md-12
+      .field
+        - if current_user.user_level == 1
+          = f.label :eier
+          = f.collection_select(:user_id, User.all, :id, :full_name)
+        - if current_user.user_level != 1
+          - @boat.user_id  ||= current_user.id
+          = f.hidden_field :user_id, value: @boat.user_id
     %div.form-group.col-md-6
       = f.label :reg_number
       = f.text_field :reg_number, placeholder: "A99-9", class: "form-control"
@@ -16,18 +24,16 @@
   %div.form-row
     %div.form-group.col-md-6
       = f.label :width
+      \ (meter)
       = f.text_field :width, class: "form-control"
-      = f.label :meter
     %div.form-group.col-md-6
       = f.label :length
+      \ (meter)
       = f.text_field :length, class: "form-control"
-      = f.label :meter
-
-  .field
-    = f.hidden_field :user_id, value: @boat.user_id
   .fields
     = f.fields_for :berth_orders do | berth_order |
-      = render 'berth_order', f: berth_order   
+      = render 'berth_order', f: berth_order
   .actions
-    = f.submit 'Lagre', class: "btn btn-outline-secondary text-dark" 
-    = link_to_add_row 'Ny plassleie', f, :berth_orders, class: "btn btn-outline-secondary text-dark" 
+    = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
+    = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"
+    = link_to_add_row 'Ny plassleie', f, :berth_orders, class: "btn btn-primary btn-lg text-light btn-sm"
