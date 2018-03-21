@@ -24,5 +24,3 @@ this.deleteCheckboxToggled = function(tickbox) {
     return $(tickbox).parent().find('.datepicker').removeClass('bg-danger text-white');
   }
 };
-
-return;
