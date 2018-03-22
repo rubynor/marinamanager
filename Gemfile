@@ -4,13 +4,10 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
-
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
-
 # Specify ruby version
 ruby '2.4.1'
 
@@ -40,7 +37,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sprockets-rails'
 gem 'client_side_validations'
-
 gem 'mail_form'
 gem 'simple_form'
 
