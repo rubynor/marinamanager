@@ -5,6 +5,7 @@
       %ul
         - @berth_order.errors.full_messages.each do |message|
           %li= message
+
   - if current_user.user_level == 1
     %div.form-row
       .field
@@ -23,11 +24,13 @@
         = f.label :båt
         %div.dropdown
           -# f.collection_select(:boat, Boat.all, :id, :reg_nr)
+
   - if current_user.user_level != 1
     %div.form-row
       %div.form-group.col-md-12
         .field
           = f.hidden_field :user_id, value: current_user.id
+          = f.hidden_field :boat, value: params[:boat]
   %div.form-row
     %div.form-group.col-md-2
       = f.label :fra
@@ -37,4 +40,7 @@
       = f.date_field :end_berth_order, class: "form-control"
   .actions
     = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
-    = link_to 'Tilbake', berth_orders_path, class: "btn btn-primary btn-lg text-light btn-sm"
+    - if current_user.user_level == 1
+      = link_to 'Tilbake', berth_orders_path, class: "btn btn-primary btn-lg text-light btn-sm"
+    - else
+      = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"
