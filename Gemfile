@@ -39,7 +39,6 @@ gem 'sprockets-rails'
 gem 'client_side_validations'
 gem 'mail_form'
 gem 'simple_form'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

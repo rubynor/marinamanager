@@ -13,7 +13,10 @@
             -# Empty element
           %div.col-2
             -# Placeholder for nå
-            = link_to 'Bestill båtplass', '#', class: "btn btn-primary btn-lg text-light"
+            - if user_signed_in?
+              = link_to 'Bestill båtplass', new_berth_order_path, class: "btn btn-primary btn-lg text-light"
+            - else
+              = link_to 'Bestill båtplass', new_user_session_path, class: "btn btn-primary btn-lg text-light"
     %div.col
       %br
       = image_tag('havn.jpg', size: "500x400")

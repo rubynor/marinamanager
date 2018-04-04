@@ -22,8 +22,10 @@
           %td
             - if boat.berth_orders.first
               = "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
+              - if boat&.berth_orders&.first&.berth&.pier == nil
+                Til Bestilling
             - else
-              = link_to 'Bestill', new_berth_order_path(boat), class: "text-primary"
+              = link_to 'Bestill', new_berth_order_path(boat_id: boat.id), class: "text-primary"
           %td= link_to 'Vis', boat, class: "text-primary"
           %td= link_to 'Endre', edit_boat_path(boat), class: "text-primary"
           %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"

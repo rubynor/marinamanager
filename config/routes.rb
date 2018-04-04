@@ -14,15 +14,14 @@ Rails.application.routes.draw do
   match '/contacts',  to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
 
-  scope '(:locale)' do
-    resources :berth_orders
-    resources :berths
-    resources :boats
-    resources :piers
-    resources :service_orders
-    resources :services
-    resources :users
-    root 'marina#home'
-  end
+
+  resources :berth_orders
+  resources :berths
+  resources :boats
+  resources :piers
+  resources :service_orders
+  resources :services
+  resources :users
+  root 'marina#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

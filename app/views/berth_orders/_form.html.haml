@@ -30,7 +30,14 @@
       %div.form-group.col-md-12
         .field
           = f.hidden_field :user_id, value: current_user.id
-          = f.hidden_field :boat, value: params[:boat]
+          - if params[:boat_id]
+            = f.hidden_field :boat, value: params[:boat_id]
+          - else
+            %div.dropdown
+              // TODO: Alle båter som tilhører brukeren som IKKE har en båtplass fra før
+              = f.collection_select(:boat_id, current_user.boats.unassigned, :id, :reg_number, {prompt: 'Velg båt'})
+              // TODO: Melding, dersom ingen passende båter finnes
+              // TODO: Velg automatisk båten (men vis reg_number) dersom kun én aktuell båt finnes.
   %div.form-row
     %div.form-group.col-md-2
       = f.label :fra

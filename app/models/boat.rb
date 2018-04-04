@@ -11,15 +11,20 @@ class Boat < ApplicationRecord
   validates :reg_number, :model, :width, :length, presence: true
   validates :width, :length, numericality: { greater_than_or_equal_to: 1.00 }
   validates :reg_number, uniqueness: true
+  scope :unassigned, -> {where.not(id: BerthOrder.all.pluck(:boat_id))}
 
-  def width=(value)
-    new_value = value.gsub(",", ".")
-    super(new_value)
-  end
 
-  def length=(value)
-    new_value = value.gsub(",", ".")
-    super(new_value)
-  end
-
+  # def width=(value)
+  #   if value.present?
+  #     new_value = value.gsub(",", ".")
+  #     super(new_value)
+  #   end
+  # end
+  #
+  # def length=(value)
+  #   if value.present?
+  #     new_value = value.gsub(",", ".")
+  #     super(new_value)
+  #   end
+  # end
 end
