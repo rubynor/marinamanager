@@ -15,17 +15,7 @@
 
     %tbody
       - @berth_orders.each do |berth_order|
-        - if !berth_order.berth.nil? && !berth_order.boat.nil?
-          %tr
-            %td= berth_order.berth.berth_number
-            %td= berth_order.boat.reg_number
-            %td= berth_order.berth.price_per_month
-            %td= berth_order.start_berth_order
-            %td= berth_order.end_berth_order
-            %td= link_to 'Vis', berth_order, class: "text-primary"
-            %td= link_to 'Endre', edit_berth_order_path(berth_order), class: "text-primary"
-            %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
-        - elsif berth_order.berth.nil?
+        - if berth_order.berth.nil?
           %tr
             %td Ikke Bekreftet
             %td= berth_order.boat.reg_number
@@ -36,7 +26,16 @@
             %td= link_to 'Endre', edit_berth_order_path(berth_order), class: "text-primary"
             %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
 
-
+        - elsif !berth_order.berth.nil? && !berth_order.boat.nil?
+          %tr
+            %td= berth_order.berth.berth_number
+            %td= berth_order.boat.reg_number
+            %td= berth_order.berth.price_per_month
+            %td= berth_order.start_berth_order
+            %td= berth_order.end_berth_order
+            %td= link_to 'Vis', berth_order, class: "text-primary"
+            %td= link_to 'Endre', edit_berth_order_path(berth_order), class: "text-primary"
+            %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
   %br
 
   = link_to 'Ny båtplassbestilling', new_berth_order_path, class: "btn btn-primary btn-lg text-light btn-sm"

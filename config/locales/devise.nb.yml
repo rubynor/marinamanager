@@ -9,7 +9,7 @@ nb:
       timeout: 'Din sesjon er utløpt. Logg inn igjen for å kunne fortsette.'
       inactive: 'Din konto er ikke aktivert.'
     sessions:
-      signed_in: 'Du er nå innlogget.'
+      signed_in: ''
       signed_out: 'Du er nå logget ut.'
     passwords:
       send_instructions: 'Du vil snart motta en epost med instruksjoner for å nullstille passordet ditt.'

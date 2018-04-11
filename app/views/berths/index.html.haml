@@ -29,4 +29,7 @@
 
   %br
   = link_to 'Ny båtplass', new_berth_path, class: "btn btn-primary btn-lg text-light btn-sm"
-  %canvas#canvas1{:height => "1000", :width => "1000"}
+  -# %canvas#canvas1{:height => "1000", :width => "1000"}
+
+
+#berths= @berths.to_json
