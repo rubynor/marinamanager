@@ -1,12 +1,9 @@
-.nested-fields
-  
-
-    = f.hidden_field :boat_id, value: @boat.id
-    %div
-        = f.label :start_dato
-        = f.date_field :start_berth_order, class: 'datepicker'
-        = f.label :slutt_dato
-        = f.date_field :end_berth_order, class: 'datepicker'
-        = f.check_box :_destroy, class: 'remove_record', onchange: "deleteCheckboxToggled(this)" 
-        = 'Slett'
- 
+%h3 Leie båtplass
+%div.form-row
+  = f.hidden_field :boat_id, value: @boat.id
+  %div.form-group.col-md-3
+    = f.label :fra
+    = f.date_field :start_berth_order, class: "form-control"
+  %div.form-group-col-md-3
+    = f.label :til
+    = f.date_field :end_berth_order, class: "form-control"

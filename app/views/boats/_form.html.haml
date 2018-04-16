@@ -33,7 +33,12 @@
   .fields
     = f.fields_for :berth_orders do | berth_order |
       = render 'berth_order', f: berth_order
+
   .actions
+    %div#orderBerthButton
+      = link_to_add_row 'Leie båtplass', f, :berth_orders, class: "btn btn-primary btn-lg text-light btn-sm"
+    %div#orderServicesButton
+      %p.btn.btn-prmary.btn-lg.text-light.btn-sm "Legg til tjenester"
     = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
     = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"
-    = link_to_add_row 'Ny plassleie', f, :berth_orders, class: "btn btn-primary btn-lg text-light btn-sm"
+    %div

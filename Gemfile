@@ -39,6 +39,12 @@ gem 'sprockets-rails'
 gem 'client_side_validations'
 gem 'mail_form'
 gem 'simple_form'
+# for enumerable datatype in database
+gem 'enumerize', '~> 2.2', '>= 2.2.2'
+# for making cron-tasks, specifically for yearly adding new boatSeasons
+gem 'whenever'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
