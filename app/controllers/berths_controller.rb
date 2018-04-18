@@ -69,6 +69,6 @@ class BerthsController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def berth_params
-      params.require(:berth).permit(:berth_number, :width, :price_per_month, :in_service)
+      params.require(:berth).permit(:berth_number, :width, :cost)
     end
 end

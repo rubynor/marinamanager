@@ -3,11 +3,11 @@
 one:
   berth_number: 1
   width: 9.99
-  price_per_month: 9.99
+  cost: 9.99
   in_service: false
 
 two:
   berth_number: 1
   width: 9.99
-  price_per_month: 9.99
+  cost: 9.99
   in_service: false

@@ -27,7 +27,7 @@ nb:
       service:
         title: Navn på tjeneste
         description: Beskrivelse
-        price_per_month: Månedspris
+        cost: Månedspris
         active: Aktiv
 
   date:

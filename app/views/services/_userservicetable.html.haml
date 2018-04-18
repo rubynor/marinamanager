@@ -20,7 +20,7 @@
             - else
               %td= service_order.service.title
               %td= service_order.service.description
-              %td= service_order.service.price_per_month
+              %td= service_order.service.cost
               %td
                 = "#{service_order.start_service_order}" + " - " + "#{service_order.start_service_order}"
 
@@ -38,7 +38,7 @@
             - if current_user != service.users.first
               %td= service.title
               %td= service.description
-              %td= service.price_per_month
+              %td= service.cost
 
               %td
                 = link_to 'Bestill', new_service_order_path(service_id: service.id, service_title: service.title, user_name: current_user.first_name + " " + current_user.last_name), class: "text-primary"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305112606) do
+ActiveRecord::Schema.define(version: 20180418105442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,7 @@ ActiveRecord::Schema.define(version: 20180305112606) do
   create_table "berths", force: :cascade do |t|
     t.integer "berth_number"
     t.decimal "width", precision: 8, scale: 2
-    t.decimal "price_per_month", precision: 8, scale: 2
-    t.boolean "in_service"
+    t.decimal "cost", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pier_id"
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180305112606) do
     t.string "letter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "length"
   end
 
   create_table "service_orders", force: :cascade do |t|
@@ -62,10 +62,9 @@ ActiveRecord::Schema.define(version: 20180305112606) do
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.decimal "price_per_month", precision: 8, scale: 2
-    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "cost"
   end
 
   create_table "users", force: :cascade do |t|

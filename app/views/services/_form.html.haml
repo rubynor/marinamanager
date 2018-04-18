@@ -19,11 +19,8 @@
   %div.form-row
     %div.form-group.col-md-4
       .field
-        = f.label :price_per_month
-        = f.text_field :price_per_month, class: "form-control"
-  %div.form-row
-    .field
-      = f.hidden_field :active, value: true
+        = f.label :cost
+        = f.text_field :cost, class: "form-control"
   %div.form-row
     .actions
       = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"

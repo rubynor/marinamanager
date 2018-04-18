@@ -8,7 +8,6 @@
         %th{scope: "col"} Bryggebokstav
         %th{scope: "col"} Bredde
         %th{scope: "col"} Pris pr. breddemeter
-        %th{scope: "col"} I stand
         %th
         %th
         %th
@@ -19,11 +18,6 @@
           %td= berth.berth_number
           %td= berth.pier.letter
           %td= berth.width
-          %td= berth.price_per_month
-          - if berth.in_service
-            %td Ja
-          - else
-            %td Nei
           %td= link_to 'Endre', edit_berth_path(berth), class: "text-primary"
           %td= link_to 'Slett', berth, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
 

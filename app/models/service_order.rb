@@ -25,4 +25,5 @@ class ServiceOrder < ApplicationRecord
 	def siblings
 		ServiceOrder.where('user_id = ? AND service_id = ?', user_id, service_id)
 	end
+
 end

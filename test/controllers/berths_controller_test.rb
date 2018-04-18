@@ -17,7 +17,7 @@ class BerthsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create berth" do
     assert_difference('Berth.count') do
-      post berths_url, params: { berth: { berth_number: @berth.berth_number, in_service: @berth.in_service, price_per_month: @berth.price_per_month, width: @berth.width } }
+      post berths_url, params: { berth: { berth_number: @berth.berth_number, in_service: @berth.in_service, cost: @berth.cost, width: @berth.width } }
     end
 
     assert_redirected_to berth_url(Berth.last)
@@ -34,7 +34,7 @@ class BerthsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update berth" do
-    patch berth_url(@berth), params: { berth: { berth_number: @berth.berth_number, in_service: @berth.in_service, price_per_month: @berth.price_per_month, width: @berth.width } }
+    patch berth_url(@berth), params: { berth: { berth_number: @berth.berth_number, in_service: @berth.in_service, cost: @berth.cost, width: @berth.width } }
     assert_redirected_to berth_url(@berth)
   end
 

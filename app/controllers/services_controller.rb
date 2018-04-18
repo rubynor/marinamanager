@@ -70,6 +70,6 @@ class ServicesController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:title, :description, :price_per_month, :active)
+      params.require(:service).permit(:title, :description, :cost)
     end
 end

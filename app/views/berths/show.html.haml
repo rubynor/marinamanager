@@ -9,11 +9,7 @@
     = @berth.width
   %p
     %b Månedspris:
-    = @berth.price_per_month
-  %p
-    %b I stand:
-    = @berth.in_service
-
+    = @berth.cost
   = link_to 'Endre', edit_berth_path(@berth), class: "text-primary"
   \|
   = link_to 'Tilbake', berths_path, class: "text-primary"

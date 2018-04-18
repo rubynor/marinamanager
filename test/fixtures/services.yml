@@ -3,11 +3,11 @@
 one:
   title: MyString
   description: MyString
-  price_per_month: 9.99
+  cost: 9.99
   active: false
 
 two:
   title: MyString
   description: MyString
-  price_per_month: 9.99
+  cost: 9.99
   active: false

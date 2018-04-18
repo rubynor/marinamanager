@@ -3,8 +3,7 @@
     %tr
       %th{scope: "col"} Tjeneste
       %th{scope: "col"} Beskrivelse
-      %th{scope: "col"} Pris pr. mnd
-      %th{scope: "col"} Tilgjengelig
+      %th{scope: "col"} Pris
       %th
       %th
       %th
@@ -14,12 +13,7 @@
         %tr
           %td= service.title
           %td= service.description
-          %td= service.price_per_month
-          %td
-            - if service.active
-              Ja
-            - else
-              Nei
+          %td= service.cost
           %td= link_to 'Vis', service, class: "text-primary"
           %td= link_to 'Endre', edit_service_path(service), class: "text-primary"
           %td= link_to 'Slett', service, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
