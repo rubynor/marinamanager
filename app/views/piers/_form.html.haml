@@ -1,7 +1,7 @@
 = form_for @pier do |f|
   - if @pier.errors.any?
     #error_explanation
-      %h2= "#{@pier.errors.count} feil hindret denne bryggebokstaven fra å bli lagret:"
+      %h2= "#{@pier.errors.count} feil hindret denne pierbokstaven fra å bli lagret:"
       %ul
         - @pier.errors.full_messages.each do |message|
           %li= message

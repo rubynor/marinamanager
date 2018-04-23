@@ -24,7 +24,7 @@
           %li.nav-item
             = button_link 'Mine Båter', boats_path
           %li.nav-item
-            = button_link 'Mine Tjenester', services_path
+            = button_link 'Bestillinger', service_orders_path
         - elsif current_user.user_level == 1
           %li.nav-item
             = button_link 'Brukere', users_path
@@ -35,7 +35,7 @@
           %li.nav-item
             = button_link 'Båtplasser', berths_path
           %li.nav-item
-            = button_link 'Brygger', piers_path
+            = button_link 'pier', piers_path
           %li.nav-item
             = button_link 'Tjenestebestillinger', service_orders_path
           %li.nav-item

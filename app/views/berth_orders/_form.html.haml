@@ -9,11 +9,11 @@
   - if current_user.user_level == 1
     %div.form-row
       .field
-        = f.label :bryggebokstav
+        = f.label :pierbokstav
         %div.dropdown
           = f.collection_select(:pier, Pier.all, :id, :letter)
       .field
-        = f.label :bryggenummer
+        = f.label :piernummer
         %div.dropdown
           = f.collection_select(:berth, Berth.all, :id, :berth_number)
       .field

@@ -4,12 +4,12 @@ class ServiceOrdersController < LoggedInController
   # GET /service_orders
   # GET /service_orders.json
   def index
-    if current_user.user_level != 1
-      flash[:notice] = "Ingen tilgang, logg inn som en administrator og prøv igjen."
-      redirect_to index_path
-    else
+    # if current_user.user_level != 1
+    #   flash[:notice] = "Ingen tilgang, logg inn som en administrator og prøv igjen."
+    #   redirect_to index_path
+    # else
       @service_orders = ServiceOrder.all
-    end
+    # end
   end
 
   # GET /service_orders/1

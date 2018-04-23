@@ -100,12 +100,28 @@
     end
   end
 
-Boat.destroy_all
-# Båtdetaljer hentet fra artikkel: https://www.nrk.no/livsstil/slik-velger-du-riktig-bat-1.7069737
-  boat1 = Boat.create!( reg_number: "S99-1", model: "Askeladden C6", width: 2.45, length: 6.25, user_id: user1.id )
-  boat2 = Boat.create!( reg_number: "C33-4", model: "Sting 700 Weekender", width: 2.55, length: 6.99, user_id: user2.id )
-  boat3 = Boat.create!( reg_number: "F23-6", model: "AMT 200 DCC", width: 2.31, length: 6.05, user_id: user3.id )
+# Boats
+# Boat information from: https://www.nrk.no/livsstil/slik-velger-du-riktig-bat-1.7069737
+  boat1 = Boat.find_or_create_by(reg_number: "S99-1") do |boat|
+    boat.model = "Askeladden C6"
+    boat.width = 2.45
+    boat.length = 6.25
+    boat.user_id = user1.id
+  end
 
+  boat2 = Boat.find_or_create_by(reg_number: "C33-4") do |boat|
+    boat.model = "Sting 700 Weekender"
+    boat.width = 2.55
+    boat.length = 6.99
+    boat.user_id = user2.id
+  end
+
+  boat3 = Boat.find_or_create_by(reg_number: "F23-6") do |boat|
+    boat.model = "AMT 200 DCC"
+    boat.width = 2.31
+    boat.length = 6.05
+    boat.user_id = user3.id
+  end
 
 # TODO: these guys.
 # ServiceOrder.delete_all

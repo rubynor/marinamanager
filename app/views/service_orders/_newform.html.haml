@@ -1,3 +1,7 @@
+-# Velg sesong [dropdown]
+-# Velg båt [Liste over egne båter + legg til ny båt]
+-# Velg tjenester [Table med checkbox'er]
+
 = form_for @service_order do |f|
   - if @service_order.errors.any?
     #error_explanation
@@ -33,7 +37,6 @@
   .field
     - unless current_user.user_level == 1
       = f.hidden_field :user_id, value: current_user.id
-      = f.hidden_field :service_id, value: params[:service_id]
 
   .actions
     = f.submit 'Lagre endringer', class: "btn btn-primary btn-lg text-light btn-sm"
