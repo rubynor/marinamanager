@@ -21,11 +21,8 @@
 
       .field
         = f.label :tjeneste
-        - if current_user.user_level == 1
-          %div.dropdown
-            = f.collection_select(:service_id, Service.all, :id, :title)
-        - else
-          = params[:service_title]
+        %div.dropdown
+          = f.collection_select(:service_id, Service.all, :id, :title)
     %div.form-group.col-md-2
       .field
         = f.label :begynner

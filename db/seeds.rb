@@ -123,7 +123,30 @@
     boat.user_id = user3.id
   end
 
+# BoatSeasons
+  season1 = BoatSeason.find_or_create_by(title: "Sommer 2018") do |season|
+    season.startSeason = DateTime.new(2018, 5, 1)
+    season.endSeason = DateTime.new(2018, 9, 30)
+  end
+
+  season2 = BoatSeason.find_or_create_by(title: "Vinter 2018") do |season|
+    season.startSeason = DateTime.new(2018, 10, 1)
+    season.endSeason = DateTime.new(2019, 4, 30)
+  end
+
+  season3 = BoatSeason.find_or_create_by(title: "Sommer 2019") do |season|
+    season.startSeason = DateTime.new(2019, 5, 01)
+    season.endSeason = DateTime.new(2019, 9, 30)
+  end
+
+  season4 = BoatSeason.find_or_create_by(title: "Vinter 2019") do |season|
+    season.startSeason = DateTime.new(2019, 10, 1)
+    season.endSeason = DateTime.new(2020, 4, 01)
+  end
+
+
 # TODO: these guys.
+
 # ServiceOrder.delete_all
 # ServiceOrder.create!([
 # 	{ service_id: service1.id, user_id: user1.id, start_service_order: Date.new(2018, 02, 12), end_service_order: Date.new(2018, 05, 12) },

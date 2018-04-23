@@ -1,0 +1,2 @@
+class BoatSeason < ApplicationRecord
+end
