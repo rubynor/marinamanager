@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423100232) do
+ActiveRecord::Schema.define(version: 20180423110140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20180423100232) do
   create_table "berth_orders", force: :cascade do |t|
     t.bigint "berth_id"
     t.bigint "boat_id"
-    t.date "start_berth_order"
-    t.date "end_berth_order"
+    t.integer "boat_season"
+    t.bigint "boat_season_id"
     t.index ["berth_id"], name: "index_berth_orders_on_berth_id"
     t.index ["boat_id"], name: "index_berth_orders_on_boat_id"
+    t.index ["boat_season_id"], name: "index_berth_orders_on_boat_season_id"
   end
 
   create_table "berths", force: :cascade do |t|
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(version: 20180423100232) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "berth_orders", "boat_seasons"
   add_foreign_key "berths", "piers", name: "pier_id"
   add_foreign_key "boats", "users", name: "user_id"
 end

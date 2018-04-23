@@ -144,8 +144,22 @@
     season.endSeason = DateTime.new(2020, 4, 01)
   end
 
+# ServiceOrders
+  serviceOrder1 = ServiceOrder.find_or_create_by()
+
+# BerthOrders
+  # berthOrder1 = BerthOrder.find_or_create_by(berth.berth_id: 1, id.boat.boat_id: 1, id.boat_season: 1)
 
 # TODO: these guys.
+
+# Orders
+# order1 = ServiceOrder.find_or_create_by(id: 1) do |order|
+#   order.user_id = 1
+#   order.boat_season = 1
+#   order.services = {1, 2, 3}
+#   order.berth_order
+# end
+
 
 # ServiceOrder.delete_all
 # ServiceOrder.create!([
