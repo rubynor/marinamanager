@@ -44,7 +44,6 @@ gem 'enumerize', '~> 2.2', '>= 2.2.2'
 # for making cron-tasks, specifically for yearly adding new boatSeasons
 gem 'whenever'
 
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

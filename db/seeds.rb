@@ -106,7 +106,7 @@
     boat.model = "Askeladden C6"
     boat.width = 2.45
     boat.length = 6.25
-    boat.user_id = user1.id
+    boat.user_id = user2.id
   end
 
   boat2 = Boat.find_or_create_by(reg_number: "C33-4") do |boat|
@@ -121,6 +121,13 @@
     boat.width = 2.31
     boat.length = 6.05
     boat.user_id = user3.id
+  end
+
+  boat4 = Boat.find_or_create_by(reg_number: "E99-1") do |boat|
+    boat.model = "VGA Turbo"
+    boat.width = 2.8
+    boat.length = 7.2
+    boat.user_id = user2.id
   end
 
 # BoatSeasons
@@ -145,31 +152,11 @@
   end
 
 # ServiceOrders
-  serviceOrder1 = ServiceOrder.find_or_create_by()
+  serviceOrder1 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service1.id, boat_season_id: season1.id)
+  serviceOrder2 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service2.id, boat_season_id: season1.id)
+  serviceOrder3 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service2.id, boat_season_id: season1.id)
 
 # BerthOrders
-  # berthOrder1 = BerthOrder.find_or_create_by(berth.berth_id: 1, id.boat.boat_id: 1, id.boat_season: 1)
-
-# TODO: these guys.
-
-# Orders
-# order1 = ServiceOrder.find_or_create_by(id: 1) do |order|
-#   order.user_id = 1
-#   order.boat_season = 1
-#   order.services = {1, 2, 3}
-#   order.berth_order
-# end
-
-
-# ServiceOrder.delete_all
-# ServiceOrder.create!([
-# 	{ service_id: service1.id, user_id: user1.id, start_service_order: Date.new(2018, 02, 12), end_service_order: Date.new(2018, 05, 12) },
-# 	{ service_id: service2.id, user_id: user2.id, start_service_order: Date.new(2018, 01, 12), end_service_order: Date.new(2018, 04, 12) },
-# 	{ service_id: service2.id, user_id: user3.id, start_service_order: Date.new(2018, 02, 13), end_service_order: Date.new(2018, 05, 13) }
-#                      ])
-
-# BerthOrder.destroy_all
-# BerthOrder.create!([
-#   { berth_id: berth1.id, boat_id: boat2.id, start_berth_order: Date.new(2018, 02, 01), end_berth_order: Date.new(2018, 07, 01) },
-#   { berth_id: berth2.id, boat_id: boat1.id, start_berth_order: Date.new(2018, 02, 12), end_berth_order: Date.new(2018, 06, 12) }
-#                     ])
+  berthOrder1 = BerthOrder.find_or_create_by(boat_id: boat1.id, berth_id: Berth.first.id, boat_season_id: season1.id)
+  berthOrder2 = BerthOrder.find_or_create_by(boat_id: boat2.id, berth_id: Berth.second.id, boat_season_id: season1.id)
+  berthOrder3 = BerthOrder.find_or_create_by(boat_id: boat3.id, berth_id: Berth.third.id, boat_season_id: season1.id)
