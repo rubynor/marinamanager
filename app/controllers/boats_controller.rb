@@ -25,6 +25,9 @@ class BoatsController < LoggedInController
   # POST /boats.json
   def create
     @boat = Boat.new(boat_params)
+    unless current_user.admin?
+      @boat.user = current_user
+    end
 
     respond_to do |format|
       if @boat.save

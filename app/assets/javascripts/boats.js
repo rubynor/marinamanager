@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
   $('#calcInput').on('keyup', function() {
     $('#calcSolution').val(($(this).val() / feetInMeters).toFixed(2));
   })
-})
+});
 
 // Hides the "Order Berth" button, once clicked.
 $(document).on('turbolinks:load', function() {
@@ -20,8 +20,8 @@ $(document).on('turbolinks:load', function() {
 
 // Hides the "Order Services" button, once clicked.
   if (document.querySelector('#orderServicesButton')) {
-  var button = document.querySelector('#orderServicesButton');
-  hideButton(button);
+    button = document.querySelector('#orderServicesButton');
+    hideButton(button);
   }
 });
 

@@ -4,14 +4,15 @@
       %th{scope: "col"} Sesong
       %th{scope: "col"} Tjeneste
       %th{scope: "col"} Bestiller
+      %th{scope: "col"} Status
       %th
       %th
 
   %tbody
     - @service_orders.each do |service_order|
       %tr
-        %td= service_order.boat_season.title
-        %td= service_order.service.title
+        %td
+        %td
         %td= "#{service_order.user.first_name} #{service_order.user.last_name}"
         %td= link_to 'Vis', service_order_path(service_order), class: "text-primary"
         %td= link_to 'Endre', edit_service_order_path(service_order), class: "text-primary"

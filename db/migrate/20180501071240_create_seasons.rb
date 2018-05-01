@@ -1,7 +1,8 @@
-class CreateBoatSeasons < ActiveRecord::Migration[5.1]
+class CreateSeasons < ActiveRecord::Migration[5.1]
   def change
-    create_table :boat_seasons do |t|
+    create_table :seasons do |t|
       t.string :title
+      t.string :description
       t.date :startSeason
       t.date :endSeason
 

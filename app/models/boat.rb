@@ -1,17 +1,12 @@
 class Boat < ApplicationRecord
   belongs_to :user
   has_many :berth_orders, dependent: :destroy
-  accepts_nested_attributes_for :berth_orders, allow_destroy: true,\
-   reject_if: proc { |att| att['boat_id'].blank? ||\
-    att['_destroy'] == '0' && \
-    ( att['start_berth_order'].blank? ||
-    att['start_berth_order'].to_date < DateTime.now || \
-    ( !att['end_berth_order'].blank? && att['start_berth_order'].to_date >= att['end_berth_order'].to_date)) }
+  accepts_nested_attributes_for :berth_orders, allow_destroy: true
 
   validates :reg_number, :model, :width, :length, presence: true
   validates :width, :length, numericality: { greater_than_or_equal_to: 1.00 }
   validates :reg_number, uniqueness: true
-  scope :unassigned, -> {where.not(id: BerthOrder.all.pluck(:boat_id))}
+  scope :unassigned, -> { berth_orders.empty? }
 
 
   # def width=(value)

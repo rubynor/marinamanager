@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :seasons
+  resources :orders
   devise_for :users
 
   root 'marina#home'

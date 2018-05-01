@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423110459) do
+ActiveRecord::Schema.define(version: 20180501071547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20180423110459) do
   create_table "berth_orders", force: :cascade do |t|
     t.bigint "berth_id"
     t.bigint "boat_id"
-    t.integer "boat_season_id"
+    t.bigint "order_id"
     t.index ["berth_id"], name: "index_berth_orders_on_berth_id"
     t.index ["boat_id"], name: "index_berth_orders_on_boat_id"
+    t.index ["order_id"], name: "index_berth_orders_on_order_id"
   end
 
   create_table "berths", force: :cascade do |t|
@@ -50,6 +51,11 @@ ActiveRecord::Schema.define(version: 20180423110459) do
     t.integer "user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "piers", force: :cascade do |t|
     t.string "letter"
     t.datetime "created_at", null: false
@@ -57,10 +63,19 @@ ActiveRecord::Schema.define(version: 20180423110459) do
     t.decimal "length"
   end
 
+  create_table "seasons", force: :cascade do |t|
+    t.string "title"
+    t.date "startSeason"
+    t.date "endSeason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "service_orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "service_id"
-    t.integer "boat_season_id"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_service_orders_on_order_id"
     t.index ["service_id"], name: "index_service_orders_on_service_id"
     t.index ["user_id"], name: "index_service_orders_on_user_id"
   end
@@ -68,9 +83,9 @@ ActiveRecord::Schema.define(version: 20180423110459) do
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.decimal "cost", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "cost"
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,10 +108,16 @@ ActiveRecord::Schema.define(version: 20180423110459) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.bigint "order_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["order_id"], name: "index_users_on_order_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "berth_orders", "orders"
   add_foreign_key "berths", "piers", name: "pier_id"
   add_foreign_key "boats", "users", name: "user_id"
+  add_foreign_key "orders", "users"
+  add_foreign_key "service_orders", "orders"
+  add_foreign_key "users", "orders"
 end

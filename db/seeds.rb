@@ -85,11 +85,11 @@
   end
 
 # Berths: Creates as many berths as possible per pier.
-  pierArray = [pier1, pier2, pier3]
-  pierArray.each do |pier|
-    counter = 0
-    berthsPerPier = pier.length.to_i / 3
-    while (counter < berthsPerPier)
+  pier_array = [pier1, pier2, pier3]
+  pier_array.each do |pier|
+    counter = 1
+    berths_per_pier = pier.length.to_i / 3
+    while counter <= berths_per_pier
       Berth.find_or_create_by(berth_number: counter, pier_id: pier.id) do |berth|
         berth.berth_number = counter
         berth.width = 3
@@ -131,32 +131,40 @@
   end
 
 # BoatSeasons
-  season1 = BoatSeason.find_or_create_by(title: "Sommer 2018") do |season|
+  season1 = Season.find_or_create_by(title: "Sommer 2018") do |season|
     season.startSeason = DateTime.new(2018, 5, 1)
     season.endSeason = DateTime.new(2018, 9, 30)
   end
 
-  season2 = BoatSeason.find_or_create_by(title: "Vinter 2018") do |season|
+  season2 = Season.find_or_create_by(title: "Vinter 2018") do |season|
     season.startSeason = DateTime.new(2018, 10, 1)
     season.endSeason = DateTime.new(2019, 4, 30)
   end
 
-  season3 = BoatSeason.find_or_create_by(title: "Sommer 2019") do |season|
+  season3 = Season.find_or_create_by(title: "Sommer 2019") do |season|
     season.startSeason = DateTime.new(2019, 5, 01)
     season.endSeason = DateTime.new(2019, 9, 30)
   end
 
-  season4 = BoatSeason.find_or_create_by(title: "Vinter 2019") do |season|
+  season4 = Season.find_or_create_by(title: "Vinter 2019") do |season|
     season.startSeason = DateTime.new(2019, 10, 1)
     season.endSeason = DateTime.new(2020, 4, 01)
   end
 
+
+# Orders
+ServiceOrder.delete_all
+BerthOrder.delete_all
+Order.delete_all
+order1 = Order.create(user_id: user2.id)
+
 # ServiceOrders
-  serviceOrder1 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service1.id, boat_season_id: season1.id)
-  serviceOrder2 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service2.id, boat_season_id: season1.id)
-  serviceOrder3 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service2.id, boat_season_id: season1.id)
+  service_order1 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service1.id, order_id: order1.id)
+  service_order2 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service2.id)
+  service_order3 = ServiceOrder.find_or_create_by(user_id: user2.id, service_id: service2.id)
 
 # BerthOrders
-  berthOrder1 = BerthOrder.find_or_create_by(boat_id: boat1.id, berth_id: Berth.first.id, boat_season_id: season1.id)
-  berthOrder2 = BerthOrder.find_or_create_by(boat_id: boat2.id, berth_id: Berth.second.id, boat_season_id: season1.id)
-  berthOrder3 = BerthOrder.find_or_create_by(boat_id: boat3.id, berth_id: Berth.third.id, boat_season_id: season1.id)
+  berth_order1 = BerthOrder.find_or_create_by(boat_id: boat1.id, berth_id: Berth.first.id)
+  berth_order2 = BerthOrder.find_or_create_by(boat_id: boat2.id, berth_id: Berth.second.id)
+  berth_order3 = BerthOrder.find_or_create_by(boat_id: boat3.id, berth_id: Berth.third.id)
+

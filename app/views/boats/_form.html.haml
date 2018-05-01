@@ -9,12 +9,9 @@
   %div.form-row
     %div.form-group.col-md-12
       .field
-        - if current_user.user_level == 1
+        - if current_user.admin?
           = f.label :eier
           = f.collection_select(:user_id, User.all, :id, :full_name)
-        - if current_user.user_level != 1
-          - @boat.user_id  ||= current_user.id
-          = f.hidden_field :user_id, value: @boat.user_id
     %div.form-group.col-md-6
       = f.label :reg_number
       = f.text_field :reg_number, placeholder: "A99-9", class: "form-control"

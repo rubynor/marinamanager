@@ -1,4 +1,6 @@
 class Berth < ApplicationRecord
+
+
   belongs_to :pier
   belongs_to :berth_orders, dependent: :destroy, optional: true
 
