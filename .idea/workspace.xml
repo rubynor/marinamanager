@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7a27258-e1fb-467b-93c3-87309ab41011" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20180220121212_create_piers.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20180222120306_add_foreign_keys.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20180222120306_add_foreign_keys.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20180418104326_add_length_to_piers.rb" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -24,11 +24,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="20180217202703_create_boats.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="20180217202703_create_boats.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20180217202703_create_boats.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
               <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20180222120306_add_foreign_keys.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180222120306_add_foreign_keys.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -74,7 +83,7 @@
       <find>best</find>
       <find>full</find>
       <find>season</find>
-      <find>signed in</find>
+      <find />
       <find>binding</find>
       <find>b</find>
       <find>pry</find>
@@ -87,8 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20180427155946_create_orders.rb" />
-        <option value="$PROJECT_DIR$/app/models/pier.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180430091317_remove_berth_order_id_from_orders.rb" />
         <option value="$PROJECT_DIR$/app/models/boat_season.rb" />
         <option value="$PROJECT_DIR$/app/views/boats/_berth_order.html.haml" />
@@ -138,6 +145,8 @@
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.haml" />
         <option value="$PROJECT_DIR$/app/views/berth_orders/_form.html.haml" />
         <option value="$PROJECT_DIR$/db/migrate/20180220121212_create_piers.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180418104326_add_length_to_piers.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180222120306_add_foreign_keys.rb" />
       </list>
     </option>
   </component>
@@ -244,7 +253,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="todo&#9;ACTION&#9;ActivateTODOToolWindow&#10;simple_form&#9;FILE&#9;file:///home/jarnalyrkar/projects/marinamanager/config/locales/simple_form.en.yml&#10;modell&#9;null&#9;null&#10;services_users&#9;FILE&#9;file:///home/panji/projects/marinamanager/db/migrate/20180212070722_rename_services_users_to_service_orders.rb" />
+    <property name="SearchEverywhereHistoryKey" value="pier&#9;null&#9;null&#10;todo&#9;ACTION&#9;ActivateTODOToolWindow&#10;simple_form&#9;FILE&#9;file:///home/jarnalyrkar/projects/marinamanager/config/locales/simple_form.en.yml&#10;modell&#9;null&#9;null&#10;services_users&#9;FILE&#9;file:///home/panji/projects/marinamanager/db/migrate/20180212070722_rename_services_users_to_service_orders.rb" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -417,12 +426,12 @@
       <workItem from="1525155386520" duration="13592000" />
       <workItem from="1525687928346" duration="11307000" />
       <workItem from="1525758934039" duration="3617000" />
-      <workItem from="1525763071938" duration="13849000" />
+      <workItem from="1525763071938" duration="14017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204704000" />
+    <option name="totallyTimeSpent" value="204872000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -750,16 +759,6 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20180219210005_add_devise_to_users.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180222120306_add_foreign_keys.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180418104326_add_length_to_piers.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20180219151228_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -785,6 +784,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180418104326_add_length_to_piers.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180222120306_add_foreign_keys.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
