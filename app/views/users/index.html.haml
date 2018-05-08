@@ -17,7 +17,7 @@
             - if user.admin?
               Administrator
             - else
-              Bruker
+              Kunde
           %td= user.email
           %td= link_to 'Vis', user, class: "text-primary"
           %td= link_to 'Endre', edit_user_path(user), class: "text-primary"

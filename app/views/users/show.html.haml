@@ -5,22 +5,15 @@
     %thead
       %tr
         %th{scope: "col"} Brukernivå
-        %th{scope: "col"} Navn
         %th{scope: "col"} Epost
-        %th{scope: "col"} Telefonnummer
-        %th{scope: "col"} Adresse
-        %th{scope: "col"} Postnummer
+
       %tr
         %td
           - if @user.user_level == 1
             Administrator
           - elsif @user.user_level == 0
-            Bruker
-        %td= @user.first_name + " " + @user.last_name
+            Kunde
         %td= @user.email
-        %td= @user.phone_number
-        %td= @user.street_name + " " + @user.street_number
-        %td= @user.post_code
 
   = link_to 'Endre', edit_user_path(@user), class: "btn btn-primary btn-lg text-light btn-sm"
   = link_to 'Tilbake', users_path, class: "btn btn-primary btn-lg text-light btn-sm"

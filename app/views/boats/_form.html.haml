@@ -9,11 +9,11 @@
   %div.form-row
     %div.form-group.col-md-6
       = f.label :name, 'Båtnavn'
-      = f.text_field :name, placeholder: "A99-9", class: "form-control"
+      = f.text_field :name, placeholder: "Dronning Maud II", class: "form-control"
     %div.form-group.col-md-6
       = f.label :width, 'Bredde'
       \ (meter)
-      = f.text_field :width, class: "form-control"
+      = f.text_field :width, placeholder: "3.4", class: "form-control"
     = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
     = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"
     %div
