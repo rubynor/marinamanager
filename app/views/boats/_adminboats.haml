@@ -2,25 +2,17 @@
 %table.table
   %thead
     %tr
-      %th{scope: "col"} Reg. nr
-      %th{scope: "col"} Modell
+      %th{scope: "col"} Båtnavn
       %th{scope: "col"} Bredde
-      %th{scope: "col"} Lengde
-      %th{scope: "col"} Båtplass
-      %th{scope: "col"} Båteier
+
       %th
       %th
       %th
 
   - @boats.each do |boat|
     %tr
-      - if boat.user_id != current_user.id
-        %td= boat.reg_number
-        %td= boat.model
-        %td= boat.width
-        %td= boat.length
-        %td= "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
-        %td= boat.user.first_name + " " + boat.user.last_name
-        %td= link_to 'Vis', boat, class: "text-primary"
-        %td= link_to 'Endre', edit_boat_path(boat), class: "text-primary"
-        %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"
+      %td= boat.name
+      %td= boat.width
+      %td= link_to 'Vis', boat, class: "text-primary"
+      %td= link_to 'Endre', edit_boat_path(boat), class: "text-primary"
+      %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"

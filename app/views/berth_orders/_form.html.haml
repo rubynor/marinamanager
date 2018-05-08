@@ -10,26 +10,31 @@
     %div.col
       %div.row
         .field
-          = f.label :user, 'Båteier:'
-          = @berth_order.boat.user.email
+          -if current_user.admin?
+            = f.label :user, 'Båteier:'
+            = @berth_order.boat.user.email
       %div.row
         .field
           = f.label :name, 'Båtnavn:'
-          = f.label @berth_order.boat.name
+          - if current_user.admin?
+            = f.label @berth_order.boat.name
+          - else
+            = f.collection_select(:boat_id, @user_boats, :id, :name)
       %div.row
         .field
           = f.label :season, 'Sesong:'
           = f.collection_select(:season_id, @current_seasons, :id, :title)
-      %div.row
-        .field
-          = f.label :status, 'Status:'
-          = f.collection_select(:status_id, @status, :id, :status)
-      %div.row
-        .field
-          = f.label :berth, 'Tildel båtplass:'
-          = f.collection_select(:berth_id, @available_berths, :id, :name)
-
-
+      -if current_user.admin?
+        %div.row
+          .field
+            = f.label :status, 'Status:'
+            = f.collection_select(:status_id, @status, :id, :status)
+        %div.row
+          .field
+            = f.label :berth, 'Tildel båtplass:'
+            = f.collection_select(:berth_id, @available_berths, :id, :name)
+  %div.row
     .actions
       = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
       = link_to 'Tilbake', berth_orders_path, class: "btn btn-primary btn-lg text-light btn-sm"
+

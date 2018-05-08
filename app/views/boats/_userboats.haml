@@ -1,12 +1,8 @@
 %table.table
   %thead
     %tr
-      %th{scope: "col"} Reg. nr
-      %th{scope: "col"} Modell
+      %th{scope: "col"} Båtnavn
       %th{scope: "col"} Bredde
-      %th{scope: "col"} Lengde
-      %th{scope: "col"} Båtplass
-      %th
       %th
       %th
       %th
@@ -15,17 +11,8 @@
     - @boats.each do |boat|
       - if boat.user == current_user
         %tr
-          %td= boat.reg_number
-          %td= boat.model
+          %td= boat.name
           %td= boat.width
-          %td= boat.length
-          %td
-            - if boat.berth_orders.first
-              = "#{boat&.berth_orders&.first&.berth&.pier&.letter}" + "#{boat&.berth_orders&.first&.berth&.berth_number}"
-              - if boat&.berth_orders&.first&.berth&.pier == nil
-                Til Bestilling
-            - else
-              = link_to 'Bestill', new_berth_order_path(boat_id: boat.id), class: "text-primary"
           %td= link_to 'Vis', boat, class: "text-primary"
           %td= link_to 'Endre', edit_boat_path(boat), class: "text-primary"
           %td= link_to 'Slett', boat, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"

@@ -20,26 +20,19 @@
   %nav.navbar.navbar-expand-lg.bg-primary
     %ul.nav.nav-pills.nav-fill
       - if current_user
-        - if current_user.user_level == 0
-          %li.nav-item
-            = button_link 'Mine Båter', boats_path
-          %li.nav-item
-            = button_link 'Bestillinger', service_orders_path
-        - elsif current_user.user_level == 1
+        - if current_user.admin?
           %li.nav-item
             = button_link 'Brukere', users_path
           %li.nav-item
             = button_link 'Båter', boats_path
           %li.nav-item
-            = button_link 'Tjenester', services_path
-          %li.nav-item
-            = button_link 'Båtplasser', berths_path
-          %li.nav-item
-            = button_link 'Pier', piers_path
-          %li.nav-item
-            = button_link 'Tjenestebestillinger', service_orders_path
-          %li.nav-item
             = button_link 'Båtplassbestillinger', berth_orders_path
+
+        - else
+          %li.nav-item
+            = button_link 'Mine Båter', boats_path
+          %li.nav-item
+            = button_link 'Bestillinger', berth_orders_path
       - else
         %li.nav-item
           %a.nav-link.btn.btn-primary.btn-lg.text-light(href=home_path) Hjem

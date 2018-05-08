@@ -1,7 +1,16 @@
 %div.container
-  %p#notice= notice
-
-
+  %p
+    %b Ordrenummer:
+    = @berth_order.id
+  %p
+    %b Båtnavn:
+    = @berth_order.boat.name
+  %p
+    %b Sesong:
+    = @berth_order.season.title
+  %p
+    %b Status:
+    = @berth_order.status.status
   = link_to 'Endre', edit_berth_order_path(@berth_order), class: "text-primary"
   \|
   = link_to 'Tilbake', berth_orders_path, class: "text-primary"

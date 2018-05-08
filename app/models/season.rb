@@ -1,3 +1,3 @@
 class Season < ApplicationRecord
-  has_many :orders
+  has_many :berth_orders
 end

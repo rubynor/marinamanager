@@ -1,9 +1,10 @@
 %div.container
   %h1 Båter, oversikt
-  - if current_user.user_level != 1
+  - if current_user.admin?
+    = render "adminboats"
+
+  - else
     = render "userboats"
     %br
       = link_to 'Legg til båt', new_boat_path, class: "btn btn-primary btn-lg text-light btn-sm"
-  - if current_user.user_level == 1
-    = render "adminboats"
   %br

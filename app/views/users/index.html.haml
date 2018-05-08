@@ -5,13 +5,7 @@
     %thead
       %tr
         %th{scope: "col"} Brukernivå
-        %th{scope: "col"} Fornavn
-        %th{scope: "col"} Etternavn
         %th{scope: "col"} Epost
-        %th{scope: "col"} Telefonnummer
-        %th{scope: "col"} Gatenavn
-        %th{scope: "col"} Husnummer
-        %th{scope: "col"} Postnummer
         %th
         %th
         %th
@@ -20,17 +14,11 @@
       - @users.each do |user|
         %tr
           %td
-            - if user.user_level == 0
-              Bruker
-            - if user.user_level == 1
+            - if user.admin?
               Administrator
-          %td= user.first_name
-          %td= user.last_name
+            - else
+              Bruker
           %td= user.email
-          %td= user.phone_number
-          %td= user.street_name
-          %td= user.street_number
-          %td= user.post_code
           %td= link_to 'Vis', user, class: "text-primary"
           %td= link_to 'Endre', edit_user_path(user), class: "text-primary"
           %td= link_to 'Slett', user, method: :delete, data: { confirm: 'Er du sikker?' }, class: "text-primary"

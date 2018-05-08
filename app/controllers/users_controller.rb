@@ -69,6 +69,6 @@ class UsersController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_level, :first_name, :last_name, :email, :phone_number, :street_name, :street_number, :post_code)
+      params.require(:user).permit(:user_level)
     end
 end

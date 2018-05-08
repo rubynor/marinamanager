@@ -69,6 +69,6 @@ class SeasonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def season_params
-      params.require(:season).permit(:title, :description, :startSeason, :endSeason)
+      params.require(:season).permit(:title, :start_season_on, :end_season_on)
     end
 end

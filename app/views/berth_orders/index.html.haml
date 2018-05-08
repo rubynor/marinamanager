@@ -4,38 +4,34 @@
   %table.table
     %thead
       %tr
+        %th{scope: "col"} Ordrenummer
+        %th{scope: "col"} Båtnavn
+        %th{scope: "col"} Sesong
+        %th{scope: "col"} Status
         %th{scope: "col"} Båtplass
-        %th{scope: "col"} Reg. nr, båt
-        %th{scope: "col"} Pris pr. mnd
-        %th{scope: "col"} Utleie fra
-        %th{scope: "col"} Utleie til
         %th
         %th
         %th
 
     %tbody
       - @berth_orders.each do |berth_order|
-        - if berth_order.berth.nil?
-          %tr
-            %td Ikke Bekreftet
-            %td= berth_order.boat.reg_number
-            %td
-            %td= berth_order.start_berth_order
-            %td= berth_order.end_berth_order
-            %td= link_to 'Vis', berth_order, class: "text-primary"
-            %td= link_to 'Endre', edit_berth_order_path(berth_order), class: "text-primary"
-            %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
+        %tr
+          %td= berth_order.id
+          %td= berth_order.boat.name
+          %td= berth_order.season.title
+          %td= berth_order.status.status
+          %td
+            - if berth_order.berth_id
+              = berth_order.berth.name
+            - else
+              Ikke tilegnet
 
-        - elsif !berth_order.berth.nil? && !berth_order.boat.nil?
-          %tr
-            %td= berth_order.berth.berth_number
-            %td= berth_order.boat.reg_number
-            %td= berth_order.berth.cost
-            %td= berth_order.start_berth_order
-            %td= berth_order.end_berth_order
-            %td= link_to 'Vis', berth_order, class: "text-primary"
-            %td= link_to 'Endre', edit_berth_order_path(berth_order), class: "text-primary"
-            %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
+          -#%td= link_to 'Vis', berth_order, class: "text-primary"|
+          - if current_user.admin?
+            %td= link_to 'Behandle', edit_berth_order_path(berth_order), class: "text-primary"
+            -# TODO: Fjerne mulighet for slett?
+            -# La heller bestillingen fjernes fra viewet basert på tid, og / eller om den har blitt avvist.
+          %td= link_to 'Slett', berth_order, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-primary"
   %br
-
-  = link_to 'Ny båtplassbestilling', new_berth_order_path, class: "btn btn-primary btn-lg text-light btn-sm"
+  - unless current_user.admin?
+    = link_to 'Bestill båtplass', new_berth_order_path, class: "btn btn-primary btn-lg text-light btn-sm"

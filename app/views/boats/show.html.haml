@@ -2,24 +2,13 @@
   %table.table
     %thead
       %tr
-        %th{scope: "col"} Registreringsnummer
-        %th{scope: "col"} Modell
+        %th{scope: "col"} Båtnavn
         %th{scope: "col"} Bredde
-        %th{scope: "col"} Lengde
-        %th{scope: "col"} Båtplass
       %tr
-        %td= @boat.reg_number
-        %td= @boat.model
+        %td= @boat.name
         %td= @boat.width
-        %td= @boat.length
         %td
-          - if !@boat.berth_orders.first.nil?
-            - @boat.berth_orders.each do |berth_order|
-              -if berth_order.berth.nil?
-                = "Venter på tildeling"
-              -else
-                = "#{berth_order&.berth&.pier&.letter}" + "#{berth_order&.berth&.berth_number}"
-              = "(#{berth_order&.start_berth_order&.strftime('%d %B %Y')} - #{berth_order&.end_berth_order&.strftime('%d %B %Y')})"
+
 
   = link_to 'Endre', edit_boat_path(@boat), class: "btn btn-primary btn-lg text-light btn-sm"
   \

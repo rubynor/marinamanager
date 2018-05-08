@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :seasons
-  resources :orders
   devise_for :users
 
   root 'marina#home'
@@ -20,9 +19,6 @@ Rails.application.routes.draw do
   resources :berth_orders
   resources :berths
   resources :boats
-  resources :piers
-  resources :service_orders
-  resources :services
   resources :users
   root 'marina#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

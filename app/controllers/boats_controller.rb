@@ -1,10 +1,14 @@
-class BoatsController < LoggedInController
+class BoatsController < ApplicationController
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
   # GET /boats
   # GET /boats.json
   def index
-    @boats = Boat.all
+    if current_user.admin?
+      @boats = Boat.all
+    else
+      @boats = current_user.boats
+    end
   end
 
   # GET /boats/1
@@ -25,15 +29,14 @@ class BoatsController < LoggedInController
   # POST /boats.json
   def create
     @boat = Boat.new(boat_params)
-    unless current_user.admin?
-      @boat.user = current_user
-    end
-
+    @boat.user = current_user
     respond_to do |format|
       if @boat.save
-        format.html { redirect_to @boat, notice: 'Båten ble lagt til.' }
+        format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
+        format.json { render :show, status: :created, location: @boat }
       else
         format.html { render :new }
+        format.json { render json: @boat.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,9 +46,11 @@ class BoatsController < LoggedInController
   def update
     respond_to do |format|
       if @boat.update(boat_params)
-        format.html { redirect_to @boat, notice: 'Båten har blitt endret' }
+        format.html { redirect_to @boat, notice: 'Boat was successfully updated.' }
+        format.json { render :show, status: :ok, location: @boat }
       else
         format.html { render :edit }
+        format.json { render json: @boat.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,21 +60,19 @@ class BoatsController < LoggedInController
   def destroy
     @boat.destroy
     respond_to do |format|
-      format.html { redirect_to boats_url, notice: 'Båten har blitt slettet.' }
+      format.html { redirect_to boats_url, notice: 'Boat was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_boat
-      @boat = Boat.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_boat
+    @boat = Boat.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def boat_params
-      params.require(:boat).permit(:reg_number, :model, :width, :length, :user_id, berth_orders_attributes: [:boat_id, :start_berth_order, :end_berth_order, :_destroy, :id])
-    end
-
-
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def boat_params
+    params.require(:boat).permit(:name, :width)
+  end
 end
