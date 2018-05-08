@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7a27258-e1fb-467b-93c3-87309ab41011" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/db/migrate/20180507104448_remove_order_id_from_user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20180507104448_remove_order_id_from_user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20180507105529_remove_columns_from_berth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20180507105529_remove_columns_from_berth.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -23,33 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="20180428064233_add_order_ref_to_user.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180428064233_add_order_ref_to_user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20180428064334_add_order_ref_to_service_order.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180428064334_add_order_ref_to_service_order.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20180428064348_add_order_ref_to_berth_order.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180428064348_add_order_ref_to_berth_order.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="20180430091304_remove_service_order_id_from_orders.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20180430091304_remove_service_order_id_from_orders.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -104,11 +77,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20180507104448_remove_order_id_from_user.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="20180507104448_remove_order_id_from_user.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20180507104448_remove_order_id_from_user.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
               <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20180507104750_remove_columns_from_boat.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180507104750_remove_columns_from_boat.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="20180507104859_add_name_to_boat.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180507104859_add_name_to_boat.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="20180507105529_remove_columns_from_berth.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20180507105529_remove_columns_from_berth.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -149,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/season.rb" />
         <option value="$PROJECT_DIR$/app/models/status.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180507103615_remove_columns_from_user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180507103154_fix_column_name.rb" />
@@ -200,6 +191,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20180501065422_remove_boat_season_id_from_berth_order.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180501065457_remove_boat_season_id_from_service_order.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180507104448_remove_order_id_from_user.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180507105529_remove_columns_from_berth.rb" />
       </list>
     </option>
   </component>
@@ -479,12 +471,12 @@
       <workItem from="1525155386520" duration="13592000" />
       <workItem from="1525687928346" duration="11307000" />
       <workItem from="1525758934039" duration="3617000" />
-      <workItem from="1525763071938" duration="14914000" />
+      <workItem from="1525763071938" duration="15020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205769000" />
+    <option name="totallyTimeSpent" value="205875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -529,27 +521,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/contact.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/berth.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/season.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/devise.en.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -859,6 +830,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180507104750_remove_columns_from_boat.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180507104859_add_name_to_boat.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180507105529_remove_columns_from_berth.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
