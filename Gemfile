@@ -39,6 +39,7 @@ gem 'sprockets-rails'
 gem 'client_side_validations'
 gem 'mail_form'
 gem 'simple_form'
+
 # for enumerable datatype in database
 gem 'enumerize', '~> 2.2', '>= 2.2.2'
 # for making cron-tasks, specifically for yearly adding new boatSeasons
@@ -63,10 +64,23 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  # Better errors
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  #
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Noob help
+  # Rubocop helps with writing better rubycode
+  gem 'rubocop'
+  # Annotate adds comments in models and routes about what they contain.
+  gem 'annotate'
+  # Bullet warns about n+1 queries
+  gem 'bullet'
+  # Oink detects memory leaks.
+  gem 'oink'
 end
 
 group :production do

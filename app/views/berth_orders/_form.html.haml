@@ -22,7 +22,6 @@
             - else
               -# TODO: Sjekke om listen er tom, og isåfall kun vise linken under.
               = f.collection_select(:boat_id, @user_boats, :id, :name)
-
               .field
                 %i
                   = link_to "Legg til båt", new_boat_path, class: "text-primary"
@@ -31,14 +30,14 @@
               - if current_user.admin?
                 = f.label @berth_order.season.title
               - else
-                = f.collection_select(:season_id, @current_seasons, :id, :title)
+                = f.collection_select(:season_id, bookable_seasons, :id, :title)
       %div.col
         %div.row
         -if current_user.admin?
           %div.row
             .field
-              = f.label :berth, 'Tildel båtplass:'
-              = f.collection_select(:berth_id, @available_berths, :id, :name)
+              = f.label 'Antall ledige plasser:'
+              = f.label @available_berths
           %div.row
             .field
               = f.label :status, 'Status:'

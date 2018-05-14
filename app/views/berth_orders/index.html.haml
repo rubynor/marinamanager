@@ -8,7 +8,6 @@
         %th{scope: "col"} Båtnavn
         %th{scope: "col"} Sesong
         %th{scope: "col"} Status
-        %th{scope: "col"} Båtplass
         - if current_user.admin?
           %th{scope: "col"} Båteier
         %th
@@ -20,13 +19,14 @@
         %tr
           %td= berth_order.id
           %td= berth_order.boat.name
-          %td= berth_order.season.title
-          %td= berth_order.status.status
           %td
-            - if berth_order.berth_id
-              = berth_order.berth.name
-            - else
-              Ikke tilegnet
+            = berth_order.season.title
+            (
+            = berth_order.season.start_season_on
+            \-
+            = berth_order.season.end_season_on
+            )
+          %td= berth_order.status.status
 
           -#%td= link_to 'Vis', berth_order, class: "text-primary"|
           - if current_user.admin?
