@@ -18,7 +18,6 @@ class BerthOrder < ApplicationRecord
 	attr_writer :current_step
 	validates_presence_of :boat, :if => lambda { |b| b.current_step == "boat"}
 	validates_presence_of :season, :if => lambda { |b| b.current_step == "season"}
-	# binding.pry
 
 	def current_step
 		@current_step || steps.first

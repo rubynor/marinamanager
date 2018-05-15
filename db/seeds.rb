@@ -71,8 +71,6 @@
     season.berths = 20
   end
 
-
-
 # Status
   status_1 = Status.find_or_create_by!(status: 'Godkjent')
   status_2 = Status.find_or_create_by!(status: 'Under behandling')

@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515074150) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +66,7 @@ ActiveRecord::Schema.define(version: 20180515074150) do
     t.integer "berths"
   end
 
+
   create_table "service_orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "service_id"
@@ -114,4 +113,3 @@ ActiveRecord::Schema.define(version: 20180515074150) do
   add_foreign_key "boats", "users", name: "user_id"
   add_foreign_key "orders", "users"
   add_foreign_key "service_orders", "orders"
-end

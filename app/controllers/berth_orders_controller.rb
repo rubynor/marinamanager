@@ -17,20 +17,20 @@ class BerthOrdersController < LoggedInController
   def show
   end
 
-  # GET /berth_orders/1/edit
-  def edit
-    season_id = BerthOrder.find(params[:id]).season_id
-    @available_berths = Season.find(season_id).berths - BerthOrder.where(season_id: season_id, status_id: 1).count
-    @status = Status.all # Godkjent, Under Behandling, Avvist
-    @current_seasons = Season.all # TODO: nåværende sesong + 3 sesonger fremover
-  end
-
   # GET /berth_orders/new
   def new
     session[:berth_order_params] ||= {}
     @berth_order = BerthOrder.new
     @user_boats = current_user.boats
     session[:berth_order_step] = @berth_order.first_step
+  end
+
+  # GET /berth_orders/1/edit
+  def edit
+    season_id = BerthOrder.find(params[:id]).season_id
+    @available_berths = Season.find(season_id).number_of_berths - BerthOrder.where(season_id: season_id, status_id: 1).count
+    @status = Status.all # Godkjent, Under Behandling, Avvist
+    @current_seasons = Season.all # TODO: nåværende sesong + 3 sesonger fremover
   end
 
   # POST /berth_orders
@@ -96,4 +96,5 @@ class BerthOrdersController < LoggedInController
     def berth_order_params
       params.require(:berth_order).permit(:boat_id, :season_id, :status_id)
     end
+
 end
