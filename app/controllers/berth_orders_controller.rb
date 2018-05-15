@@ -28,7 +28,7 @@ class BerthOrdersController < LoggedInController
   # GET /berth_orders/1/edit
   def edit
     season_id = BerthOrder.find(params[:id]).season_id
-    @available_berths = Season.find(season_id).number_of_berths - BerthOrder.where(season_id: season_id, status_id: 1).count
+    @available_berths = Season.find(season_id).berths - BerthOrder.where(season_id: season_id, status_id: 1).count
     @status = Status.all # Godkjent, Under Behandling, Avvist
     @current_seasons = Season.all # TODO: nåværende sesong + 3 sesonger fremover
   end

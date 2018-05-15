@@ -10,31 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20180515074150) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "berth_orders", force: :cascade do |t|
+    t.bigint "berth_id"
     t.bigint "boat_id"
+    t.integer "boat_season_id"
     t.bigint "season_id"
     t.bigint "status_id"
+    t.index ["berth_id"], name: "index_berth_orders_on_berth_id"
     t.index ["boat_id"], name: "index_berth_orders_on_boat_id"
     t.index ["season_id"], name: "index_berth_orders_on_season_id"
     t.index ["status_id"], name: "index_berth_orders_on_status_id"
-  end
-
-  create_table "berths", force: :cascade do |t|
-    t.decimal "width", precision: 8, scale: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-  end
-
-  create_table "boat_seasons", force: :cascade do |t|
-    t.string "title"
-    t.date "startSeason"
-    t.date "endSeason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "boats", force: :cascade do |t|
@@ -45,43 +35,22 @@
     t.string "name"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "piers", force: :cascade do |t|
-    t.string "letter"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.decimal "length"
-  end
-
   create_table "seasons", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "start_season_on"
     t.date "end_season_on"
+    t.integer "number_of_berths"
     t.integer "berths"
   end
-
 
   create_table "service_orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "service_id"
-    t.bigint "order_id"
-    t.index ["order_id"], name: "index_service_orders_on_order_id"
+    t.integer "boat_season_id"
     t.index ["service_id"], name: "index_service_orders_on_service_id"
     t.index ["user_id"], name: "index_service_orders_on_user_id"
-  end
-
-  create_table "services", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "cost"
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -111,5 +80,4 @@
   add_foreign_key "berth_orders", "seasons"
   add_foreign_key "berth_orders", "statuses"
   add_foreign_key "boats", "users", name: "user_id"
-  add_foreign_key "orders", "users"
-  add_foreign_key "service_orders", "orders"
+end
