@@ -16,15 +16,18 @@ ActiveRecord::Schema.define(version: 20180515074150) do
   enable_extension "plpgsql"
 
   create_table "berth_orders", force: :cascade do |t|
-    t.bigint "berth_id"
     t.bigint "boat_id"
-    t.integer "boat_season_id"
     t.bigint "season_id"
     t.bigint "status_id"
-    t.index ["berth_id"], name: "index_berth_orders_on_berth_id"
     t.index ["boat_id"], name: "index_berth_orders_on_boat_id"
     t.index ["season_id"], name: "index_berth_orders_on_season_id"
     t.index ["status_id"], name: "index_berth_orders_on_status_id"
+  end
+
+  create_table "berths", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "boats", force: :cascade do |t|
@@ -33,6 +36,18 @@ ActiveRecord::Schema.define(version: 20180515074150) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "name"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "piers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -48,7 +63,8 @@ ActiveRecord::Schema.define(version: 20180515074150) do
   create_table "service_orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "service_id"
-    t.integer "boat_season_id"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_service_orders_on_order_id"
     t.index ["service_id"], name: "index_service_orders_on_service_id"
     t.index ["user_id"], name: "index_service_orders_on_user_id"
   end
@@ -80,4 +96,6 @@ ActiveRecord::Schema.define(version: 20180515074150) do
   add_foreign_key "berth_orders", "seasons"
   add_foreign_key "berth_orders", "statuses"
   add_foreign_key "boats", "users", name: "user_id"
+  add_foreign_key "orders", "users"
+  add_foreign_key "service_orders", "orders"
 end

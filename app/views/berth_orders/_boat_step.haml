@@ -1,6 +1,28 @@
-%h2 Velg båt
+%h2 Legg til båt
+
+
+= form_for @boat do |f|
+  - if @boat.errors.any?
+    #error_explanation
+      %h2= "#{@boat.errors.count} feil hindret denne båten fra å bli lagret:"
+      %ul
+        - @boat.errors.full_messages.each do |message|
+          %li= message
+Velko
+  %div.form-row
+    %div.form-group.col-md-6
+      = f.label :name, 'Båtnavn'
+      = f.text_field :name, placeholder: "Dronning Maud II", class: "form-control"
+
+    %div.form-group.col-md-6
+      = f.label :width, 'Bredde'
+      \ (meter)
+      = f.text_field :width, placeholder: "3.4", class: "form-control"
+    = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
+    = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"
+
 %p
+  Eller legg til eksisterende båt:
   -# TODO: Sjekke om listen er tom, og isåfall kun vise linken under.
   = f.collection_select(:boat_id, @user_boats, :id, :name)
-  %i
-    = link_to "Legg til båt", new_boat_path, class: "text-primary"
+  -#= link_to "Legg til båt", new_boat_path, class: "text-primary"

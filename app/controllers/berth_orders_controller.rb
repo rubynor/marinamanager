@@ -21,6 +21,7 @@ class BerthOrdersController < LoggedInController
   def new
     session[:berth_order_params] ||= {}
     @berth_order = BerthOrder.new
+    @boat = Boat.new
     @user_boats = current_user.boats
     session[:berth_order_step] = @berth_order.first_step
   end
