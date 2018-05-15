@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508084849) do
+ActiveRecord::Schema.define(version: 20180515074150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "berth_orders", force: :cascade do |t|
-    t.bigint "berth_id"
     t.bigint "boat_id"
     t.bigint "season_id"
     t.bigint "status_id"
-    t.index ["berth_id"], name: "index_berth_orders_on_berth_id"
     t.index ["boat_id"], name: "index_berth_orders_on_boat_id"
     t.index ["season_id"], name: "index_berth_orders_on_season_id"
     t.index ["status_id"], name: "index_berth_orders_on_status_id"
@@ -67,6 +65,7 @@ ActiveRecord::Schema.define(version: 20180508084849) do
     t.datetime "updated_at", null: false
     t.date "start_season_on"
     t.date "end_season_on"
+    t.integer "berths"
   end
 
   create_table "service_orders", force: :cascade do |t|

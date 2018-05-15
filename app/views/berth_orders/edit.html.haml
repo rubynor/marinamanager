@@ -1,4 +1,6 @@
 %div.container
   %h1 Endre båtplassbestilling
-
-  = render 'form'
+  - if current_user.admin?
+    = render 'admin_form'
+  - else
+    = render 'form'

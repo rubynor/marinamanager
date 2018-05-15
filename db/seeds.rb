@@ -34,29 +34,44 @@
     boat.width = 3
   end
 
-# Berths
-  berth_1 = Berth.find_or_create_by!(name: 'A1') do |berth|
-    berth.width = 3
-  end
-
-  berth_2 = Berth.find_or_create_by(name: 'A2') do |berth|
-    berth.width = 3
-  end
-
-  berth_3 = Berth.find_or_create_by!(name: 'A3') do |berth|
-    berth.width = 3
-  end
-
 # Seasons
   season_1 = Season.find_or_create_by!(title: 'Vinter 2018') do |season|
     season.start_season_on = Date.new(2017, 9, 1)
     season.end_season_on = Date.new(2018, 4, 30)
+    season.berths = 20
   end
 
   season_2 = Season.find_or_create_by!(title: 'Sommer 2018') do |season|
     season.start_season_on = Date.new(2018, 5, 1)
     season.end_season_on = Date.new(2018, 9, 30)
+    season.berths = 20
   end
+
+  season_3 = Season.find_or_create_by!(title: 'Vinter 2019') do |season|
+    season.start_season_on = Date.new(2018, 9, 1)
+    season.end_season_on = Date.new(2019, 4, 30)
+    season.berths = 20
+  end
+
+  season_4 = Season.find_or_create_by!(title: 'Sommer 2019') do |season|
+    season.start_season_on = Date.new(2019, 5, 1)
+    season.end_season_on = Date.new(2019, 9, 30)
+    season.berths = 20
+  end
+
+  season_5 = Season.find_or_create_by!(title: 'Vinter 2020') do |season|
+    season.start_season_on = Date.new(2019, 9, 1)
+    season.end_season_on = Date.new(2020, 4, 30)
+    season.berths = 20
+  end
+
+  season_6 = Season.find_or_create_by!(title: 'Sommer 2020') do |season|
+    season.start_season_on = Date.new(2020, 5, 1)
+    season.end_season_on = Date.new(2020, 9, 30)
+    season.berths = 20
+  end
+
+
 
 # Status
   status_1 = Status.find_or_create_by!(status: 'Godkjent')
@@ -66,5 +81,8 @@
 # Berth Orders
   berth_order_1 = BerthOrder.find_or_create_by!(boat_id: boat_1.id, season: season_1) do |berth_order|
     berth_order.status = status_1
-    berth_order.berth = berth_1
+  end
+
+  berth_order_2 = BerthOrder.find_or_create_by!(boat_id: boat_2.id, season: season_1) do |berth_order|
+    berth_order.status = status_2
   end

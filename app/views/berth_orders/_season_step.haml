@@ -1,0 +1,4 @@
+%h2 Velg sesong
+%p
+  = f.label :season, 'Sesong:'
+  = f.collection_select(:season_id, bookable_seasons, :id, :title)

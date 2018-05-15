@@ -1,0 +1,6 @@
+%h2 Velg båt
+%p
+  -# TODO: Sjekke om listen er tom, og isåfall kun vise linken under.
+  = f.collection_select(:boat_id, @user_boats, :id, :name)
+  %i
+    = link_to "Legg til båt", new_boat_path, class: "text-primary"

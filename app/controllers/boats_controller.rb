@@ -32,7 +32,7 @@ class BoatsController < ApplicationController
     @boat.user = current_user
     respond_to do |format|
       if @boat.save
-        format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
+        format.html { redirect_to new_berth_order_path, notice: 'Boat was successfully created.' }
         format.json { render :show, status: :created, location: @boat }
       else
         format.html { render :new }
