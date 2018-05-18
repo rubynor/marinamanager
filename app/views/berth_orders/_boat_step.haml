@@ -1,6 +1,3 @@
-%h2 Legg til båt
-
-
 = form_for @boat do |f|
   - if @boat.errors.any?
     #error_explanation
@@ -18,11 +15,17 @@
       = f.label :width, 'Bredde'
       \ (meter)
       = f.text_field :width, placeholder: "3.4", class: "form-control"
-    = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
-    = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"
+      = f.submit 'Lagre', class: "btn btn-primary btn-lg text-light btn-sm"
+      = link_to 'Tilbake', boats_path, class: "btn btn-primary btn-lg text-light btn-sm"
 
-%p
-  Eller legg til eksisterende båt:
-  -# TODO: Sjekke om listen er tom, og isåfall kun vise linken under.
-  = f.collection_select(:boat_id, @user_boats, :id, :name)
-  -#= link_to "Legg til båt", new_boat_path, class: "text-primary"
+    %p
+      Eller legg til eksisterende båt:
+      -# TODO: Sjekke om listen er tom, og isåfall kun vise linken under.
+      = f.collection_select(:boat_id, @user_boats, :id, :name)
+      -#= link_to "Legg til båt", new_boat_path, class: "text-primary"
+
+  %p
+    = f.submit 'Fortsett', class: "btn btn-primary btn-lg text-light btn-sm"
+    = f.submit 'Tilbake', name: 'back_button', class: "btn btn-primary btn-lg text-light btn-sm" unless @berth_order.first_step?
+  %p
+    = link_to 'Liste over bestillinger', berth_orders_path, class: "btn btn-primary btn-lg text-light btn-sm"

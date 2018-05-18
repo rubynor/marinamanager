@@ -1,17 +1,34 @@
 %div.container
-  = form_for @berth_order do |f|
-    - if @berth_order.errors.any?
-      #error_explanation
-        %h2= "#{@berth_order.errors.count} feil hindret denne bestillingen fra å bli lagret:"
-        %ul
-          - @berth_order.errors.full_messages.each do |message|
-            %li= message
+  %div.content
+    %div.main
+      = form_for @berth_order, id: "berthOrderForm" do |f|
+        - if @berth_order.errors.any?
+          #error_explanation
+            %h2= "#{@berth_order.errors.count} feil hindret denne bestillingen fra å bli lagret:"
+            %ul
+              - @berth_order.errors.full_messages.each do |message|
+                %li= message
+        #boatValidation
+        %div#boatTab
+          = fields_for :boat do |builder|
+            = builder.label :name, "Båtnavn"
+            = builder.text_field :name
+            = builder.label :width, "Båtbredde"
+            = builder.text_field :width
 
+          - if @user_boats
+            %fieldset.text-center
+              = f.label :boat, "Eller velg en av dine båter:"
+              %br
+              = f.collection_select(:boat_id, @user_boats, :id,
+                                     :name, {include_blank: "--Velg båt--"}, {:id=>"boatDrop"})
 
-    = render "#{@berth_order.current_step}_step", :f => f
+        %div#seasonTab
+          - if @current_seasons
+            %fieldset#seasons
+              = f.label :season
+              = f.collection_select(:season_id, @current_seasons, :id, :title)
 
-    %p
-      = f.submit 'Fortsett', class: "btn btn-primary btn-lg text-light btn-sm"
-      = f.submit 'Tilbake', name: 'back_button', class: "btn btn-primary btn-lg text-light btn-sm" unless @berth_order.first_step?
-    %p
-      = link_to 'Liste over bestillinger', berth_orders_path, class: "btn btn-primary btn-lg text-light btn-sm"
+        = submit_tag 'Fortsett', id: "nextBtn", class: "hide", type: 'button'
+        = submit_tag "Tilbake", id: "prevBtn", class: "hide", type: 'button'
+        = f.submit 'Fullfør', id: "completeBtn", class: "hide"
