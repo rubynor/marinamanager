@@ -1,4 +1,6 @@
-%div.container
+= render 'step_guide'
+
+%div.container.text-center#lastPage
   %p
     %b Ordrenummer:
     = @berth_order.id
@@ -11,6 +13,5 @@
   %p
     %b Status:
     = @berth_order.status.status
-  = link_to 'Endre', edit_berth_order_path(@berth_order), class: "text-primary"
-  \|
-  = link_to 'Tilbake', berth_orders_path, class: "text-primary"
+
+  = link_to 'Liste over bestillinger', berth_orders_path, class: "text-primary"

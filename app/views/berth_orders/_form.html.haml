@@ -1,14 +1,19 @@
+= render 'step_guide'
+
 %div.container
   %div.content
     %div.main
-      = form_for @berth_order, id: "berthOrderForm" do |f|
+
+      = form_for @berth_order, html: {id: "berthOrderForm"} do |f|
         - if @berth_order.errors.any?
           #error_explanation
             %h2= "#{@berth_order.errors.count} feil hindret denne bestillingen fra å bli lagret:"
             %ul
               - @berth_order.errors.full_messages.each do |message|
                 %li= message
+
         #boatValidation
+
         %div#boatTab
           = fields_for :boat do |builder|
             = builder.label :name, "Båtnavn"
@@ -25,7 +30,7 @@
 
         %div#seasonTab
           - if @current_seasons
-            %fieldset#seasons
+            %fieldset.text-center
               = f.label :season
               = f.collection_select(:season_id, @current_seasons, :id, :title)
 
