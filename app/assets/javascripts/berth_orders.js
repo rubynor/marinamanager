@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function() {
     $("#nextBtn").click(function() {
         if (validateBoat()) {
             next();
+            document.getElementById("boatValidation").innerHTML = "";
         } else {
             document.getElementById("boatValidation").innerHTML = "Vennligst fyll inn feltene";
         }

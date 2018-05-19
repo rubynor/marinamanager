@@ -25,4 +25,8 @@ class Season < ApplicationRecord
     total_berths_per_season(season) - BerthOrder.where(season: season, status: 1).count
   end
 
+  def to_s
+    self.title + " (" + self.start_season_on.to_s + " - " + self.end_season_on.to_s + ")"
+  end
+
 end

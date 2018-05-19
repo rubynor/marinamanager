@@ -31,8 +31,7 @@
         %div#seasonTab
           - if @current_seasons
             %fieldset.text-center
-              = f.label :season
-              = f.collection_select(:season_id, @current_seasons, :id, :title)
+              = f.collection_select(:season_id, @current_seasons, :id, :to_s)
 
         = submit_tag 'Fortsett', id: "nextBtn", class: "hide", type: 'button'
         = submit_tag "Tilbake", id: "prevBtn", class: "hide", type: 'button'

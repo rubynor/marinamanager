@@ -9,7 +9,7 @@
     = @berth_order.boat.name
   %p
     %b Sesong:
-    = @berth_order.season.title
+    = "#{@berth_order.season.title}" + " ("+ "#{@berth_order.season.start_season_on}" + " - " + "#{@berth_order.season.end_season_on}" + ")"
   %p
     %b Status:
     = @berth_order.status.status
