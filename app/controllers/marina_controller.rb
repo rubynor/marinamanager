@@ -18,6 +18,4 @@ class MarinaController < ApplicationController
 
   def contact
   end
-
-
 end

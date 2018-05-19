@@ -8,7 +8,7 @@
 #  updated_at       :datetime         not null
 #  start_season_on  :date
 #  end_season_on    :date
-#  number_of_berths :integer
+#  berths :integer
 #
 
 class Season < ApplicationRecord
@@ -17,8 +17,12 @@ class Season < ApplicationRecord
   scope :bookable_seasons, -> {
     where('end_season_on > ?', Date.today)}
 
+  def total_berths_per_season(season)
+    Season.find(season).berths
+  end
+
   def self.available_berths_in(season)
-    Season.find(season).number_of_berths - BerthOrder.where(season: season, status: 1).count
+    total_berths_per_season(season) - BerthOrder.where(season: season, status: 1).count
   end
 
 end

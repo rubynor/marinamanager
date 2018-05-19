@@ -30,7 +30,7 @@
 
           -#%td= link_to 'Vis', berth_order, class: "text-primary"|
           - if current_user.admin?
-            %td= link_to berth_order.boat.user.email, user_path(berth_order.boat.user_id), class: "text-primary"
+            -#%td= link_to berth_order.boat.user.email, user_path(berth_order.boat.user_id), class: "text-primary"
             %td= link_to 'Behandle', edit_berth_order_path(berth_order), class: "text-primary"
             -# TODO: Fjerne mulighet for slett?
             -# La heller bestillingen fjernes fra viewet basert på tid, og / eller om den har blitt avvist.

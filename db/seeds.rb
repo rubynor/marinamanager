@@ -38,40 +38,38 @@
   season_1 = Season.find_or_create_by!(title: 'Vinter 2018') do |season|
     season.start_season_on = Date.new(2017, 9, 1)
     season.end_season_on = Date.new(2018, 4, 30)
-    season.number_of_berths = 20
+    season.berths = 20
   end
 
   season_2 = Season.find_or_create_by!(title: 'Sommer 2018') do |season|
     season.start_season_on = Date.new(2018, 5, 1)
     season.end_season_on = Date.new(2018, 9, 30)
-    season.number_of_berths = 20
+    season.berths = 20
   end
 
   season_3 = Season.find_or_create_by!(title: 'Vinter 2019') do |season|
     season.start_season_on = Date.new(2018, 9, 1)
     season.end_season_on = Date.new(2019, 4, 30)
-    season.number_of_berths = 20
+    season.berths = 20
   end
 
   season_4 = Season.find_or_create_by!(title: 'Sommer 2019') do |season|
     season.start_season_on = Date.new(2019, 5, 1)
     season.end_season_on = Date.new(2019, 9, 30)
-    season.number_of_berths = 20
+    season.berths = 20
   end
 
   season_5 = Season.find_or_create_by!(title: 'Vinter 2020') do |season|
     season.start_season_on = Date.new(2019, 9, 1)
     season.end_season_on = Date.new(2020, 4, 30)
-    season.number_of_berths = 20
+    season.berths = 20
   end
 
   season_6 = Season.find_or_create_by!(title: 'Sommer 2020') do |season|
     season.start_season_on = Date.new(2020, 5, 1)
     season.end_season_on = Date.new(2020, 9, 30)
-    season.number_of_berths = 20
+    season.berths = 20
   end
-
-
 
 # Status
   status_1 = Status.find_or_create_by!(status: 'Godkjent')
