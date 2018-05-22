@@ -21,18 +21,24 @@
             = builder.label :width, "Båtbredde"
             = builder.text_field :width
 
-          - if @user_boats
+          - if @user_boats.present?
             %fieldset.text-center
               = f.label :boat, "Eller velg en av dine båter:"
               %br
-              = f.collection_select(:boat_id, @user_boats, :id,
-                                     :name, {include_blank: "--Velg båt--"}, {:id=>"boatDrop"})
+              -if @user_boats
+                = f.collection_select(:boat_id, @user_boats, :id,
+                                       :name, {include_blank: "--Velg båt--"}, {:id=>"boatDrop"})
 
         %div#seasonTab
           - if @current_seasons
             %fieldset.text-center
               = f.collection_select(:season_id, @current_seasons, :id, :to_s)
-        
+            %div
+              Tilgjengelige båtplasser:
+            #availableBerths
+              #seasons{"data-seasons" => Season}
+
+
         = submit_tag 'Fortsett', id: "nextBtn", class: "hide", type: 'button'
         = submit_tag "Tilbake", id: "prevBtn", class: "hide", type: 'button'
         = f.submit 'Fullfør', id: "completeBtn", class: "hide"

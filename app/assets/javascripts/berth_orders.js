@@ -106,7 +106,15 @@ $(document).on('turbolinks:load', function() {
         return document.getElementById("lastPage");
     }
 
-    // var availableBerths = document.getElementById("availableBerths");
-    // availableBerths.innerHTML = "Hello";
+    // Show available berths in a given season
+    var availableBerths = document.getElementById("availableBerths");
+
+    $("#berth_order_season_id").on("change", function() {
+      var index = document.getElementById("berth_order_season_id").value;
+      console.log(index);
+      season = $('#seasons').data('seasons');
+      console.log(season[index].berths);
+      // availableBerths.innerHTML = "Stuff.";
+    });
 
 });
