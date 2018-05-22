@@ -38,15 +38,15 @@ class BerthOrdersController < LoggedInController
   def create
     @berth_order = BerthOrder.new
     @berth_order.status = Status.find_by(status: "Under behandling")
-    if berth_order_params["boat_id"].exists?
-      @berth_order.boat_id = berth_order_params[:boat_id]
-    else
+    if berth_order_params["boat_id"].empty?
       @boat = Boat.new
       @boat.name = params[:boat][:name]
-      @boat.width = params[:boat][:width].gsub(',', '.')
+      @boat.width = params[:boat][:width]
       @boat.user = current_user
       @boat.save
       @berth_order.boat = @boat
+    else
+      @berth_order.boat_id = berth_order_params[:boat_id]
     end
 
     @berth_order.season_id = berth_order_params[:season_id]
