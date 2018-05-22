@@ -29,8 +29,8 @@ class BerthOrdersController < LoggedInController
   def edit
     season_id = BerthOrder.find(params[:id]).season_id
     @available_berths = Season.find(season_id).berths - BerthOrder.where(season_id: season_id, status_id: 1).count
-    @status = Status.all # Godkjent, Under Behandling, Avvist
-    @current_seasons = Season.all # TODO: nåværende sesong + 3 sesonger fremover
+    @status = Status.all
+    @current_seasons = Season.bookable_seasons
   end
 
   # POST /berth_orders
@@ -44,7 +44,7 @@ class BerthOrdersController < LoggedInController
       @boat.width = params[:boat][:width]
       @boat.user = current_user
       @boat.save
-      @berth_order.boat_id = Boat.find(@boat.id)
+      @berth_order.boat = @boat
     else
       @berth_order.boat_id = berth_order_params[:boat_id]
     end
