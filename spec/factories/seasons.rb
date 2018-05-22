@@ -9,6 +9,7 @@
 #  start_season_on  :date
 #  end_season_on    :date
 #  number_of_berths :integer
+#  berths           :integer
 #
 
 FactoryBot.define do

@@ -41,7 +41,7 @@ class BerthOrdersController < LoggedInController
     if berth_order_params["boat_id"].empty?
       @boat = Boat.new
       @boat.name = params[:boat][:name]
-      @boat.width = params[:boat][:width]
+      @boat.width = params[:boat][:width].gsub(',', '.')
       @boat.user = current_user
       @boat.save
       @berth_order.boat = @boat

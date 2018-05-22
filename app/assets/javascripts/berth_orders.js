@@ -103,9 +103,10 @@ $(document).on('turbolinks:load', function() {
     }
 
     function lastPage() {
-        console.log(document.getElementById("lastPage"));
         return document.getElementById("lastPage");
     }
 
+    // var availableBerths = document.getElementById("availableBerths");
+    // availableBerths.innerHTML = "Hello";
 
 });

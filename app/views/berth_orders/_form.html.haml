@@ -32,7 +32,7 @@
           - if @current_seasons
             %fieldset.text-center
               = f.collection_select(:season_id, @current_seasons, :id, :to_s)
-
+        
         = submit_tag 'Fortsett', id: "nextBtn", class: "hide", type: 'button'
         = submit_tag "Tilbake", id: "prevBtn", class: "hide", type: 'button'
         = f.submit 'Fullfør', id: "completeBtn", class: "hide"

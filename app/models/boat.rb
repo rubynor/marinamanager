@@ -17,4 +17,8 @@ class Boat < ApplicationRecord
   validates :name, :uniqueness => {scope: :user_id}
   validates :user_id, :presence => true
 
+  def format_width
+    self.width = self.width.to_s.gsub(',', '.')
+  end
+
 end

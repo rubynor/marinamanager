@@ -8,7 +8,8 @@
 #  updated_at       :datetime         not null
 #  start_season_on  :date
 #  end_season_on    :date
-#  berths :integer
+#  number_of_berths :integer
+#  berths           :integer
 #
 
 class Season < ApplicationRecord
