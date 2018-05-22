@@ -38,7 +38,7 @@ class BerthOrdersController < LoggedInController
   def create
     @berth_order = BerthOrder.new
     @berth_order.status = Status.find_by(status: "Under behandling")
-    if berth_order_params["boat_id"].empty?
+    if berth_order_params["boat_id"].blank?
       @boat = Boat.new
       @boat.name = params[:boat][:name]
       @boat.width = params[:boat][:width].gsub(',', '.')
