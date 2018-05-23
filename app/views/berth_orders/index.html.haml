@@ -18,7 +18,7 @@
       - @berth_orders.each do |berth_order|
         %tr
           %td= berth_order.id
-          %td= berth_order.boat.name
+          %td= berth_order&.boat&.name
           %td
             = berth_order.season.title
             (
