@@ -23,6 +23,15 @@ class BerthOrdersController < LoggedInController
     @boat = Boat.new
     @user_boats = current_user.boats
     @current_seasons = Season.bookable_seasons
+
+    # To see how many berths are available in a given season:
+    new_current_seasons = {}
+    @current_seasons.each do |season|
+      new_current_seasons[season.id] = season.as_json
+      new_current_seasons[season.id]["available_berths"] = season.available_berths
+    end
+
+    @formatted_seasons = new_current_seasons.to_json
   end
 
   # GET /berth_orders/1/edit
@@ -31,6 +40,7 @@ class BerthOrdersController < LoggedInController
     @available_berths = Season.find(season_id).berths - BerthOrder.where(season_id: season_id, status_id: 1).count
     @status = Status.all
     @current_seasons = Season.bookable_seasons
+
   end
 
   # POST /berth_orders
@@ -50,6 +60,8 @@ class BerthOrdersController < LoggedInController
     end
 
     @berth_order.season_id = berth_order_params[:season_id]
+
+    #.. And finally:
     respond_to do |format|
       if @berth_order.save
         format.html { redirect_to @berth_order, notice: 'Berth order was successfully created.' }
@@ -64,9 +76,10 @@ class BerthOrdersController < LoggedInController
   # PATCH/PUT /berth_orders/1
   # PATCH/PUT /berth_orders/1.json
   def update
+    binding.pry
     respond_to do |format|
       if @berth_order.update(berth_order_params)
-        format.html { redirect_to @berth_order, notice: 'Berth order was successfully updated.' }
+        format.html { redirect_to berth_orders_path, notice: 'Berth order was successfully updated.' }
         format.json { render :show, status: :ok, location: @berth_order }
       else
         format.html { render :edit }
@@ -93,7 +106,7 @@ class BerthOrdersController < LoggedInController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def berth_order_params
-      params.require(:berth_order).permit(:boat_id, :season_id)
+      params.require(:berth_order).permit(:boat_id, :season_id, :status_id)
     end
 
 end

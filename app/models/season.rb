@@ -17,12 +17,12 @@ class Season < ApplicationRecord
   scope :bookable_seasons, -> {
     where('end_season_on > ?', Date.today)}
 
-  def total_berths_per_season(season)
-    Season.find(season).berths
-  end
+  # def total_berths_per_season(season)
+  #   Season.find(season).berths
+  # end
 
-  def self.available_berths_in(season)
-    total_berths_per_season(season) - BerthOrder.where(season: season, status: 1).count
+  def available_berths()
+    self.berths - BerthOrder.where(season: self, status: 1).count
   end
 
   def to_s
