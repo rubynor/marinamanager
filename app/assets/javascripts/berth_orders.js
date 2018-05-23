@@ -10,16 +10,11 @@ $(document).on('turbolinks:load', function() {
     if (lastPage()) {
         progressBarComplete();
     } else {
-        boatStep();
+        seasonStep();
     }
 
     $("#nextBtn").click(function() {
-        if (validateBoat()) {
-            next();
-            document.getElementById("boatValidation").innerHTML = "";
-        } else {
-            document.getElementById("boatValidation").innerHTML = "Vennligst fyll inn feltene";
-        }
+        next();
     });
 
     $("#prevBtn").click(function() {
@@ -27,45 +22,52 @@ $(document).on('turbolinks:load', function() {
     });
 
     $("#completeBtn").click(function() {
+      if (validateBoat()) {
+          document.getElementById("boatValidation").innerHTML = "";
+      } else {
+          document.getElementById("boatValidation").innerHTML = "Vennligst fyll inn feltene";
+      }
     });
 
+    // In case of more steps, this method should be
+    // a generic "next", not just call boatStep().
     function next() {
-        // bør heller være kode for å gå til et generelt "neste" steg
-        // ikke til seasonStep() konkret.
-        seasonStep();
+      boatStep();
     }
 
     function prev() {
-        boatStep();
-    }
-
-    function boatStep() {
-        boatTab.style.display = "block";
-        nextBtn.style.display = "block";
-
-        seasonTab.style.display = "none";
-        prevBtn.style.display = "none";
-        completeBtn.style.display = "none";
-        progressBarPrev();
+      seasonStep();
     }
 
     function seasonStep() {
         progressBarNext();
-
         seasonTab.style.display = "block";
-        prevBtn.style.display = "block";
-        completeBtn.style.display = "block";
-
-        nextBtn.style.display = "none";
         boatTab.style.display = "none";
+
+        nextBtn.style.display = "block";
+        prevBtn.style.display = "none";
+        completeBtn.style.display = "none";
     }
 
+    function boatStep() {
+        seasonTab.style.display = "none";
+        boatTab.style.display = "block";
+
+        prevBtn.style.display = "block";
+        nextBtn.style.display = "none";J
+        completeBtn.style.display = "block";
+        progressBarPrev();
+    }
+
+    // Client-side validation
     function validateBoat(){
         return validateRegisteredBoat() || validateNewBoat();
     }
 
     function validateNewBoat() {
        return $("#boat_name").val() !== ""
+       // Could add check to see if width is
+       // within a certain range and an actual number
            && $("#boat_width").val() !== "";
 
     }
@@ -74,22 +76,23 @@ $(document).on('turbolinks:load', function() {
         return $("#boatDrop option:selected").text() !== "--Velg båt--"
     }
 
+    // All your progressbar needs (is love?)
     function progressBarNext() {
-        if (document.getElementById("progressbar")) {
-            liContainer = document.getElementById("progressbar");
-            listItems = liContainer.getElementsByClassName("listItem");
-            listItems[1].className += " active";
-            listItems[2].className = listItems[2].className.replace(" active", "");
-        }
+      if (document.getElementById("progressbar")) {
+          liContainer = document.getElementById("progressbar");
+          listItems = liContainer.getElementsByClassName("listItem");
+          listItems[0].className += " active";
+          listItems[1].className = listItems[1].className.replace(" active", "");
+      }
     }
 
     function progressBarPrev() {
-        if (document.getElementById("progressbar")) {
-            liContainer = document.getElementById("progressbar");
-            listItems = liContainer.getElementsByClassName("listItem");
-            listItems[0].className += " active";
-            listItems[1].className = listItems[1].className.replace(" active", "");
-        }
+      if (document.getElementById("progressbar")) {
+          liContainer = document.getElementById("progressbar");
+          listItems = liContainer.getElementsByClassName("listItem");
+          listItems[1].className += " active";
+          listItems[2].className = listItems[2].className.replace(" active", "");
+      }
     }
 
     function progressBarComplete() {
@@ -109,12 +112,12 @@ $(document).on('turbolinks:load', function() {
     // Show available berths in a given season
     var availableBerths = document.getElementById("availableBerths");
 
+    index = document.getElementById("berth_order_season_id").value
+    availableBerths.innerHTML = $('#seasons').data('seasons')[index]["available_berths"];
+
     $("#berth_order_season_id").on("change", function() {
-      var index = document.getElementById("berth_order_season_id").value;
-      console.log(index);
-      season = $('#seasons').data('seasons');
-      console.log(season[index].berths);
-      // availableBerths.innerHTML = "Stuff.";
+      index = document.getElementById("berth_order_season_id").value;
+      availableBerths.innerHTML = $('#seasons').data('seasons')[index]["available_berths"];
     });
 
 });

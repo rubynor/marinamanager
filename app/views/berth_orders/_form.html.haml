@@ -14,6 +14,16 @@
 
         #boatValidation
 
+        %div#seasonTab
+          - if @current_seasons
+            %fieldset.text-center
+              = f.collection_select(:season_id, @current_seasons, :id, :to_s)
+            %fieldset.text-center
+              Tilgjengelige båtplasser:
+              = content_tag "div", id: "seasons", data: {"seasons": @formatted_seasons} do
+                #availableBerths
+
+
         %div#boatTab
           = fields_for :boat do |builder|
             = builder.label :name, "Båtnavn"
@@ -29,14 +39,9 @@
                 = f.collection_select(:boat_id, @user_boats, :id,
                                        :name, {include_blank: "--Velg båt--"}, {:id=>"boatDrop"})
 
-        %div#seasonTab
-          - if @current_seasons
-            %fieldset.text-center
-              = f.collection_select(:season_id, @current_seasons, :id, :to_s)
-            %div
-              Tilgjengelige båtplasser:
-            #availableBerths
-              #seasons{"data-seasons" => Season}
+
+
+
 
 
         = submit_tag 'Fortsett', id: "nextBtn", class: "hide", type: 'button'
